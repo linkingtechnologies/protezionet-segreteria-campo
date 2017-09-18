@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it" title="Foglio uscita">
+
+<body format='A4' unit='mm' margins='10'>
+
+<!-- 85x55 -->
+<!-- $BeginBlock form -->
+<page>
+
+	<box left="15" right="195" top="15" bottom="133" linecolor="#004487" linewidth="1"/>
+	<image top="20" left="95" height="20" width="20" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+
+	<paragraph position="absolute" top="45" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" lineheight ="7" textalign="C"><!-- $Include var/templates/it/evento.txt --></paragraph>
+
+	<paragraph position="absolute" top="60.3" left="20.3" width="170" font="helvetica" fontsize="30" fontcolor="#999999" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+	<paragraph position="absolute" top="60" left="20" width="170" font="helvetica" fontsize="30" fontcolor="black" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+
+	<paragraph position="absolute" top="70.5" lineheight="7" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" textalign="C">Organizzazione: ${organizzazione}
+Targa: ${targa}
+Motivazione: _____________________________________________________
+
+Data uscita: ___/___/______ Ora: ___ : ___ Persone a bordo: ____
+Data rientro: ___/___/______ Ora: ___ : ___ Persone a bordo: ____</paragraph>
+</page>
+
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="10">
+<!-- $BeginBlock row1 -->
+	
+	<box left="15" right="195" top="15" bottom="133" linecolor="#004487" linewidth="1"/>
+	<image top="20" left="95" height="20" width="20" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+
+	<paragraph position="absolute" top="45" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" lineheight ="7" textalign="C"><!-- $Include var/templates/it/evento.txt --></paragraph>
+
+	<paragraph position="absolute" top="60.3" left="20.3" width="170" font="helvetica" fontsize="30" fontcolor="#999999" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+	<paragraph position="absolute" top="60" left="20" width="170" font="helvetica" fontsize="30" fontcolor="black" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+
+	<paragraph position="absolute" top="70.5" lineheight="7" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" textalign="C">Organizzazione: ${organizzazione}
+Targa: ${targa}
+Motivazione: _____________________________________________________
+
+Data uscita: ___/___/______ Ora: ___ : ___ Persone a bordo: ____
+Data rientro: ___/___/______ Ora: ___ : ___ Persone a bordo: ____</paragraph>
+
+<!-- $EndBlock row1 -->
+
+<!-- $BeginBlock row2 -->
+
+	<box left="15" right="195" top="15+148" bottom="133+148" linecolor="#004487" linewidth="1"/>
+	<image top="20+148" left="95" height="20" width="20" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+
+	<paragraph position="absolute" top="45+148" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" lineheight ="7" textalign="C"><!-- $Include var/templates/it/evento.txt --></paragraph>
+
+	<paragraph position="absolute" top="60.3+148" left="20.3" width="170" font="helvetica" fontsize="30" fontcolor="#999999" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+	<paragraph position="absolute" top="60+148" left="20" width="170" font="helvetica" fontsize="30" fontcolor="black" fontstyle="B" border="0" textalign="C">MEZZO OPERATIVO N° ${numero}</paragraph>
+
+	<paragraph position="absolute" top="70.5+148" lineheight="7" left="20" width="170" font="helvetica" fontsize="14" fontstyle="B" border="0" textalign="C">Organizzazione: ${organizzazione}
+Targa: ${targa}
+Motivazione: _____________________________________________________
+
+Data uscita: ___/___/______ Ora: ___ : ___ Persone a bordo: ____
+Data rientro: ___/___/______ Ora: ___ : ___ Persone a bordo: ____</paragraph>
+<!-- $EndBlock row2 -->
+
+        </page>
+<!-- $EndBlock table-->
+
+    </body>
+</pdf>

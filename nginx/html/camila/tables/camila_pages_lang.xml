@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_pages_lang">
+		<field name="page_url" type="C" size="255">
+		</field>
+		<field name="lang" type="C" size="10">
+		</field>
+		<field name="full_title" type="C" size="50">
+		</field>
+		<field name="short_title" type="C" size="50">
+		</field>
+		<index name="camila_pages_lang_unique">
+		<UNIQUE/>
+			<col>page_url</col>
+			<col>lang</col>
+		</index>
+
+	</table>
+</schema>

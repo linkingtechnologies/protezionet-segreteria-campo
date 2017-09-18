@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_worktables">
+		<field name="id" type="I">
+			<KEY/>
+		</field>
+		<field name="parent_id" type="I"></field>
+		<field name="status" type="C" size="1"></field>
+		<field name="active" type="C" size="1"></field>
+		<field name="filename" type="C" size="100"></field>
+		<field name="sheetnum" type="I"></field>
+		<field name="scriptname" type="C" size="100"></field>
+		<field name="short_title" type="C" size="50"></field>
+		<field name="full_title" type="C" size="50"></field>
+		<field name="tablename" type="C" size="1000"></field>
+		<field name="xmlschema" type="C" size="1000"></field>
+		<field name="script" type="C" size="1000"></field>
+		<field name="order_field" type="C" size="50"></field>
+		<field name="order_dir" type="C" size="4"></field>
+		<field name="canupdate" type="C" size="1"></field>
+		<field name="caninsert" type="C" size="1"></field>
+		<field name="candelete" type="C" size="1"></field>
+		<field name="sequence" type="I">
+		<field name="category" type="C" size="50"></field>
+		<field name="category_scriptname" type="C" size="50"></field>
+		<field name="filter" type="C" size="250"></field>
+		<field name="level" type="I"></field>
+		<field name="type" type="C" size="30"></field>
+		<field name="options" type="C" size="250"></field>
+		<field name="share_key" type="C" size="100">
+		</field>
+		<field name="share_caninsert" type="C" size="3">
+		</field>
+		<field name="share_canupdate" type="C" size="3">
+		</field>
+		<field name="share_candelete" type="C" size="3">
+		</field>
+
+		</field>
+	</table>
+</schema>

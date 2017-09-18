@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it" title="Modulo accreditamento volontari">
+
+<body format='A4' unit='mm' margins='15'>
+
+<!-- $BeginBlock form -->
+<page font="helvetica">
+
+</page>
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="6">
+
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L">Modulo accreditamento volontari</paragraph>
+
+	<paragraph position="absolute" left="135" top="15" width="60" fontsize="6" lineheight="5" textalign="L" border="1">Totale volontari: ${totale righe tabella}
+Note:
+
+</paragraph>
+
+	<paragraph top="35" left="10" fontsize="8" fontstyle="B" position="absolute" border="1" width="190" textalign="L">Il responsabile di missione deve firmare e consegnare il modulo alla segreteria. Il cellulare è richiesto solo per i responsabili/capisquadra. Se il modulo è precompilato, verificare la correttezza dei dati inseriti e barrare i volontari da non accreditare.</paragraph>
+
+	<paragraph top="270" left="10" fontsize="8" fontstyle="B" position="absolute" border="0" width="190" textalign="R">Data e firma del capomissione __________________________________________</paragraph>
+	<paragraph top="270" left="10" fontsize="8" fontstyle="B" position="absolute" border="0" width="190" textalign="L">Totale volontari da accreditare _________</paragraph>
+
+<!-- $BeginBlock row1 -->
+	<paragraph position="absolute" left="0" top="50+0*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+0*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+0*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+54*0+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row1 -->
+
+<!-- $BeginBlock row2 -->
+	<paragraph position="absolute" left="0" top="50+1*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+1*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+1*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*1+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row2 -->
+
+<!-- $BeginBlock row3 -->
+	<paragraph position="absolute" left="0" top="50+2*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+2*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+2*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>	
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+
+	<barcode y="50+21*2+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row3 -->
+
+<!-- $BeginBlock row4 -->
+	<paragraph position="absolute" left="0" top="50+3*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+3*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+3*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*3+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row4 -->
+
+<!-- $BeginBlock row5 -->
+	<paragraph position="absolute" left="0" top="50+4*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+4*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+4*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*4+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row5 -->
+
+<!-- $BeginBlock row6 -->
+	<paragraph position="absolute" left="0" top="50+5*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+5*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+5*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*5+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row6 -->
+
+<!-- $BeginBlock row7 -->
+	<paragraph position="absolute" left="0" top="50+6*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+6*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+6*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*6+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row7 -->
+
+<!-- $BeginBlock row8 -->
+	<paragraph position="absolute" left="0" top="50+7*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+7*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+7*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*7+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row8 -->
+
+<!-- $BeginBlock row9 -->
+	<paragraph position="absolute" left="0" top="50+8*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+8*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+8*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*8+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row9 -->
+
+<!-- $BeginBlock row10 -->
+	<paragraph position="absolute" left="0" top="50+9*21" width="7" lineheight="7" fontsize="6" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">COGNOME E NOME:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+
+	<paragraph position="absolute" left="0" top="57+9*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="8" textalign="R" border="1">ORGANIZZAZIONE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="100" lineheight="7" fontsize="8" textalign="L" border="1">${organizzazione}</paragraph>
+
+	<paragraph position="absolute" left="0" top="64+9*21" width="7" lineheight="7" fontsize="6" textalign="L" border="0"></paragraph>
+	<paragraph position="relative" left="7" top="-7" width="33" lineheight="7" fontsize="5" textalign="R" border="1">CAPOSQUADRA/RESPONSABILE:</paragraph>
+	<paragraph position="relative" left="40" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${responsabile}</paragraph>
+	<paragraph position="relative" left="50" top="-7" width="20" lineheight="7" fontsize="5" textalign="R" border="1">AUTISTA:</paragraph>
+	<paragraph position="relative" left="70" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${autista}</paragraph>
+	<paragraph position="relative" left="80" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">CELLULARE:</paragraph>
+	<paragraph position="relative" left="95" top="-7" width="20" lineheight="7" fontsize="8" textalign="C" border="1">${cellulare}</paragraph>
+	<paragraph position="relative" left="115" top="-7" width="15" lineheight="7" fontsize="5" textalign="R" border="1">DPR 194/2001:</paragraph>
+	<paragraph position="relative" left="130" top="-7" width="10" lineheight="7" fontsize="8" textalign="C" border="1">${dpr}</paragraph>
+	
+	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
+	
+	<barcode y="50+21*9+6" x="160" height="6" width=".3" position="absolute" barcode="${codice c.u.r.v.o.}" norm="code39extend"/>
+<!-- $EndBlock row10 -->
+
+
+
+</page>
+<!-- $EndBlock table-->
+
+</body>
+</pdf>

@@ -1,0 +1,48 @@
+Xml2Pdf installation instructions
+---------------------------------
+
+Xml2Pdf is easy to install and use. You can use it with your
+web-server or directly on command-line.
+
+
+Web usage instruction
+---------------------
+
+put the xml2pdf directory into a directory accessible by your web-server.
+That's all.
+
+Now you can make pdf in your php script using :
+    
+    include('Xml2Pdf.php');
+    $obj = new Xml2Pdf('myXmlFil.xml');
+    $pdf = $obj->render();
+    $pdf->Output();
+
+
+Command-line usage instruction
+------------------------------
+
+To use Xml2Pdf as a command-line interface, you need to install PHP
+version 5.1.0 or greater.
+
+*IMPORTANT* any version of PHP below 5.1.0 will not work with version 0.6.10.8 of
+Xml2Pfd!!!
+Need GD 2.x extention or greather to allow png with alpha channel.
+
+Windows
+-------
+You need the cli version of PHP (php-cli.exe or cli/php.exe in 5.1.0+).
+Either run Xml2Pdf from the directory that PHP resides in, or put
+php.exe in your DOS PATH enviroment variable.  
+
+The simplest usage of Xml2Pdf is:
+
+C:\>php.exe "C:\Path\To\Xml2Pdf\xml2pdf" -F myFile.xml
+
+Unix
+----
+Make sure that the cgi/cli version of PHP is in your path.
+
+The simplest usage of Xml2Pdf is:
+
+xml2pdf -f myFile.xml

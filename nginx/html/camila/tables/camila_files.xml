@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_files">
+		<field name="id" type="I">
+			<KEY/>
+		</field>
+		<field name="name" type="C" size="100">
+		</field>
+		<field name="usergroup" type="C" size="100">
+		</field>
+		<field name="file" type="C" size="100">
+		</field>
+		<field name="lft" type="I">
+		</field>
+		<field name="rgt" type="I">
+		</field>
+		<index name="camila_files_usergroup">
+			<col>usergroup</col>
+		</index>
+	</table>
+</schema>

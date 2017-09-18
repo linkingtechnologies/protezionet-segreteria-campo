@@ -1,0 +1,73 @@
+<br/>
+
+<style>
+
+#map_canvas {
+	height: 400px;
+}
+</style>
+
+<div class="row">
+	<h3><span class="glyphicon glyphicon-map-marker"></span> MAPPA SERVIZI</h3>
+</div>
+<div class="row">	
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+			[res2;block=begin]
+				<h4>
+					[res2.lettera]. [res2.nome]
+				</h4>
+				<h5>
+					[res2.descrizione]
+				</h5>
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-md-4">Volontari</label>
+						<div class="col-md-8 form-control-static">
+							[res2.tot]
+						</div>
+						<!--<label class="control-label col-md-4">Mezzi</label>
+						<div class="col-md-8 form-control-static">
+							[res2.tot2]
+						</div>-->
+					</div>
+				</div>
+				[res2;block=end] 
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<!--<div class="panel-body">-->
+				<div id="map_canvas"></div>
+			<!--</div>-->
+		</div>
+	</div>
+</div>
+
+<script>
+
+function initMap() {
+	var bounds = new google.maps.LatLngBounds();
+	var map = new google.maps.Map(document.getElementById('map_canvas'), {
+	  zoom: 4,
+	  mapTypeId: 'hybrid',/*,
+	  center: myLatLng*/
+	});
+	[res;block=begin]
+	loc = new google.maps.LatLng([res.latitudine],[res.longitudine]);
+		 bounds.extend(loc);
+	var marker = new google.maps.Marker({
+	  position: loc,
+	  map: map,
+	  label: "[res.lettera]",
+	  title: '[res.nome;strconv=js]'
+	});
+	[res;block=end]
+	map.fitBounds(bounds);
+	map.panToBounds(bounds);
+}
+</script>
+<script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Iw1RfzT50oSdt7TutVJf74SMZh1-ZNY&callback=initMap'>
+</script>

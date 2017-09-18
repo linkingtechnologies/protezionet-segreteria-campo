@@ -1,0 +1,21 @@
+<?xml version='1.0' standalone='yes'?>
+<menu>
+ <tab>
+  <id>worktables</id>
+  <lic_title>camila.admin.title.worktables</lic_title>
+  <url>?admin&amp;dashboard=worktables</url>
+  <pages>bookmarks</pages>
+ </tab>
+ <tab>
+  <id>users</id>
+  <lic_title>camila.admin.title.users</lic_title>
+  <url>?admin&amp;dashboard=users</url>
+  <pages></pages>
+ </tab>
+ <tab>
+  <id>plugins</id>
+  <lic_title>camila.admin.title.plugins</lic_title>
+  <url>?admin&amp;dashboard=plugins</url>
+  <pages></pages>
+ </tab>
+</menu>

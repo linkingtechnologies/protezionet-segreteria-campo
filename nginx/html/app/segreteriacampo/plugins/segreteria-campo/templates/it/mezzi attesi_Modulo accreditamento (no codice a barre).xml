@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it" title="Modulo accreditamento mezzi">
+
+<body format='A4' unit='mm' margins='10'>
+
+<!-- $BeginBlock form -->
+<page font="helvetica">
+
+</page>
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="6">
+
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/comune.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --> <!-- $Include var/templates/it/nomecampo.txt --></paragraph>
+
+	<paragraph position="absolute" left="0" top="35" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+MODULO ACCREDITAMENTO MEZZI AL CAMPO
+
+Io sottoscritto/a ______________________________ in qualità di Responsabile di Missione dell'organizzazione ${organizzazione}
+comunico l'elenco dei mezzi da accreditare al campo.
+
+</paragraph>
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">TARGA</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">MARCA E MODELLO</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">NOTE</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontstyle="BU" fontsize="6" textalign="C" border="1">KM ALL'ARRIVO</paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">OPER.</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">POSTI</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontstyle="I" fontsize="7" textalign="C" border="1">4X4</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">CASSONE</paragraph>
+
+<!-- $BeginBlock row1 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row1 -->
+
+<!-- $BeginBlock row2 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row2 -->
+
+<!-- $BeginBlock row3 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row3 -->
+
+<!-- $BeginBlock row4 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row4 -->
+
+<!-- $BeginBlock row5 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row5 -->
+
+<!-- $BeginBlock row6 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row6 -->
+
+<!-- $BeginBlock row7 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row7 -->
+
+<!-- $BeginBlock row8 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row8 -->
+
+<!-- $BeginBlock row9 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row9 -->
+
+<!-- $BeginBlock row10 -->
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${targa}</paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1">${marca e modello}</paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1">${note}</paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${posti a sedere}</paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${4x4}</paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1">${cassone}</paragraph>
+<!-- $EndBlock row10 -->
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="20" top="-5" width="50" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="70" top="-5" width="55" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="125" top="-5" width="20" lineheight="5" fontsize="8" textalign="L" border="1"></paragraph>
+	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="155" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="165" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1"></paragraph>
+	<paragraph position="relative" left="175" top="-5" width="15" lineheight="5" fontsize="7" textalign="L" border="1"></paragraph>
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+
+        Data                                                        Il Responsabile di Missione
+    ________                                          ________________________________
+
+</paragraph>
+
+</page>
+<!-- $EndBlock table-->
+
+</body>
+</pdf>

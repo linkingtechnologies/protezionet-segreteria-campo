@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_pages">
+		<field name="url" type="C" size="255">
+			<KEY/>
+		</field>
+		<field name="active" type="C" size="3">
+			<DEFAULT value="yes"/>
+		</field>
+		<field name="visible" type="C" size="3">
+			<DEFAULT value="yes"/>
+		</field>
+		<field name="label_order" type="I" size="11">
+			<DEFAULT value="1"/>
+		</field>
+		<field name="title_attributes" type="I" size="11">
+			<DEFAULT value="41"/>
+		</field>
+		<field name="title_color" type="C" size="15">
+			<DEFAULT value="red"/>
+		</field>
+		<field name="title_boxcolor" type="C" size="20">
+			<DEFAULT value="#FFFF80"/>
+		</field>
+		<field name="level" type="I" size="6">
+			<DEFAULT value="1"/>
+		</field>
+		<field name="filter" type="C" size="30">
+		</field>
+		<field name="parent" type="C" size="25">
+		</field>
+		<field name="login" type="I" size="4">
+			<DEFAULT value="0"/>
+		</field>
+		<field name="dos_threshold" type="I" size="4">
+			<DEFAULT value="0"/>
+		</field>
+		<field name="help" type="X">
+		</field>
+		<field name="share_key" type="C" size="100">
+		</field>
+		<field name="share_caninsert" type="C" size="3">
+		</field>
+		<field name="share_canupdate" type="C" size="3">
+		</field>
+		<field name="share_candelete" type="C" size="3">
+		</field>
+
+		<index name="camila_pages_active">
+			<col>active</col>
+		</index>
+		<index name="camila_pages_visible">
+			<col>visible</col>
+		</index>
+		<index name="camila_pages_level">
+			<col>level</col>
+			<col>filter</col>
+			<col>parent</col>
+		</index>
+		<index name="camila_pages_share_key">
+			<col>share_key</col>
+		</index>
+	</table>
+</schema>

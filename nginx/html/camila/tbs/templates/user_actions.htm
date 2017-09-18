@@ -1,0 +1,13 @@
+<section class="top">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4 pull-left">
+				<div class="logo-small">[onshow..cst.CAMILA_APPLICATION_GROUP]</div>
+			</div>
+			<div class="col-xs-8 pull-right text-right">
+				<span>[onload;block=span;when [var.anonLogin]=0][onshow._CAMILA.user_surname] [onshow._CAMILA.user_name] |</span>
+				<a href='[onshow.prefURL]'>[onshow.i18n.getTranslation(camila_prefs)]</a><span>[onload;block=span;when [var.logoutLink]=1]&nbsp;|&nbsp;<a href='cf_logout.php'>[onshow.i18n.getTranslation(camila_logout)]</a></span>
+			</div>
+		</div>
+	</div>
+</section>

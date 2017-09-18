@@ -1,0 +1,34 @@
+/*
+FEUILLES DE STYLE XPDF CHARGEE PAR DEFAUT
+
+Définie les balises utilisable par défaut <b>, <u>, <i> 
+dans une zone de texte
+Ces balises sont des balises enfants de <text>
+
+Propriétées gérées
+.tag{
+font-family: times;
+font-style: BUI;
+font-size: 8;
+color: #000000;
+indent: 0;
+}
+
+*/
+
+.b{
+font-style: B;  //style de la police
+}
+.u{
+font-style: U;
+}
+.i{
+font-style: I;
+}
+.br{
+indent: 2;
+}
+.red{
+color:#ff0000;
+}
+

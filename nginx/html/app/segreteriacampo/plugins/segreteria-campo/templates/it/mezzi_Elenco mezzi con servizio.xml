@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it">
+
+<body format='A4' unit='mm' margins='15'>
+
+<!-- $BeginBlock form -->
+<page font="helvetica">
+
+</page>
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="6">
+
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L">Elenco mezzi con servizio</paragraph>
+
+	<paragraph position="absolute" left="135" top="15" width="60" fontsize="6" lineheight="5" textalign="L" border="1">Totale mezzi: ${totale righe tabella}
+Note:
+
+</paragraph>
+
+	<paragraph position="absolute" left="15" top="50" width="7" fontsize="6" textalign="L" border="0"> </paragraph>
+	<paragraph position="absolute" left="15+7" top="50" width="48" lineheight="5" fontsize="8" textalign="L" border="0">Mezzo</paragraph>
+	<paragraph position="absolute" left="15+7+48" top="50" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" left="15+7+48+5" top="50" width="60" lineheight="5" fontsize="8" textalign="L" border="0">Organizzazione</paragraph>
+	<paragraph position="absolute" left="15+7+48+5+60" top="50" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">Servizio</paragraph>
+
+<!-- $BeginBlock row1 -->
+	<box top="55+0*10" left="15" right="15+7" bottom="55+0*10+10" />
+	<box top="55+0*10" left="15+7" right="15+7+48" bottom="55+0*10+10" />
+	<box top="55+0*10" left="15+7+48" right="15+7+48+5" bottom="55+0*10+10" />
+	<box top="55+0*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+0*10+10" />
+	<box top="55+0*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+0*10+10" />
+	<paragraph position="absolute" top="55+0*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+0*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+0*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+0*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+0*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row1 -->
+
+<!-- $BeginBlock row2 -->
+	<box top="55+1*10" left="15" right="15+7" bottom="55+1*10+10" />
+	<box top="55+1*10" left="15+7" right="15+7+48" bottom="55+1*10+10" />
+	<box top="55+1*10" left="15+7+48" right="15+7+48+5" bottom="55+1*10+10" />
+	<box top="55+1*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+1*10+10" />
+	<box top="55+1*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+1*10+10" />
+	<paragraph position="absolute" top="55+1*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+1*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+1*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+1*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+1*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row2 -->
+
+<!-- $BeginBlock row3 -->
+	<box top="55+2*10" left="15" right="15+7" bottom="55+2*10+10" />
+	<box top="55+2*10" left="15+7" right="15+7+48" bottom="55+2*10+10" />
+	<box top="55+2*10" left="15+7+48" right="15+7+48+5" bottom="55+2*10+10" />
+	<box top="55+2*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+2*10+10" />
+	<box top="55+2*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+2*10+10" />
+	<paragraph position="absolute" top="55+2*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+2*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+2*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+2*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+2*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row3 -->
+
+<!-- $BeginBlock row4 -->
+	<box top="55+3*10" left="15" right="15+7" bottom="55+3*10+10" />
+	<box top="55+3*10" left="15+7" right="15+7+48" bottom="55+3*10+10" />
+	<box top="55+3*10" left="15+7+48" right="15+7+48+5" bottom="55+3*10+10" />
+	<box top="55+3*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+3*10+10" />
+	<box top="55+3*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+3*10+10" />
+	<paragraph position="absolute" top="55+3*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+3*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+3*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+3*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+3*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row4 -->
+
+<!-- $BeginBlock row5 -->
+	<box top="55+4*10" left="15" right="15+7" bottom="55+4*10+10" />
+	<box top="55+4*10" left="15+7" right="15+7+48" bottom="55+4*10+10" />
+	<box top="55+4*10" left="15+7+48" right="15+7+48+5" bottom="55+4*10+10" />
+	<box top="55+4*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+4*10+10" />
+	<box top="55+4*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+4*10+10" />
+	<paragraph position="absolute" top="55+4*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+4*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+4*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+4*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+4*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row5 -->
+
+<!-- $BeginBlock row6 -->
+	<box top="55+5*10" left="15" right="15+7" bottom="55+5*10+10" />
+	<box top="55+5*10" left="15+7" right="15+7+48" bottom="55+5*10+10" />
+	<box top="55+5*10" left="15+7+48" right="15+7+48+5" bottom="55+5*10+10" />
+	<box top="55+5*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+5*10+10" />
+	<box top="55+5*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+5*10+10" />
+	<paragraph position="absolute" top="55+5*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+5*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+5*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+5*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+5*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row6 -->
+
+<!-- $BeginBlock row7 -->
+	<box top="55+6*10" left="15" right="15+7" bottom="55+6*10+10" />
+	<box top="55+6*10" left="15+7" right="15+7+48" bottom="55+6*10+10" />
+	<box top="55+6*10" left="15+7+48" right="15+7+48+5" bottom="55+6*10+10" />
+	<box top="55+6*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+6*10+10" />
+	<box top="55+6*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+6*10+10" />
+	<paragraph position="absolute" top="55+6*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+6*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+6*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+6*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+6*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row7 -->
+
+<!-- $BeginBlock row8 -->
+	<box top="55+7*10" left="15" right="15+7" bottom="55+7*10+10" />
+	<box top="55+7*10" left="15+7" right="15+7+48" bottom="55+7*10+10" />
+	<box top="55+7*10" left="15+7+48" right="15+7+48+5" bottom="55+7*10+10" />
+	<box top="55+7*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+7*10+10" />
+	<box top="55+7*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+7*10+10" />
+	<paragraph position="absolute" top="55+7*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+7*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+7*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+7*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+7*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row8 -->
+
+<!-- $BeginBlock row9 -->
+	<box top="55+8*10" left="15" right="15+7" bottom="55+8*10+10" />
+	<box top="55+8*10" left="15+7" right="15+7+48" bottom="55+8*10+10" />
+	<box top="55+8*10" left="15+7+48" right="15+7+48+5" bottom="55+8*10+10" />
+	<box top="55+8*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+8*10+10" />
+	<box top="55+8*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+8*10+10" />
+	<paragraph position="absolute" top="55+8*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+8*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+8*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+8*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+8*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row9 -->
+
+<!-- $BeginBlock row10 -->
+	<box top="55+9*10" left="15" right="15+7" bottom="55+9*10+10" />
+	<box top="55+9*10" left="15+7" right="15+7+48" bottom="55+9*10+10" />
+	<box top="55+9*10" left="15+7+48" right="15+7+48+5" bottom="55+9*10+10" />
+	<box top="55+9*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+9*10+10" />
+	<box top="55+9*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+9*10+10" />
+	<paragraph position="absolute" top="55+9*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+9*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+9*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+9*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+9*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row10 -->
+
+<!-- $BeginBlock row11 -->
+	<box top="55+10*10" left="15" right="15+7" bottom="55+10*10+10" />
+	<box top="55+10*10" left="15+7" right="15+7+48" bottom="55+10*10+10" />
+	<box top="55+10*10" left="15+7+48" right="15+7+48+5" bottom="55+10*10+10" />
+	<box top="55+10*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+10*10+10" />
+	<box top="55+10*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+10*10+10" />
+	<paragraph position="absolute" top="55+10*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+10*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+10*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+10*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+10*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row11 -->
+
+<!-- $BeginBlock row12 -->
+	<box top="55+11*10" left="15" right="15+7" bottom="55+11*10+10" />
+	<box top="55+11*10" left="15+7" right="15+7+48" bottom="55+11*10+10" />
+	<box top="55+11*10" left="15+7+48" right="15+7+48+5" bottom="55+11*10+10" />
+	<box top="55+11*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+11*10+10" />
+	<box top="55+11*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+11*10+10" />
+	<paragraph position="absolute" top="55+11*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+11*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+11*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+11*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+11*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row12 -->
+
+<!-- $BeginBlock row13 -->
+	<box top="55+12*10" left="15" right="15+7" bottom="55+12*10+10" />
+	<box top="55+12*10" left="15+7" right="15+7+48" bottom="55+12*10+10" />
+	<box top="55+12*10" left="15+7+48" right="15+7+48+5" bottom="55+12*10+10" />
+	<box top="55+12*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+12*10+10" />
+	<box top="55+12*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+12*10+10" />
+	<paragraph position="absolute" top="55+12*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+12*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+12*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+12*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+12*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row13 -->
+
+<!-- $BeginBlock row14 -->
+	<box top="55+13*10" left="15" right="15+7" bottom="55+13*10+10" />
+	<box top="55+13*10" left="15+7" right="15+7+48" bottom="55+13*10+10" />
+	<box top="55+13*10" left="15+7+48" right="15+7+48+5" bottom="55+13*10+10" />
+	<box top="55+13*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+13*10+10" />
+	<box top="55+13*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+13*10+10" />
+	<paragraph position="absolute" top="55+13*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+13*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+13*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+13*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+13*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row14 -->
+
+<!-- $BeginBlock row15 -->
+	<box top="55+14*10" left="15" right="15+7" bottom="55+14*10+10" />
+	<box top="55+14*10" left="15+7" right="15+7+48" bottom="55+14*10+10" />
+	<box top="55+14*10" left="15+7+48" right="15+7+48+5" bottom="55+14*10+10" />
+	<box top="55+14*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+14*10+10" />
+	<box top="55+14*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+14*10+10" />
+	<paragraph position="absolute" top="55+14*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+14*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+14*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+14*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+14*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row15 -->
+
+<!-- $BeginBlock row16 -->
+	<box top="55+15*10" left="15" right="15+7" bottom="55+15*10+10" />
+	<box top="55+15*10" left="15+7" right="15+7+48" bottom="55+15*10+10" />
+	<box top="55+15*10" left="15+7+48" right="15+7+48+5" bottom="55+15*10+10" />
+	<box top="55+15*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+15*10+10" />
+	<box top="55+15*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+15*10+10" />
+	<paragraph position="absolute" top="55+15*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+15*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+15*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+15*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+15*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row16 -->
+
+<!-- $BeginBlock row17 -->
+	<box top="55+16*10" left="15" right="15+7" bottom="55+16*10+10" />
+	<box top="55+16*10" left="15+7" right="15+7+48" bottom="55+16*10+10" />
+	<box top="55+16*10" left="15+7+48" right="15+7+48+5" bottom="55+16*10+10" />
+	<box top="55+16*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+16*10+10" />
+	<box top="55+16*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+16*10+10" />
+	<paragraph position="absolute" top="55+16*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+16*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+16*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+16*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+16*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row17 -->
+
+<!-- $BeginBlock row18 -->
+	<box top="55+17*10" left="15" right="15+7" bottom="55+17*10+10" />
+	<box top="55+17*10" left="15+7" right="15+7+48" bottom="55+17*10+10" />
+	<box top="55+17*10" left="15+7+48" right="15+7+48+5" bottom="55+17*10+10" />
+	<box top="55+17*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+17*10+10" />
+	<box top="55+17*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+17*10+10" />
+	<paragraph position="absolute" top="55+17*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+17*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+17*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+17*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+17*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row18 -->
+
+<!-- $BeginBlock row19 -->
+	<box top="55+18*10" left="15" right="15+7" bottom="55+18*10+10" />
+	<box top="55+18*10" left="15+7" right="15+7+48" bottom="55+18*10+10" />
+	<box top="55+18*10" left="15+7+48" right="15+7+48+5" bottom="55+18*10+10" />
+	<box top="55+18*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+18*10+10" />
+	<box top="55+18*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+18*10+10" />
+	<paragraph position="absolute" top="55+18*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+18*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+18*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+18*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+18*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row19 -->
+
+<!-- $BeginBlock row20 -->
+	<box top="55+19*10" left="15" right="15+7" bottom="55+19*10+10" />
+	<box top="55+19*10" left="15+7" right="15+7+48" bottom="55+19*10+10" />
+	<box top="55+19*10" left="15+7+48" right="15+7+48+5" bottom="55+19*10+10" />
+	<box top="55+19*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+19*10+10" />
+	<box top="55+19*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+19*10+10" />
+	<paragraph position="absolute" top="55+19*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+19*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+19*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+19*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+19*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row20 -->
+
+<!-- $BeginBlock row21 -->
+	<box top="55+20*10" left="15" right="15+7" bottom="55+20*10+10" />
+	<box top="55+20*10" left="15+7" right="15+7+48" bottom="55+20*10+10" />
+	<box top="55+20*10" left="15+7+48" right="15+7+48+5" bottom="55+20*10+10" />
+	<box top="55+20*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+20*10+10" />
+	<box top="55+20*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+20*10+10" />
+	<paragraph position="absolute" top="55+20*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+20*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+20*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+20*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+20*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row21 -->
+
+<!-- $BeginBlock row22 -->
+	<box top="55+21*10" left="15" right="15+7" bottom="55+21*10+10" />
+	<box top="55+21*10" left="15+7" right="15+7+48" bottom="55+21*10+10" />
+	<box top="55+21*10" left="15+7+48" right="15+7+48+5" bottom="55+21*10+10" />
+	<box top="55+21*10" left="15+7+48+5" right="15+7+48+5+60" bottom="55+21*10+10" />
+	<box top="55+21*10" left="15+7+48+5+60" right="15+7+48+5+60+60" bottom="55+21*10+10" />
+	<paragraph position="absolute" top="55+21*10" left="15" width="7" lineheight="5" fontsize="6.7" textalign="L" border="0">${contatore riga tabella}</paragraph>
+	<paragraph position="absolute" top="55+21*10" left="15+7" width="48" lineheight="5" height="10" fontsize="8" textalign="L" border="0">${marca e modello} ${targa}</paragraph>
+	<paragraph position="absolute" top="55+21*10" left="15+7+48" width="5" lineheight="5" fontsize="8" textalign="C" border="0"></paragraph>
+	<paragraph position="absolute" top="55+21*10" left="15+7+48+5" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${organizzazione}</paragraph>
+	<paragraph position="absolute" top="55+21*10" left="15+7+48+5+60" width="60" lineheight="5" fontsize="6.7" textalign="L" border="0">${servizio}</paragraph>
+<!-- $EndBlock row22 -->
+
+
+</page>
+<!-- $EndBlock table-->
+
+</body>
+</pdf>

@@ -1,0 +1,11 @@
+<?php echo '<?xml version="1.0"'; ?> encoding="utf-8"?>
+<service xml:base="http://<?php echo $host; ?><?php echo $subdir.$lang.'/'; ?>" xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:m="http://docs.oasis-open.org/odata/ns/metadata" m:context="http://<?php echo $host; ?><?php echo $subdir.$lang.'/'; ?>$metadata">
+	<workspace>
+		<atom:title type="text"><?php echo $title; ?></atom:title>
+		<?php foreach($tables as $table): ?>
+		<collection href="<?php echo $table['id']; ?>">
+			<atom:title type="text"><?php echo $table['name']; ?></atom:title>
+		</collection>
+		<?php endforeach; ?>
+	</workspace>
+</service>

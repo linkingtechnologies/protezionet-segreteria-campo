@@ -1,0 +1,1 @@
+AddType application/xml .xml<FilesMatch "\.(xml)$">    Order deny,allow    Deny from all</FilesMatch>

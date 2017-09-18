@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_users">
+		<field name="id" type="I">
+			<KEY/>
+		</field>
+		<field name="surname" type="C" size="50">
+		</field>
+		<field name="name" type="C" size="50">
+		</field>
+		<field name="username" type="C" size="100">
+		</field>
+		<field name="session_id" type="C" size="100">
+		</field>
+		<field name="session_end" type="T"></field>
+		<field name="grp" type="C" size="20">
+		</field>
+		<field name="level" type="I">
+			<DEFAULT value="10"/>
+		</field>
+		<field name="visibility_type" type="C" size="30">
+		</field>
+		<field name="password" type="C" size="255">
+		</field>
+		<field name="preferences" type="X">
+		</field>
+		<field name="last_upd" type="T"></field>
+		<field name="lang" type="C" size="5"></field>
+		<field name="output" type="C" size="10">
+		</field>
+		<field name="token" type="C" size="100">
+		</field>
+		<field name="attrib_01" type="C" size="100">
+		</field>
+		<field name="attrib_02" type="C" size="100">
+		</field>
+		<field name="attrib_03" type="C" size="100">
+		</field>
+		<field name="attrib_04" type="C" size="100">
+		</field>
+		<field name="attrib_05" type="C" size="100">
+		</field>
+		<field name="attrib_06" type="C" size="100">
+		</field>
+		<field name="attrib_07" type="C" size="100">
+		</field>
+		<field name="attrib_08" type="C" size="100">
+		</field>
+		<field name="attrib_09" type="C" size="100">
+		</field>
+		<field name="attrib_10" type="C" size="100">
+		</field>
+		<field name="attrib_11" type="C" size="100">
+		</field>
+		<field name="attrib_12" type="C" size="100">
+		</field>
+		<field name="attrib_13" type="C" size="100">
+		</field>
+		<field name="attrib_14" type="C" size="100">
+		</field>
+		<field name="attrib_15" type="C" size="100">
+		</field>
+
+		<index name="camila_users_grp">
+			<col>grp</col>
+		</index>
+		<index name="camila_users_session_id">
+			<col>session_id</col>
+		</index>
+		<index name="camila_users_password">
+			<col>password</col>
+		</index>
+	</table>
+</schema>

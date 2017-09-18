@@ -1,0 +1,371 @@
+<?xml version='1.0' standalone='yes' ?>
+<reports>
+ <report>
+  <id>1</id>
+  <query>SELECT ${VOLONTARI.SERVIZIO},count(*) AS TOTALE FROM ${VOLONTARI} WHERE ${volontari.SERVIZIO} &lt;&gt; 'USCITA DEFINITIVA' AND ${volontari.SERVIZIO} NOT LIKE '%NON IN SERVIZIO%' GROUP BY ${volontari.servizio} ORDER BY ${volontari.servizio}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep1.png</filename>
+	<width>500</width>
+	<height>400</height>
+	<type>pie</type>
+    <title>Volontari in servizio</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari in servizio</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+ 
+<!--  <report>
+  <id>1bis</id>
+  <query>SELECT ${VOLONTARI.SERVIZIO},count(*) AS TOTALE FROM ${VOLONTARI} WHERE ${volontari.SERVIZIO} &lt;&gt; 'USCITA DEFINITIVA' GROUP BY ${volontari.servizio} ORDER BY ${volontari.servizio}</query>
+  <graphs>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari in servizio</title>
+	<sum>1</sum>
+   </graph>
+   <graphs>
+  </report>-->
+ 
+  <report>
+  <id>2</id>
+  <query>SELECT ${VOLONTARI.PROVINCIA},count(*) AS TOTALE FROM ${VOLONTARI} WHERE ${volontari.SERVIZIO} &lt;&gt; 'USCITA DEFINITIVA' AND ${volontari.SERVIZIO} NOT LIKE '%NON IN SERVIZIO%' GROUP BY ${volontari.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep2.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Volontari in servizio per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari in servizio per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+<report>
+  <id>3</id>
+  <query>SELECT ${VOLONTARI.PROVINCIA},count(*)  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>400</height>
+	<type>bar</type>
+    <title>Volontari registrati per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari registrati per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+ 
+  <report>
+  <id>3bis</id>
+  <query>SELECT ${VOLONTARI.PROVINCIA},count(DISTINCT ${volontari.codice c.u.r.v.o.})  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Volontari unici per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari unici per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+
+ 
+  <report>
+  <id>3ter</id>
+  <query>SELECT ${VOLONTARI.PROVINCIA},count(DISTINCT ${volontari.organizzazione})  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Organizzazioni per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Organizzazioni per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+ <report>
+  <id>4</id>
+  <query>SELECT ${mezzi.PROVINCIA},count(*) AS TOTALE FROM ${MEZZI} GROUP BY ${mezzi.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep4.png</filename>
+	<width>500</width>
+	<height>400</height>
+	<type>bar</type>
+    <title>Mezzi registrati per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Mezzi registrati per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+ <report>
+  <id>4bis</id>
+  <query>SELECT ${mezzi.PROVINCIA},count(DISTINCT ${mezzi.targa}) AS TOTALE FROM ${MEZZI} GROUP BY ${mezzi.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep4.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Mezzi unici per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Mezzi unici per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+ <report>
+  <id>xxx4bis</id>
+  <query>SELECT ${mezzi.PROVINCIA},sum(IFNULL(${mezzi.km alla partenza},${mezzi.km all'arrivo}) - IFNULL(${mezzi.km all'arrivo},0)) AS TOTALE FROM ${MEZZI} GROUP BY ${mezzi.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep4.png</filename>
+	<width>500</width>
+	<height>400</height>
+	<type>bar</type>
+    <title>KM percorsi in servizio per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>KM percorsi in servizio per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+ 
+  <report>
+  <id>50</id>
+  <query>SELECT ${VOLONTARI.PROVINCIA},SUM(IFNULL(${volontari.NUM. GG. BEN. LEGGE},0))  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
+  <graphs>
+
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Stima utilizzo benefici di legge</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+   <report>
+  <id>c04</id>
+  <query>SELECT 'TOTALE OSPITI', count(*) FROM ${OSPITI}
+  UNION SELECT 'OSPITI ALLETTATI', count(*) FROM ${OSPITI} WHERE ${OSPITI.ALLETTATO}='S'
+  UNION SELECT 'OSPITI INCINTA', count(*) FROM ${OSPITI} WHERE ${OSPITI.INCINTA}='S'
+  UNION SELECT 'OSPITI DISABILI', count(*) FROM ${OSPITI} WHERE ${OSPITI.DISABILE}='S'
+  UNION SELECT 'NUCLEI FAMILIARI', count(DISTINCT ${OSPITI.NUCLEO FAMILIARE}) FROM ${OSPITI} WHERE (${OSPITI.NUCLEO FAMILIARE}&lt;&gt;'' AND ${OSPITI.NUCLEO FAMILIARE} IS NOT NULL)
+
+  </query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep4.png</filename>
+	<width>500</width>
+	<height>400</height>
+	<type>bar</type>
+    <title>Informazioni ospiti</title>
+   </graph>
+  
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Informazioni ospiti</title>
+   </graph>
+  </graphs>
+ </report> 
+ 
+ 
+  <report>
+  <id>c05</id>
+  <query>SELECT CASE
+  WHEN ${OSPITI.anno di nascita} &gt;= 2013 THEN 'F1 - 0-3 anni'
+  WHEN ${OSPITI.anno di nascita} &gt;= 2011 AND ${OSPITI.anno di nascita} &lt; 2013 THEN 'F2 - 4-5 anni'
+  WHEN ${OSPITI.anno di nascita} &gt;= 2005 AND ${OSPITI.anno di nascita} &lt; 2010 THEN 'F3 - 6-11 anni'
+  WHEN ${OSPITI.anno di nascita} &gt;= 2003 AND ${OSPITI.anno di nascita} &lt; 2005 THEN 'F4 - 12-13 anni'
+  WHEN ${OSPITI.anno di nascita} &gt;= 1998 AND ${OSPITI.anno di nascita} &lt; 2002 THEN 'F5 - 14-18 anni'
+  WHEN ${OSPITI.anno di nascita} &gt; 1930 AND ${OSPITI.anno di nascita} &lt;= 1951 THEN 'F6 - &gt;65 anni'
+  WHEN ${OSPITI.anno di nascita} &lt;= 1931 THEN 'F7 - &gt;85 anni'
+  ELSE 'F9 - altro'
+  END as fascia,
+  COUNT(*) AS TOTALE FROM ${OSPITI} GROUP BY fascia  ORDER BY fascia</query>
+  <graphs>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Ospiti per fascia di eta'</title>
+   </graph>
+  </graphs>
+ </report>  
+
+  <report>
+  <id>c01</id>
+  <query>SELECT ${OSPITI.TENDA},COUNT(*) AS TOTALE FROM ${OSPITI} GROUP BY ${OSPITI.TENDA}  ORDER BY ${OSPITI.TENDA}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>bar</type>
+    <title>Occupazione tende</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Occupazione tende</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+ 
+ <report>
+  <id>c02</id>
+  <query>SELECT ${STRUTTURE.N.},COUNT(${OSPITI.TENDA}) AS TOTALE FROM ${STRUTTURE} LEFT OUTER JOIN ${OSPITI} ON ${OSPITI.TENDA} = ${STRUTTURE.N.} WHERE ${STRUTTURE.TIPOLOGIA} = 'TENDA OSPITI' GROUP BY ${STRUTTURE.N.},${STRUTTURE.POSTI MAX}  ORDER BY ${STRUTTURE.N.}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>bar</type>
+    <title>Occupazione tende ospiti</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Occupazione tende ospiti</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+ 
+   <report>
+  <id>c03</id>
+  <query>SELECT ${STRUTTURE.N.},${STRUTTURE.POSTI MAX} AS TOTALE FROM ${STRUTTURE} LEFT OUTER JOIN ${OSPITI} ON ${OSPITI.TENDA} = ${STRUTTURE.N.} WHERE ${STRUTTURE.TIPOLOGIA} = 'TENDA OSPITI' GROUP BY ${STRUTTURE.N.},${STRUTTURE.POSTI MAX}  ORDER BY ${STRUTTURE.N.}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>bar</type>
+    <title>Posti totali tende ospiti</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Posti totali tende ospiti</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+
+
+
+<!--  <report>
+  <id>61</id>
+  <query>select r.provincia_organizzazione as provincia, count(*) from (SELECT ${MOV. RISORSE.RISORSA} as risorsa FROM ${MOV. RISORSE} WHERE ${MOV. RISORSE.A} LIKE '%CUCINA%' AND ${MOV. RISORSE.TIPO RISORSA}='VOLONTARIO' and ${MOV. RISORSE.GRUPPO} &lt;&gt; 'C.V.P.C. PARCO DEL TICINO' group by ${MOV. RISORSE.RISORSA}) as t inner join rl_dbvol r on concat (r.cognome,' ',r.nome) = t.risorsa  group by r.provincia_organizzazione</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep3.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Volontari cucina per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari cucina per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>
+--> 
+ <!--<report>
+  <id>5</id>
+  <query>SELECT ${VOLONTARI ATTESI.provincia},count(*) AS TOTALE FROM ${VOLONTARI ATTESI} GROUP BY ${volontari attesi.provincia}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep5.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Volontari attesi per provincia</title>
+   </graph>
+   <graph>
+    <id>2</id>
+	<type>table</type>
+    <title>Volontari attesi per provincia</title>
+	<sum>1</sum>
+   </graph>
+  </graphs>
+ </report>-->
+<!-- <report>
+  <id>2</id>
+  <query>SELECT ${VOLONTARI.ORGANIZZAZIONE},count(*) AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.organizzazione}</query>
+  <graphs>
+   <graph>
+    <id>1</id>
+	<filename>rep2.png</filename>
+	<width>500</width>
+	<height>200</height>
+	<type>pie</type>
+    <title>Organizzazioni in servizio</title>
+   </graph>
+  </graphs>
+ </report>-->
+</reports>

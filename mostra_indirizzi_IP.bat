@@ -1,0 +1,1 @@
+ipconfig | find "IPv4" | msg *
