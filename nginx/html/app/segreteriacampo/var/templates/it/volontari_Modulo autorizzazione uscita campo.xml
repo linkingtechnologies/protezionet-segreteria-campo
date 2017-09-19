@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it">
+
+<body format='A4' unit='mm' margins='15'>
+
+<!-- $BeginBlock form -->
+<page font="helvetica">
+
+</page>
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="6">
+
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/comune.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --> <!-- $Include var/templates/it/nomecampo.txt --></paragraph>
+
+	<paragraph position="absolute" left="0" top="35" width="180" fontsize="14" lineheight="8" textalign="L" border="0">MODULO AUTORIZZAZIONE USCITA CAMPO                      MODULO N°_____
+
+Io sottoscritto ______________________________ in qualità di Responsabile del Campo autorizzo l'uscita dei seguenti volontari
+dell'Organizzazione ${organizzazione}
+</paragraph>
+
+<!-- $BeginBlock row1 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row1 -->
+
+<!-- $BeginBlock row2 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row2 -->
+
+<!-- $BeginBlock row3 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row3 -->
+
+<!-- $BeginBlock row4 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row4 -->
+
+<!-- $BeginBlock row5 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row5 -->
+
+<!-- $BeginBlock row6 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row6 -->
+
+<!-- $BeginBlock row7 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row7 -->
+
+<!-- $BeginBlock row8 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row8 -->
+
+<!-- $BeginBlock row9 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row9 -->
+
+<!-- $BeginBlock row10 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row10 -->
+
+<!-- $BeginBlock row11 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row11 -->
+
+<!-- $BeginBlock row12 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row12 -->
+
+<!-- $BeginBlock row13 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row13 -->
+
+<!-- $BeginBlock row14 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row14 -->
+
+<!-- $BeginBlock row15 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row15 -->
+
+<!-- $BeginBlock row16 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row16 -->
+
+<!-- $BeginBlock row17 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row17 -->
+
+<!-- $BeginBlock row18 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row18 -->
+
+<!-- $BeginBlock row19 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row19 -->
+
+<!-- $BeginBlock row20 -->
+	<paragraph position="relative" left="0" width="10" lineheight="5" fontsize="6" textalign="L" border="1">N° ${contatore riga tabella}</paragraph>
+	<paragraph position="relative" left="10" top="-5" width="100" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
+<!-- $EndBlock row20 -->
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+a far tempo dal (giorno/ora) ${data/ora applicazione modello}
+
+Nel contempo dichiaro che dal giorno/ora sopraindicata la sopradescritta Organizzazione e gli elencati volontari non sono più da considerarsi operativi in questo campo.
+
+                                                          Il Responsabile Operativo / Capocampo
+                                                          ________________________________
+
+</paragraph>
+<paragraph position="relative" left="0" width="180" fontsize="12" lineheight="8" textalign="L" border="1">NOTE
+E' OBBLIGATORIO PASSARE DALLA SEGRETERIA E CONSEGNARE QUESTO MODULO PER LE PROCEDURE DI CESSATO SERVIZIO E PER IL RITIRO DEGLI ATTESTATI
+</paragraph>
+
+</page>
+<!-- $EndBlock table-->
+
+</body>
+</pdf>

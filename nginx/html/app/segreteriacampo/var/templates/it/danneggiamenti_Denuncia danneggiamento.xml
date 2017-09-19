@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+
+<pdf creator="http://www.protezionet.it" title="Denuncia danneggiamento">
+
+<body format='A4' unit='mm' margins='10'>
+
+<!-- $BeginBlock form -->
+
+
+
+<page font="helvetica" fontsize="6">
+
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/comune.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --> <!-- $Include var/templates/it/nomecampo.txt --></paragraph>
+
+	<paragraph position="absolute" left="120" top="35" width="60" fontsize="14" lineheight="8" textalign="L" border="0">
+Alla Segreteria del campo
+
+</paragraph>
+
+	<paragraph position="absolute" left="0" top="65" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+Oggetto: segnalazione danneggiamento mezzo/attrezzatura
+
+Io sottoscritto/a ${cognome} ${nome}, in qualità di Responsabile di Missione dell'organizzazione ${organizzazione}, segnalo il danneggiamento del mezzo/attrezzatura ${mezzo/attrezzatura}, avvenuto il giorno ${data} durante il servizio.
+
+</paragraph>
+
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+
+        Data                                                        Il Responsabile di Missione
+   ${data}                                         ________________________________
+
+</paragraph>
+
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+
+
+        Per presa visione                                           
+		                          Il Funzionario
+      ________________________________
+
+</paragraph>
+
+</page>
+
+
+<!-- $EndBlock form -->
+
+<!-- $BeginBlock table -->
+<page font="helvetica" fontsize="10">
+<!-- $BeginBlock row1 -->
+	
+	<image top="15" left="20" height="15" width="15" position="absolute" file="<!-- $Include var/templates/it/logo.txt -->" />
+	<paragraph top="15" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/evento.txt --></paragraph>
+	<paragraph top="20" left="38" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/comune.txt --></paragraph>
+	<paragraph top="25" left="38" fontcolor="red" fontsize="12" fontstyle="B" position="absolute" border="0" width="150" textalign="L"><!-- $Include var/templates/it/segreteriacampo.txt --> <!-- $Include var/templates/it/nomecampo.txt --></paragraph>
+
+	<paragraph position="absolute" left="120" top="35" width="60" fontsize="14" lineheight="8" textalign="L" border="0">
+Alla Segreteria del campo
+
+</paragraph>
+
+	<paragraph position="absolute" left="0" top="65" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+Oggetto: segnalazione danneggiamento mezzo/attrezzatura
+
+Io sottoscritto/a ${cognome} ${nome}, in qualità di Responsabile di Missione dell'organizzazione ${organizzazione}, segnalo il danneggiamento del mezzo/attrezzatura ${mezzo/attrezzatura}, avvenuto il giorno ${data} durante il servizio.
+
+</paragraph>
+
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+
+        Data                                                        Il Responsabile di Missione
+   ${data}                                         ________________________________
+
+</paragraph>
+
+
+<paragraph position="relative" left="0" width="180" fontsize="14" lineheight="8" textalign="L" border="0">
+
+
+        Per presa visione                                           
+		                          Il Funzionario
+      ________________________________
+
+</paragraph>
+
+<!-- $EndBlock row1 -->
+
+        </page>
+<!-- $EndBlock table-->
+
+
+
+</body>
+</pdf>
