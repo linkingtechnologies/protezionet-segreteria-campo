@@ -20,6 +20,7 @@
 
 	</paragraph>
 
+<!-- $BeginBlock row1 -->
 	<paragraph position="absolute" left="0" top="50" width="7" lineheight="5" fontsize="7" textalign="L" border="0">${contatore riga tabella}</paragraph>
 	<paragraph position="relative" left="7" top="-5" width="28" lineheight="5" fontsize="7" textalign="L" border="0">${data/ora} ${nome}</paragraph>
 	<paragraph position="relative" left="35" top="-5" width="150" lineheight="5" fontsize="7" textalign="L" border="0">${descrizione}</paragraph>
@@ -261,7 +262,7 @@
 
 
 <paragraph position="absolute" left="0" width="180" top="260" lineheight="5" fontsize="6" textalign="R" border="0">
-Data/ora report attivitï¿½: ${data/ora applicazione modello}
+Data/ora report attività: ${data/ora applicazione modello}
 </paragraph>
 
 
