@@ -3,8 +3,8 @@
   <checks>
     <check>
       <id>1</id>
-      <title>Volontari senza codice CURVO</title>
-      <query>SELECT ${volontari.provincia} AS PROVINCIA,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME FROM ${volontari} WHERE ${volontari.codice c.u.r.v.o.} IS NULL OR ${volontari.codice c.u.r.v.o.}=''</query>
+      <title>Volontari senza codice volontario</title>
+      <query>SELECT ${volontari.provincia} AS PROVINCIA,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME FROM ${volontari} WHERE ${volontari.codice volontario} IS NULL OR ${volontari.codice volontario}=''</query>
       <source>db</source>
 	  <object>volontari</object>
       <type>count</type>
@@ -15,14 +15,14 @@
         </none>
 	    <multi>
 	      <code>warning</code>
-	      <message>Ci sono volontari senza codice CURVO.</message>
+	      <message>Ci sono volontari senza codice volontario.</message>
         </multi>
       </result>
     </check>
     <check>
       <id>2</id>
       <title>Volontari senza provincia</title>
-      <query>SELECT ${volontari.codice c.u.r.v.o.} AS CURVO,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME FROM ${volontari} WHERE ${volontari.provincia} IS NULL OR ${volontari.provincia}=''</query>
+      <query>SELECT ${volontari.codice volontario} AS CURVO,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME FROM ${volontari} WHERE ${volontari.provincia} IS NULL OR ${volontari.provincia}=''</query>
       <source>db</source>
 	  <object>volontari</object>
       <type>count</type>
@@ -40,7 +40,7 @@
     <check>
       <id>3</id>
       <title>Volontari registrati più volte</title>
-      <query>SELECT ${volontari.codice c.u.r.v.o.} AS CURVO, ${volontari.data inizio attestato} AS 'DATA INIZIO ATTESTATO', count(*) AS TOTALE FROM ${volontari} WHERE ${volontari.codice c.u.r.v.o.} IS NOT NULL AND ${volontari.codice c.u.r.v.o.}&lt;&gt;'' GROUP BY ${volontari.codice c.u.r.v.o.},${volontari.data inizio attestato} HAVING count(*) > 1</query>
+      <query>SELECT ${volontari.codice volontario} AS CURVO, ${volontari.data inizio attestato} AS 'DATA INIZIO ATTESTATO', count(*) AS TOTALE FROM ${volontari} WHERE ${volontari.codice volontario} IS NOT NULL AND ${volontari.codice volontario}&lt;&gt;'' GROUP BY ${volontari.codice volontario},${volontari.data inizio attestato} HAVING count(*) > 1</query>
       <source>db</source>
 	  <object>volontari</object>
       <type>count</type>
@@ -58,7 +58,7 @@
     <check>
       <id>4</id>
       <title>Numero giorni benefici di legge</title>
-      <query>SELECT ${volontari.codice c.u.r.v.o.} AS CURVO,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME, ${volontari.benefici di legge} AS 'BENEFICI', ${volontari.num. gg. ben. legge} AS 'NUM. GG.' FROM ${volontari} WHERE ${volontari.benefici di legge}='SI' AND (${volontari.num. gg. ben. legge} IS NULL OR ${volontari.num. gg. ben. legge} = '' OR ${volontari.num. gg. ben. legge} &lt;=0)</query>
+      <query>SELECT ${volontari.codice volontario} AS CURVO,${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.cognome} AS COGNOME,${volontari.nome} AS NOME, ${volontari.benefici di legge} AS 'BENEFICI', ${volontari.num. gg. ben. legge} AS 'NUM. GG.' FROM ${volontari} WHERE ${volontari.benefici di legge}='SI' AND (${volontari.num. gg. ben. legge} IS NULL OR ${volontari.num. gg. ben. legge} = '' OR ${volontari.num. gg. ben. legge} &lt;=0)</query>
       <source>db</source>
 	  <object>volontari</object>
       <type>count</type>
@@ -114,7 +114,7 @@
 	<check>
       <id>7</id>
       <title>Provincia volontari registrati</title>
-      <query>SELECT ${volontari.codice c.u.r.v.o.} AS CURVO, ${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.provincia} AS PROVINCIA FROM ${volontari} WHERE ${volontari.provincia} NOT IN (SELECT DISTINCT province from segreteriacampo_it_city)</query>
+      <query>SELECT ${volontari.codice volontario} AS CURVO, ${volontari.organizzazione} AS ORGANIZZAZIONE, ${volontari.provincia} AS PROVINCIA FROM ${volontari} WHERE ${volontari.provincia} NOT IN (SELECT DISTINCT province from segreteriacampo_it_city)</query>
       <source>db</source>
 	  <object>volontari</object>
       <type>count</type>

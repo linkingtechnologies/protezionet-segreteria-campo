@@ -78,7 +78,7 @@
  
   <report>
   <id>3bis</id>
-  <query>SELECT ${VOLONTARI.PROVINCIA},count(DISTINCT ${volontari.codice c.u.r.v.o.})  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
+  <query>SELECT ${VOLONTARI.PROVINCIA},count(DISTINCT ${volontari.codice volontario})  AS TOTALE FROM ${VOLONTARI} GROUP BY ${volontari.provincia}  ORDER BY ${volontari.provincia}</query>
   <graphs>
    <graph>
     <id>1</id>

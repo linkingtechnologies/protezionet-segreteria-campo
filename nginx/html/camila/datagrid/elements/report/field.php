@@ -127,6 +127,8 @@ class report_field {
                 $this->value = $_CAMILA['options'][$this->field][$this->value];
 
             //SQLITE
+			
+			//echo $this->value;
 
             if ($this->report->fields[$this->field]->metatype == 'D' && $this->value != '')
                 $text = new CHAW_text($_CAMILA['db']->UserDate($this->value , $_CAMILA['date_format']));

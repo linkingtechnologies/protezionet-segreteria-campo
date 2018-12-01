@@ -92,7 +92,7 @@ if (is_object($form->fields['data1'])) $form->fields['data1']->defaultvalue = da
     new form_textbox($form, 'cellulare', 'CELLULARE', false, 30, 255, '');
 
     
-    new form_textbox($form, 'codicecurvo', 'CODICE C.U.R.V.O.', false, 30, 255, '');
+    new form_textbox($form, 'codicevolontario', 'CODICE VOLONTARIO', false, 30, 255, '');
 
     
     new form_textbox($form, 'note', 'NOTE', false, 30, 255, '');
@@ -151,45 +151,45 @@ if (is_object($form->fields['data1'])) $form->fields['data1']->defaultvalue = da
 $form->fields['cognome']->autosuggest_table = 'segreteriacampo_worktable18';
 $form->fields['cognome']->autosuggest_field = 'cognome';
 $form->fields['cognome']->autosuggest_idfield = 'id';
-$form->fields['cognome']->autosuggest_infofields = 'nome,organizzazione,cellulare,codicecurvo';
-$form->fields['cognome']->autosuggest_pickfields = 'nome,organizzazione,cellulare,codicecurvo';
-$form->fields['cognome']->autosuggest_destfields = 'nome,organizzazione,cellulare,codicecurvo';
+$form->fields['cognome']->autosuggest_infofields = 'nome,organizzazione,cellulare,codicevolontario';
+$form->fields['cognome']->autosuggest_pickfields = 'nome,organizzazione,cellulare,codicevolontario';
+$form->fields['cognome']->autosuggest_destfields = 'nome,organizzazione,cellulare,codicevolontario';
 }
 if (is_object($form->fields['nome']))
 {
 $form->fields['nome']->autosuggest_table = 'segreteriacampo_worktable18';
 $form->fields['nome']->autosuggest_field = 'nome';
 $form->fields['nome']->autosuggest_idfield = 'id';
-$form->fields['nome']->autosuggest_infofields = 'organizzazione,cellulare,codicecurvo,cognome';
-$form->fields['nome']->autosuggest_pickfields = 'organizzazione,cellulare,codicecurvo,cognome';
-$form->fields['nome']->autosuggest_destfields = 'organizzazione,cellulare,codicecurvo,cognome';
+$form->fields['nome']->autosuggest_infofields = 'organizzazione,cellulare,codicevolontario,cognome';
+$form->fields['nome']->autosuggest_pickfields = 'organizzazione,cellulare,codicevolontario,cognome';
+$form->fields['nome']->autosuggest_destfields = 'organizzazione,cellulare,codicevolontario,cognome';
 }
 if (is_object($form->fields['organizzazione']))
 {
 $form->fields['organizzazione']->autosuggest_table = 'segreteriacampo_worktable18';
 $form->fields['organizzazione']->autosuggest_field = 'organizzazione';
 $form->fields['organizzazione']->autosuggest_idfield = 'id';
-$form->fields['organizzazione']->autosuggest_infofields = 'cellulare,codicecurvo,cognome,nome';
-$form->fields['organizzazione']->autosuggest_pickfields = 'cellulare,codicecurvo,cognome,nome';
-$form->fields['organizzazione']->autosuggest_destfields = 'cellulare,codicecurvo,cognome,nome';
+$form->fields['organizzazione']->autosuggest_infofields = 'cellulare,codicevolontario,cognome,nome';
+$form->fields['organizzazione']->autosuggest_pickfields = 'cellulare,codicevolontario,cognome,nome';
+$form->fields['organizzazione']->autosuggest_destfields = 'cellulare,codicevolontario,cognome,nome';
 }
 if (is_object($form->fields['cellulare']))
 {
 $form->fields['cellulare']->autosuggest_table = 'segreteriacampo_worktable18';
 $form->fields['cellulare']->autosuggest_field = 'cellulare';
 $form->fields['cellulare']->autosuggest_idfield = 'id';
-$form->fields['cellulare']->autosuggest_infofields = 'codicecurvo,cognome,nome,organizzazione';
-$form->fields['cellulare']->autosuggest_pickfields = 'codicecurvo,cognome,nome,organizzazione';
-$form->fields['cellulare']->autosuggest_destfields = 'codicecurvo,cognome,nome,organizzazione';
+$form->fields['cellulare']->autosuggest_infofields = 'codicevolontario,cognome,nome,organizzazione';
+$form->fields['cellulare']->autosuggest_pickfields = 'codicevolontario,cognome,nome,organizzazione';
+$form->fields['cellulare']->autosuggest_destfields = 'codicevolontario,cognome,nome,organizzazione';
 }
-if (is_object($form->fields['codicecurvo']))
+if (is_object($form->fields['codicevolontario']))
 {
-$form->fields['codicecurvo']->autosuggest_table = 'segreteriacampo_worktable18';
-$form->fields['codicecurvo']->autosuggest_field = 'codicecurvo';
-$form->fields['codicecurvo']->autosuggest_idfield = 'id';
-$form->fields['codicecurvo']->autosuggest_infofields = 'cognome,nome,organizzazione,cellulare';
-$form->fields['codicecurvo']->autosuggest_pickfields = 'cognome,nome,organizzazione,cellulare';
-$form->fields['codicecurvo']->autosuggest_destfields = 'cognome,nome,organizzazione,cellulare';
+$form->fields['codicevolontario']->autosuggest_table = 'segreteriacampo_worktable18';
+$form->fields['codicevolontario']->autosuggest_field = 'codicevolontario';
+$form->fields['codicevolontario']->autosuggest_idfield = 'id';
+$form->fields['codicevolontario']->autosuggest_infofields = 'cognome,nome,organizzazione,cellulare';
+$form->fields['codicevolontario']->autosuggest_pickfields = 'cognome,nome,organizzazione,cellulare';
+$form->fields['codicevolontario']->autosuggest_destfields = 'cognome,nome,organizzazione,cellulare';
 }
 
 
@@ -198,9 +198,9 @@ $form->fields['codicecurvo']->autosuggest_destfields = 'cognome,nome,organizzazi
     $form->draw();
 
 } else {
-      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,numerosegnalazione,data1,cognome,nome,organizzazione,mezzoattrezzatura,cellulare,codicecurvo,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
+      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,numerosegnalazione,data1,cognome,nome,organizzazione,mezzoattrezzatura,cellulare,codicevolontario,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
 	  //$admin_report_fields = '';
-      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,numerosegnalazione,data1,cognome,nome,organizzazione,mezzoattrezzatura,cellulare,codicecurvo,note';
+      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,numerosegnalazione,data1,cognome,nome,organizzazione,mezzoattrezzatura,cellulare,codicevolontario,note';
 
       if (isset($_REQUEST['camila_rest'])) {
           $report_fields = str_replace('cf_bool_is_special,', '', $report_fields);
@@ -212,9 +212,9 @@ $form->fields['codicecurvo']->autosuggest_destfields = 'cognome,nome,organizzazi
 		//  $default_fields = $admin_report_fields;
 
       if ($_CAMILA['page']->camila_exporting())
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#numerosegnalazione=NUMERO SEGNALAZIONE#data1=DATA#cognome=COGNOME#nome=NOME#organizzazione=ORGANIZZAZIONE#mezzoattrezzatura=MEZZO/ATTREZZATURA#cellulare=CELLULARE#codicecurvo=CODICE C.U.R.V.O.#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#numerosegnalazione=NUMERO SEGNALAZIONE#data1=DATA#cognome=COGNOME#nome=NOME#organizzazione=ORGANIZZAZIONE#mezzoattrezzatura=MEZZO/ATTREZZATURA#cellulare=CELLULARE#codicevolontario=CODICE VOLONTARIO#note=NOTE';
       else
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#numerosegnalazione=NUM. SEGNALAZIONE#data1=DATA#cognome=COGNOME#nome=NOME#organizzazione=ORGANIZZAZIONE#mezzoattrezzatura=MEZZO/ATTREZZATURA#cellulare=CELLULARE#codicecurvo=CODICE C.U.R.V.O.#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#numerosegnalazione=NUM. SEGNALAZIONE#data1=DATA#cognome=COGNOME#nome=NOME#organizzazione=ORGANIZZAZIONE#mezzoattrezzatura=MEZZO/ATTREZZATURA#cellulare=CELLULARE#codicevolontario=COD. VOLONTARIO#note=NOTE';
 
       $filter = '';
 
@@ -295,9 +295,9 @@ $jarr['short_title'] = 'MODIFICA CELLULARE...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('codicecurvo','')";
+$jarr['url'] = "javascript:camila_inline_update_selected('codicevolontario','')";
 $jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA CODICE C.U.R.V.O....';
+$jarr['short_title'] = 'MODIFICA CODICE VOLONTARIO...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();

@@ -665,13 +665,18 @@ class report
             $fcurr      = $this->map($curr);
 
             $type = $this->res->MetaType($curr_field->type);
-			
+					
 
             if (($_CAMILA['db']->databaseType == 'sqlite' || $_CAMILA['db']->databaseType == 'sqlite3') && count($this->tables) == 1 && $this->adoMetaColumns[strtoupper($curr_field->name)]->type != '')
                 $type = $this->res->MetaType($this->adoMetaColumns[strtoupper($curr_field->name)]->type);
 			
 			//???
+			
 			if ($_CAMILA['db']->databaseType == 'sqlite' && $type='D') {
+				$type='C';
+			}
+			
+			if ($_CAMILA['db']->databaseType == 'sqlite3' && $type='D') {
 				$type='C';
 			}
 
@@ -684,6 +689,9 @@ class report
                     $curr  = $value . '__' . $curr;
                 }
             }
+			
+			//$type = 'datetime';
+			//echo $type;
 
             if (strpos($curr, 'cf_bool_') !== false)
                 $this->fields[$curr] = new report_icon($curr, $fcurr);
@@ -703,6 +711,7 @@ class report
                 $this->fields[$curr] = new report_timestamp($curr, $fcurr);
             else
                 $this->fields[$curr] = new report_string($curr, $fcurr);
+			
 
             $size = $curr_field->max_length;
             if ($size > 30)

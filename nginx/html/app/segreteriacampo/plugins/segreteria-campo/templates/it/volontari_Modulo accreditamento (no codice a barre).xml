@@ -26,7 +26,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 
 </paragraph>
 
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">C.U.R.V.O.</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">COD. VOL.</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">COGNOME E NOME</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">MANSIONE</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">OPER.</paragraph>
@@ -34,7 +34,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 	<paragraph position="relative" left="165" top="-5" width="25" lineheight="5" fontstyle="I" fontsize="7" textalign="L" border="1">CELLULARE</paragraph>
 
 <!-- $BeginBlock row1 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -43,7 +43,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row1 -->
 
 <!-- $BeginBlock row2 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -52,7 +52,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row2 -->
 
 <!-- $BeginBlock row3 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -61,7 +61,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row3 -->
 
 <!-- $BeginBlock row4 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -70,7 +70,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row4 -->
 
 <!-- $BeginBlock row5 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -79,7 +79,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row5 -->
 
 <!-- $BeginBlock row6 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -88,7 +88,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row6 -->
 
 <!-- $BeginBlock row7 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -97,7 +97,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row7 -->
 
 <!-- $BeginBlock row8 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -106,7 +106,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row8 -->
 
 <!-- $BeginBlock row9 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -115,7 +115,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row9 -->
 
 <!-- $BeginBlock row10 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -124,7 +124,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row10 -->
 
 <!-- $BeginBlock row11 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -133,7 +133,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row11 -->
 
 <!-- $BeginBlock row12 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -142,7 +142,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row12 -->
 
 <!-- $BeginBlock row13 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -151,7 +151,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row13 -->
 
 <!-- $BeginBlock row14 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -160,7 +160,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row14 -->
 
 <!-- $BeginBlock row15 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -169,7 +169,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row15 -->
 
 <!-- $BeginBlock row16 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -178,7 +178,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row16 -->
 
 <!-- $BeginBlock row17 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -187,7 +187,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row17 -->
 
 <!-- $BeginBlock row18 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -196,7 +196,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row18 -->
 
 <!-- $BeginBlock row19 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>
@@ -205,7 +205,7 @@ comunico l'elenco dei volontari da accreditare al campo.
 <!-- $EndBlock row19 -->
 
 <!-- $BeginBlock row20 -->
-	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice c.u.r.v.o.}</paragraph>
+	<paragraph position="relative" left="0" width="20" lineheight="5" fontsize="7" textalign="L" border="1">${codice volontario}</paragraph>
 	<paragraph position="relative" left="20" top="-5" width="60" lineheight="5" fontsize="8" textalign="L" border="1">${cognome} ${nome}</paragraph>
 	<paragraph position="relative" left="80" top="-5" width="65" lineheight="5" fontsize="7" textalign="L" border="1">${mansione}</paragraph>
 	<paragraph position="relative" left="145" top="-5" width="10" lineheight="5" fontsize="7" textalign="C" border="1">${operativo}</paragraph>

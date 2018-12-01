@@ -47,7 +47,7 @@ Note:
 
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+54*0+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+54*0+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row1 -->
 
 <!-- $BeginBlock row2 -->
@@ -68,7 +68,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*1+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*1+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row2 -->
 
 <!-- $BeginBlock row3 -->
@@ -89,7 +89,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 
-	<barcode y="50+21*2+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*2+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row3 -->
 
 <!-- $BeginBlock row4 -->
@@ -110,7 +110,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*3+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*3+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row4 -->
 
 <!-- $BeginBlock row5 -->
@@ -131,7 +131,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*4+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*4+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row5 -->
 
 <!-- $BeginBlock row6 -->
@@ -152,7 +152,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*5+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*5+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row6 -->
 
 <!-- $BeginBlock row7 -->
@@ -173,7 +173,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*6+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*6+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row7 -->
 
 <!-- $BeginBlock row8 -->
@@ -193,7 +193,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*7+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*7+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row8 -->
 
 <!-- $BeginBlock row9 -->
@@ -214,7 +214,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*8+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*8+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row9 -->
 
 <!-- $BeginBlock row10 -->
@@ -235,7 +235,7 @@ Note:
 	
 	<paragraph position="relative" left="140" top="-21" width="50" lineheight="21" fontsize="8" textalign="C" border="1"></paragraph>
 	
-	<barcode y="50+21*9+6" x="160" height="6" width=".3" position="absolute" barcode="${CODICE C.U.R.V.O.}" norm="code39extend"/>
+	<barcode y="50+21*9+6" x="160" height="6" width=".3" position="absolute" barcode="${codice volontario}" norm="code39extend"/>
 <!-- $EndBlock row10 -->
 
 
