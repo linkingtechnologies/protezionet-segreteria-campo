@@ -20,6 +20,7 @@
 
 require_once('camila.php');
 
+
 require_once('autoloader.inc.php');
 
 if (defined('CAMILA_AUTH_PASSWORD_HASHING') && (CAMILA_AUTH_PASSWORD_HASHING) && !function_exists('password_verify')){
@@ -881,4 +882,5 @@ if (!$_CAMILA['page']->camila_exporting())
   $_CAMILA['page']->add_userdefined($js);
 
   $_CAMILA['page']->smartMenusTheme = $smartMenusTheme;
+ 
 ?>

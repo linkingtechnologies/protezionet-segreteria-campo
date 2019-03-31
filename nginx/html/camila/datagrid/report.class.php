@@ -169,7 +169,7 @@ class report
 	var $bootstrapbuttonsize = CAMILA_UI_DEFAULT_BTN_SIZE;
     
     
-    function report($stmt, $title, $orderby = '', $direction = 'asc', $mapping = '', $ordermapping = null, $keys = '', $defaultfields, $filter, $canupdate = true, $candelete = false)
+    function report($stmt, $title, $orderby = '', $direction = 'asc', $mapping = '', $ordermapping = null, $keys = '', $defaultfields = '', $filter = '', $canupdate = true, $candelete = false)
     {
         
         global $_CAMILA;
@@ -1186,7 +1186,7 @@ class report
             //if ($this->filternum == 0)
             //    $this->filternum = 1;
             
-            $hidden = split('&', substr($this->urlappend, 1));
+            $hidden = explode('&', substr($this->urlappend, 1));
             foreach ($hidden as $k => $v) {
                 $split = explode('=', $v);
                 $l     = substr($split[0], -1);
@@ -1373,7 +1373,7 @@ class report
             //if ($this->filternum == 0)
             //    $this->filternum = 1;
             
-            $hidden = split('&', substr($this->urlappend, 1));
+            $hidden = explode('&', substr($this->urlappend, 1));
             foreach ($hidden as $k => $v) {
                 $split = explode('=', $v);
                 $l     = substr($split[0], -1);

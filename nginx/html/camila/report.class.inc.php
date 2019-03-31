@@ -38,6 +38,9 @@ class CamilaReport
 	function createGraph($name, $obj, $data, $filename = null) {
 		require_once(CAMILA_DIR.'export/phpgraphlib/phpgraphlib.php');
 		require_once(CAMILA_DIR.'export/phpgraphlib/phpgraphlib_pie.php');
+		
+		
+		
 		if (count($data)>0)
 		{
 			if ((string)$obj->type == 'pie')

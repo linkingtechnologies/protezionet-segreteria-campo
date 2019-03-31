@@ -32,7 +32,7 @@
 
       var $hslots=12;
 
-      function form_datetime(&$form, $field, $title, $required = false, $validation)
+      function form_datetime(&$form, $field, $title, $required = false, $validation='')
       {
           $this->form_field($form, $field, $title, $required, $validation);
           $this->size = 12;

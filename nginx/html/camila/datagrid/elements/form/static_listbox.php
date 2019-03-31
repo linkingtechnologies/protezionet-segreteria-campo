@@ -26,7 +26,7 @@ class form_static_listbox extends form_field {
     var $options2 = array();
 
     // options can be an array or string
-    function form_static_listbox(&$form, $field, $title, $options, $required, $validation)
+    function form_static_listbox(&$form, $field, $title, $options, $required = false, $validation = '')
     {
         $this->options2 = array();
         $this->form_field($form, $field, $title, $required, $validation);

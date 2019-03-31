@@ -21,6 +21,7 @@ require_once('config.inc.php');
 require_once('i18n.inc.php');
   
 
+
   //require(CAMILA_LIB_DIR.'phpolait/JSON.php');
 
 
@@ -668,9 +669,11 @@ function camila_worktable_get_table_id($name)
     return $expression;
   }
 
+
   require(CAMILA_DIR.'camila_hawhaw.php');
   
   require_once('database.inc.php');
+
   
   if (!$_CAMILA['db'])
     camila_error_page("DB ".CAMILA_DB_DSN." NOT AVAILABLE... ".$_CAMILA['db_error']);

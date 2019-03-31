@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2009 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -511,7 +511,7 @@
 
       function getTwips($measure)
       {
-          if (ereg('(\-?[0-9]+(\.[0-9]+)?)( )*(mm|cm|in|px|p|pt)?', strtolower($measure), $arg)) {
+          if (preg_match('/(\-?[0-9]+(\.[0-9]+)?)( )*(mm|cm|in|px|p|pt)?/', strtolower($measure), $arg)) {
               switch ($arg[4]) {
                   case 'mm':
                       return intval(floatval($arg[1]) * 5670);

@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -180,8 +180,8 @@ $myInput->set_br(2);
 $myForm->add_input($myInput);
 
 $url=$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING'];
-$url = ereg_replace("&"."camila_preferences", "", $url);
-$url = ereg_replace("\?"."camila_preferences", "", $url);
+$url = str_replace("&"."camila_preferences", "", $url);
+$url = str_replace("\?"."camila_preferences", "", $url);
 
 $myInput = new CHAW_hidden('camila_redirect', $url);
 $myForm->add_input($myInput);

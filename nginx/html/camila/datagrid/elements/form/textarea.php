@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2016 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
   {
       var $maxlength;
 
-      function form_textarea(&$form, $field, $title, $required = false, $rows, $cols, $maxlength = null, $validation = '')
+      function form_textarea(&$form, $field, $title, $required = false, $rows=30, $cols=80, $maxlength = null, $validation = '')
       {
           $this->form_field($form, $field, $title, $required, $validation);
           $this->cols = $cols;

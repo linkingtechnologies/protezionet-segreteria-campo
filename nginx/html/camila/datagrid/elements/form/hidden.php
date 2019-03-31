@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2008 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
 class form_hidden extends form_field {
 
-  function form_hidden(&$form, $field, $value) {
+  function form_hidden(&$form, $field, $value = '') {
   	$this->form_field($form, $field, '');
   	$this->value = $value;
   	$this->cleanable = false;

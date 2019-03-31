@@ -334,8 +334,8 @@ if (!CAMILA_FM_EXPORT_SAVETO_DISABLED)
 	  $_CAMILA['page']->add_text($myText);
       
       $url = $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'];
-      $url = ereg_replace("&" . $export_format, '', $url);
-      $url = ereg_replace("\?" . $export_format, '', $url);
+      $url = preg_replace("&" . $export_format, '', $url);
+      $url = preg_replace("\?" . $export_format, '', $url);
       $myLink = new CHAW_link(camila_get_translation('camila.back.page'), $url);
       $myImage2 = new HAW_image(CAMILA_IMG_DIR . 'wbmp/resultset_previous.wbmp', CAMILA_IMG_DIR . 'png/resultset_previous.png', '-');
       $myLink->add_image($myImage2);

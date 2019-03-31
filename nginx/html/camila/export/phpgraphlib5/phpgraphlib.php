@@ -115,6 +115,7 @@ class PHPGraphLib {
 	protected $bool_gradient_colors_found = array();
 	protected $bool_y_axis_setup = false;
 	protected $bool_x_axis_setup = false;
+	protected $x_axis_value_interval_counter = 0;
 
 	//color vars
 	protected $background_color;
@@ -164,8 +165,6 @@ class PHPGraphLib {
 	protected $y_axis_y1;
 	protected $y_axis_x2;
 	protected $y_axis_y2;
-	protected $lowest_x;
-	protected $highest_x;
 
 	//aka bottom margin
 	protected $x_axis_margin; 
@@ -199,8 +198,6 @@ class PHPGraphLib {
 	protected $legend_outline_color;
 	protected $legend_swatch_outline_color;
 	protected $legend_titles = array();
-	
-	protected $antialias = true;
 
 	public function __construct($width, $height, $output_file = null) 
 	{
@@ -218,21 +215,13 @@ class PHPGraphLib {
 			header("Content-type: image/png");
 		}
 
-		if (!$this->antialias) {
-			$this->image = @imagecreate($this->width, $this->height)
-				or die("Cannot Initialize new GD image stream - Check your PHP setup");
-		}
-		else
-		{
-			$this->image = @imagecreatetruecolor($this->width, $this->height)
-				or die("Cannot Initialize new GD image stream - Check your PHP setup");
-			$trans_colour = imagecolorallocate($this->image, 255, 255, 255);
-			imagefill($this->image, 0, 0, $trans_colour);
-			//imageantialias($this->image, true);
-		}
-		
-		
-		
+		$this->image = @imagecreatetruecolor($this->width, $this->height)
+			or die("Cannot Initialize new GD image stream - Check your PHP setup");
+		//imagesavealpha($this->image, true);
+		$trans_colour = imagecolorallocate($this->image, 255, 255, 255);
+		imagefill($this->image, 0, 0, $trans_colour);
+
+		//imageantialias($this->image, true);
 	}
 
 	public function createGraph() 
@@ -394,8 +383,7 @@ class PHPGraphLib {
 		
 		foreach ($this->data_array as $data_set_num => $data_set) {
 			$lineX2 = null;
-			reset($data_set);
-			$xStart = $this->y_axis_x1 + ($this->space_width / 2) + ((key($data_set) - $this->lowest_x) * ($this->bar_width + $this->space_width));
+			$xStart = $this->y_axis_x1 + ($this->space_width / 2);
 			foreach ($data_set as $key => $item) {
 				$hideBarOutline = false;
 
@@ -475,7 +463,7 @@ class PHPGraphLib {
 				}
 				//write x axis value 
 				if ($this->bool_x_axis_values) {
-					{
+					if ($data_set_num == $this->data_set_count - 1) {
 						if ($this->bool_x_axis_values_vert) {
 							if ($this->bool_all_negative) {
 								//we must put values above 0 line
@@ -489,9 +477,11 @@ class PHPGraphLib {
 					
 							//skip and dispplay every x intervals
 							if ($this->x_axis_value_interval) {
-								if ($key % $this->x_axis_value_interval) {
+								if ($this->x_axis_value_interval_counter < $this->x_axis_value_interval) {
+									$this->x_axis_value_interval_counter++;
 								} else {
 									imagestringup($this->image, 2, $textHorizPos, $textVertPos, $key,  $this->x_axis_text_color);
+									$this->x_axis_value_interval_counter = 0;
 								}
 							}
 							else {
@@ -513,9 +503,11 @@ class PHPGraphLib {
 							
 							//skip and dispplay every x intervals
 							if ($this->x_axis_value_interval) {
-								if ($key % $this->x_axis_value_interval) {
+								if ($this->x_axis_value_interval_counter < $this->x_axis_value_interval) {
+									$this->x_axis_value_interval_counter++;
 								} else {
 									imagestring($this->image, 2, $textHorizPos, $textVertPos, $key,  $this->x_axis_text_color);
+									$this->x_axis_value_interval_counter = 0;
 								}
 							} else {
 								imagestring($this->image, 2, $textHorizPos, $textVertPos, $key,  $this->x_axis_text_color);
@@ -751,7 +743,7 @@ class PHPGraphLib {
 		}
 	}
 
-	protected function imagelinedashed(&$image_handle, $x_axis_x1, $yLocation, $x_axis_x2, $color)
+	protected function imagelinedashed(&$image_handle, $x_axis_x1, $yLocation, $x_axis_x2 , $yLocation, $color) 
 	{
 		$step  = 3;
 		for ($i = $x_axis_x1; $i < $x_axis_x2 -1; $i += ($step*2)) {
@@ -781,13 +773,13 @@ class PHPGraphLib {
 	{
 		//draw goal lines if present (after grid) - doesn't get executed if array empty
 		foreach ($this->goal_line_array as $goal_line_data) {
-			$yLocation = $goal_line_data['yValue'];
-			$style = $goal_line_data['style'];
-			$color = $goal_line_data['color'] ? $goal_line_data['color'] : $this->goal_line_color;
+		    $yLocation = $goal_line_data['yValue'];
+		    $style = $goal_line_data['style'];
+		    $color = $goal_line_data['color'] ? $goal_line_data['color'] : $this->goal_line_color;
 			$yLocation = round(($this->x_axis_y1 - ($yLocation * $this->unit_scale) + $adjustment));
 
 			if ($style == 'dashed') {
-				$this->imagelinedashed($this->image, $this->x_axis_x1, $yLocation, $this->x_axis_x2, $color);
+				$this->imagelinedashed($this->image, $this->x_axis_x1, $yLocation, $this->x_axis_x2 , $yLocation, $color);
 			} else {
 				//a solid line is the default if a style condition is not matched
 				imageline($this->image, $this->x_axis_x1, $yLocation, $this->x_axis_x2 , $yLocation, $color);
@@ -795,14 +787,99 @@ class PHPGraphLib {
 		}
 	}
 
+	protected function imageFilledSmoothArcOld ($img, $cx, $cy, $width, $height, $startDegree, $stopDegree, $colorId) {
+    // Added by Tibor, 02/2010
+    // Wrapper function for users of 'imageFilledArc()' which is a PHP function for GD2
+
+    // 'imageFilledArc()':
+    // * draws from $start to $stop clockwise
+    // * uses a clockwise coordinate system
+    // * uses degrees for the angles
+    // * uses color identifier from imageColorAllocate()
+
+    // 'imageSmoothArc':
+    // * draws from $start to $stop counter-clockwise
+    // * uses a counter-clockwise coordinate system
+    // * uses radians for the angles
+    // * uses an RGBA array for the color
+
+    // So if you used:
+    // imageFilledArc($img, $cx, $cy, $w, $h, 30, 120, $colorId)
+    // then you should transform the start, stop and color values:
+    // imageSmoothArc (
+    $stopRadian = (0 - $startDegree) / 180 * M_PI;
+
+    // Transforming $colorIdentifier to $colorRGBA
+    // 'imageSmoothArc()' requires an array of four RGBA color values ([0]=>255,[1]=>255,[2]=>255,[3]=>0)
+    // Thefirst three values are the RGB color, the fourth is the alpha blending factor.
+    // 'imageColorsForIndex()' returns an associative array (["red"]=>255, ["green"]=> 255, ["blue"]=> 255, ["alpha"]=>0)
+    $colorRGBA = array_values(imageColorsForIndex($img, $colorId));
+
+    // Drawing the elliptic arc with imageSmoothArc()
+    imageSmoothArc($img, $cx, $cy, $width, $height, $colorRGBA, $startRadian, $stopRadian);
+}
+
+protected function imageFilledSmoothArc ($img, $cx, $cy, $width, $height, $startDegree, $stopDegree, $colorId) { 
+    // Added by Tibor, 02/2010 
+    // Wrapper function for users of 'imageFilledArc()' which is a PHP function for GD2 
+
+    // 'imageFilledArc()': 
+    //     * draws from $start to $stop clockwise 
+    //     * uses a clockwise coordinate system 
+    //     * uses degrees for the angles 
+    //     * uses color identifier from imageColorAllocate() 
+
+    // 'imageSmoothArc': 
+    //     * draws from $start to $stop counter-clockwise 
+    //     * uses a counter-clockwise coordinate system 
+    //     * uses radians for the angles 
+    //     * uses an RGBA array for the color 
+
+    // So if you used: 
+    //     imageFilledArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
+    // then you should transform the start, stop and color values: 
+    //     imageSmoothArc (&$img, $cx, $cy, $w, $h, $colorRGBA, -120 / 180.0 * M_PI, -30 / 180.0 * M_PI) 
+    // which produces exactly the same elliptical arc - but renders very nice high quality graphics (note the - sign and the radians). 
+
+    // This wrapper function takes care of the necessary transformations, 
+    // so you can easily migrate your code from: 
+    //     imageFilledArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
+    // to: 
+    //     imageFilledSmoothArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
+
+
+    // Parameters: 
+    // $cx           - Center of ellipse, X-coord 
+    // $cy           - Center of ellipse, Y-coord 
+    // $width        - Width of ellipse ($w >= 2) 
+    // $height       - Height of ellipse ($h >= 2 ) 
+    // $startDegree  - Starting angle of the arc in degrees, no limited range! 
+    // $stopDegree   - Stopping angle of the arc in degrees, no limited range! 
+    // $colorId      - Color identifier from imageColorAllocate() 
+    // $start _can_ be greater than $stop! 
+
+    // Transforming $startDegree and $stopDegree to $startRadian and $stopRadian 
+    // 'imageSmoothArc()' uses a counter-clockwise coordinate system (the coordinates should be negative) 
+    // 'imageSmoothArc()' draws counter-clockwise (therefore $start and $stop should be swapped) 
+    // 'imageSmoothArc()' uses radians for the angles ($radians = $degrees / 180.0 * M_PI) 
+    $startRadian = (0 - $stopDegree) / 180 * M_PI; 
+    $stopRadian = (0 - $startDegree) / 180 * M_PI; 
+
+    // Transforming $colorIdentifier to $colorRGBA 
+    // 'imageSmoothArc()' requires an array of four RGBA color values ([0]=>255,[1]=>255,[2]=>255,[3]=>0) 
+    // Thefirst three values are the RGB color, the fourth is the alpha blending factor. 
+    // 'imageColorsForIndex()' returns an associative array (["red"]=>255, ["green"]=> 255,  ["blue"]=> 255, ["alpha"]=>0) 
+    $colorRGBA = array_values(imageColorsForIndex($img, $colorId)); 
+
+    // Drawing the elliptic arc with imageSmoothArc() 
+    imageSmoothArc($img, $cx, $cy, $width, $height, $colorRGBA, $startRadian, $stopRadian); 
+}
+
 	protected function generateDataPoints() 
 	{
 		foreach ($this->data_point_array as $pointArray) {
-			if ($this->antialias)
-				$this->imageFilledSmoothArc($this->image, $pointArray[0], $pointArray[1], $this->data_point_width, $this->data_point_width, 0, 360, $this->data_point_color);
-			else
-				imagefilledellipse($this->image, $pointArray[0], $pointArray[1], $this->data_point_width, $this->data_point_width, $this->data_point_color);
-			
+			//imagefilledellipse($this->image, $pointArray[0], $pointArray[1], $this->data_point_width, $this->data_point_width, $this->data_point_color);
+			$this->imageFilledSmoothArc($this->image, $pointArray[0], $pointArray[1], $this->data_point_width, $this->data_point_width, 0, 360, $this->data_point_color);
 		}		
 	}
 
@@ -970,22 +1047,8 @@ class PHPGraphLib {
 		}
 
 		//get rid of bad data, find max, min
-		$low_x = 0;
-		$high_x = 0;
-		$force_set_x = 1;
 		foreach ($this->data_array as $data_set_num => $data_set) {
 			foreach ($data_set as $key => $item) {
-				if ($force_set_x) {
-					$low_x = $key;
-					$high_x = $key;
-					$force_set_x = 0;
-				}
-				if ($key < $low_x) {
-					$low_x = $key;
-				}
-				if ($key > $high_x) {
-					$high_x = $key;
-				}
 				if (!is_numeric($item)) {
 					unset($this->data_array[$data_set_num][$key]);
 					continue;
@@ -1002,12 +1065,6 @@ class PHPGraphLib {
 			if ($count > $this->data_count) {
 				$this->data_count = $count;
 			}
-		}
-		$this->lowest_x = $low_x;
-		$this->highest_x = $high_x;
-		$raw_size = $high_x - $low_x +1;
-		if ($raw_size > $this->data_count) {
-			$this->data_count = $raw_size;
 		}
 
 		//number of valid data sets
@@ -1171,7 +1228,7 @@ class PHPGraphLib {
 		}
 	}
 
-	public function setXValuesInterval($value)
+	public function setXValuesInterval($value) 
 	{
 		if (is_int($value) && $value > 0) {
 			$this->x_axis_value_interval = $value;
@@ -1218,18 +1275,18 @@ class PHPGraphLib {
 	}
 
 	public function setDataCurrency($currency_type = 'dollar')
-	{
-		switch (strtolower($currency_type)) {
-			case 'dollar': $this->data_currency = '$'; break;
-			case 'yen': $this->data_currency = 'Â¥'; break;
-			case 'pound': $this->data_currency = 'Â£'; break;
-			case 'lira': $this->data_currency = 'Â£'; break;
-			// Euro doesn't display properly
-			// Franc doesn't display properly
-			default: $this->data_currency = $currency_type; break;
-		}
-		$this->data_additional_length += strlen($this->data_currency);
-	}
+        {
+            switch (strtolower($currency_type)) {
+                case 'dollar': $this->data_currency = '$'; break;
+                case 'yen': $this->data_currency = '¥'; break;
+                case 'pound': $this->data_currency = '£'; break;
+                case 'lira': $this->data_currency = '£'; break;
+                // Euro doesn't display properly
+                // Franc doesn't display properly
+                default: $this->data_currency = $currency_type; break;
+            }
+            $this->data_additional_length += strlen($this->data_currency);
+        }
 
 	protected function applyDataCurrency($input)
 	{
@@ -1304,7 +1361,7 @@ class PHPGraphLib {
 
 	protected function formatDataAsDegrees($input)
 	{
-		return $input . 'Â°';
+		return $input . '°';
 	}
 
 	protected function formatDataAsGeneric($input)
@@ -1324,20 +1381,18 @@ class PHPGraphLib {
 	public function setGoalLine($yValue, $color = null, $style = 'solid')
 	{
 		if (is_numeric($yValue)) {
-			if ($color) {
+		    if ($color) {
 				$this->setGenericColor($color, '$this->goal_line_custom_color', "Goal line color not specified properly.");	
 				$color = $this->goal_line_custom_color;
 			}
+		
 			$this->goal_line_array[] = array(
 				'yValue' => $yValue, 
 				'color' => $color, 
 				'style' => $style
 			);
-			if($yValue > $this->data_max) {
-				$this->data_range_max = $yValue;
-				$this->bool_user_data_range = true;
-			}
-		} else {
+		}
+		else {
 			$this->error[] = "Goal line Y axis value not specified properly.";
 		}
 	}
@@ -1641,60 +1696,4 @@ class PHPGraphLib {
 			$this->error[] = "Boolean arg for setIgnoreDataFitErrors() not specified properly.";
 		}	
 	}
-	
-	protected function imageFilledSmoothArc ($img, $cx, $cy, $width, $height, $startDegree, $stopDegree, $colorId) { 
-    // Added by Tibor, 02/2010 
-    // Wrapper function for users of 'imageFilledArc()' which is a PHP function for GD2 
-
-    // 'imageFilledArc()': 
-    //     * draws from $start to $stop clockwise 
-    //     * uses a clockwise coordinate system 
-    //     * uses degrees for the angles 
-    //     * uses color identifier from imageColorAllocate() 
-
-    // 'imageSmoothArc': 
-    //     * draws from $start to $stop counter-clockwise 
-    //     * uses a counter-clockwise coordinate system 
-    //     * uses radians for the angles 
-    //     * uses an RGBA array for the color 
-
-    // So if you used: 
-    //     imageFilledArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
-    // then you should transform the start, stop and color values: 
-    //     imageSmoothArc (&$img, $cx, $cy, $w, $h, $colorRGBA, -120 / 180.0 * M_PI, -30 / 180.0 * M_PI) 
-    // which produces exactly the same elliptical arc - but renders very nice high quality graphics (note the - sign and the radians). 
-
-    // This wrapper function takes care of the necessary transformations, 
-    // so you can easily migrate your code from: 
-    //     imageFilledArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
-    // to: 
-    //     imageFilledSmoothArc($img, $cx, $cy, $w, $h, 30, 120, $colorId) 
-
-
-    // Parameters: 
-    // $cx           - Center of ellipse, X-coord 
-    // $cy           - Center of ellipse, Y-coord 
-    // $width        - Width of ellipse ($w >= 2) 
-    // $height       - Height of ellipse ($h >= 2 ) 
-    // $startDegree  - Starting angle of the arc in degrees, no limited range! 
-    // $stopDegree   - Stopping angle of the arc in degrees, no limited range! 
-    // $colorId      - Color identifier from imageColorAllocate() 
-    // $start _can_ be greater than $stop! 
-
-    // Transforming $startDegree and $stopDegree to $startRadian and $stopRadian 
-    // 'imageSmoothArc()' uses a counter-clockwise coordinate system (the coordinates should be negative) 
-    // 'imageSmoothArc()' draws counter-clockwise (therefore $start and $stop should be swapped) 
-    // 'imageSmoothArc()' uses radians for the angles ($radians = $degrees / 180.0 * M_PI) 
-    $startRadian = (0 - $stopDegree) / 180 * M_PI; 
-    $stopRadian = (0 - $startDegree) / 180 * M_PI; 
-
-    // Transforming $colorIdentifier to $colorRGBA 
-    // 'imageSmoothArc()' requires an array of four RGBA color values ([0]=>255,[1]=>255,[2]=>255,[3]=>0) 
-    // Thefirst three values are the RGB color, the fourth is the alpha blending factor. 
-    // 'imageColorsForIndex()' returns an associative array (["red"]=>255, ["green"]=> 255,  ["blue"]=> 255, ["alpha"]=>0) 
-    $colorRGBA = array_values(imageColorsForIndex($img, $colorId)); 
-
-    // Drawing the elliptic arc with imageSmoothArc() 
-    imageSmoothArc($img, $cx, $cy, $width, $height, $colorRGBA, $startRadian, $stopRadian); 
-}
 }

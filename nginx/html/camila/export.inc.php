@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -65,8 +65,8 @@
 
   $export_format = 'camila_xml2pdf';
   $url = $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'];
-  $url = ereg_replace("&" . $export_format, '', $url);
-  $url = ereg_replace("\?" . $export_format, '', $url);
+  $url = preg_replace("&" . $export_format, '', $url);
+  $url = preg_replace("\?" . $export_format, '', $url);
   $myLink = new CHAW_link(camila_get_translation('camila.back.page'), $url);
   $myLink->set_css_class('btn btn-md btn-default');
   $myImage = new HAW_image(CAMILA_IMG_DIR.'wbmp/resultset_previous.wbmp', CAMILA_IMG_DIR.'png/resultset_previous.png', '-');

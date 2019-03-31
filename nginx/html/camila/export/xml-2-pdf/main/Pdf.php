@@ -313,8 +313,8 @@ Class Pdf extends FPDF {
 			    $type=substr($file,$pos+1);
 		    }
 		    $type=strtolower($type);
-		    $mqr=get_magic_quotes_runtime();
-		    set_magic_quotes_runtime(0);
+		    //$mqr=get_magic_quotes_runtime();
+		    //set_magic_quotes_runtime(0);
             if($type=='jpg' || $type=='jpeg') {
                 $info=$this->_parsejpg($file);
             } elseif($type=='png') {
@@ -330,7 +330,7 @@ Class Pdf extends FPDF {
                 }
 			    $info=$this->$mtd($file);
 		    }
-		    set_magic_quotes_runtime($mqr);
+		    //set_magic_quotes_runtime($mqr);
 		
 		    if($isMask){
 			    if(in_array($file,$this->_tmpFiles)) {

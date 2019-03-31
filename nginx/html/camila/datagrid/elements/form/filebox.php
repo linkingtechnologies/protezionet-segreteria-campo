@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2015 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
       var $override = true;
 	  var $showmaxsizewarning = true;
 
-      function form_filebox(&$form, $field, $title, $size = 50, $uploadfolder, $maxsize = CAMILA_FM_MAX_UPLOAD_SIZE, $extfsenabled, $usergroup, $selectuploadfolder = true)
+      function form_filebox(&$form, $field, $title, $size = 50, $uploadfolder, $maxsize = CAMILA_FM_MAX_UPLOAD_SIZE, $extfsenabled = false, $usergroup = '', $selectuploadfolder = true)
       {
           new form_hidden($form, $field.'_camilauploaded');
 
@@ -109,7 +109,10 @@
 
       function process()
       {
-          $this->value = $this->form->fields[$this->field.'_camilauploaded']->value;
+		  //print_r($_FILES[$this->key]);
+          //$this->value = $this->form->fields[$this->field.'_camilauploaded']->value;
+		  
+		  $this->value = Array();
 
           global $_CAMILA;
 
@@ -135,6 +138,8 @@
                       $rel = $items[$i];
 
                   $abs = $this->uploadfolder . '/' . $rel;
+				  
+
 
                   if ($items[$i] == '' || $up_err == 4)
                       continue;
@@ -180,7 +185,8 @@
                   if (!$err) {
                       $uparr = $this->form->fields[$this->field.'_camilauploaded']->value;
                       $eluparr = !is_array($uparr) ? 0 : count($uparr);
-                      $this->value[count($this->value)] = $rel;
+					  $this->value[count($this->value)] = $rel;
+					  //echo $this->value;
                       $this->form->fields[$this->field.'_camilauploaded']->value[$eluparr] = $rel;
 
                       //if ($this->selectuploadfolder)
@@ -198,7 +204,9 @@
                           }
                       }
 
-                      $this->value = $this->form->fields[$this->field.'_camilauploaded']->value;
+                      //$this->value = $this->form->fields[$this->field.'_camilauploaded']->value;
+					  
+					  //$this->form->fields['filename']->value[0] = $rel;
 
                   }
 

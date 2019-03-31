@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2010 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
       var $checked = 0;
       var $cols = 2;
 
-      function form_checklist(&$form, $field, $title, $labels, $values, $required, $validation = false)
+      function form_checklist(&$form, $field, $title, $labels, $values, $required = false, $validation = false)
       {
           //new form_hidden ($form, $field.'_labels');
           for ($i=0; $i<count($labels); $i++)

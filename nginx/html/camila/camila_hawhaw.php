@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2019 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -60,14 +60,17 @@ class CHAW_deck extends HAW_deck
   
   var $js_no_camila_init = false;
 
-  function CHAW_deck($title, $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
+  function CHAW_deck($title = '', $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
   {
 	  $this->camila_force_js_update_token = date("mdy").'2017';
       global $_CAMILA;
 
       if (!isset($_REQUEST['camila_print'])) {
     	  $this->camila_set_jsstring('CAMILA_IMG_DIR', CAMILA_IMG_DIR);
-          $this->camila_set_jsstring('CAMILA_ERROR', $_CAMILA['error'] > 0 ? '1' : '0');
+		  if (array_key_exists('error', $_CAMILA))
+			  $this->camila_set_jsstring('CAMILA_ERROR', $_CAMILA['error'] > 0 ? '1' : '0');
+		  else
+			  $this->camila_set_jsstring('CAMILA_ERROR', '0');
           $this->camila_set_jsstring('CAMILA_EXPORTING', $this->camila_exporting() ? '1' : '0');
 
           $this->camila_set_jsstring('expand', camila_get_translation('camila.clicktoexpand'));

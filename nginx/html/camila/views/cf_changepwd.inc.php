@@ -66,5 +66,6 @@ if (CAMILA_USER_CAN_CHANGE_PWD) {
 	}
 	else
 		$form->draw();
+}
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 defined('CAMILA_APPLICATION_NAME') or die('No direct script access.');
 
+
 if (CAMILA_ANON_LOGIN & !isset($_REQUEST['camila_autosuggest'])) {
    
     if ($dh2 = opendir('./lang/')) {

@@ -127,7 +127,7 @@
 
   if (CAMILA_LOG_LEVEL > 0) {
 
-      require CAMILA_LIB_DIR.'oolog/class_oolog.inc.php';
+      /*require CAMILA_LIB_DIR.'oolog/class_oolog.inc.php';
 
       if (isset($_CAMILA['user_surname']))
           $l =& new oolog(CAMILA_LOG_DIR . '/'. $_CAMILA['user_surname'] . '-' . $_CAMILA['user_name'] . ".log", FILE);
@@ -139,7 +139,7 @@
       $millis = sprintf("%01.3f", $time);
   
       $l->log($_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'] . '|' . $millis, FILE);
-      $l->closelog();
+      $l->closelog();*/
   }
 
   if (isset($_REQUEST['camila_txt'])) {

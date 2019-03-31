@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2019 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -1796,9 +1796,10 @@ class configurator
         $success = true;
         
         if ($form3->process()) {
-            $filename = $form3->fields['filename']->value[0];
+			echo(':'.$form3->value);
+			$filename = $form3->fields['filename']->value[0];
             $sheetnum = $form3->fields['sheetnum']->value;
-            
+			
             $result = $_CAMILA['db']->Execute('select short_title, scriptname, tablename, filename, sheetnum from ' . CAMILA_TABLE_WORKT . ' where id=' . $_CAMILA['db']->qstr($id));
             if ($result === false)
                 camila_error_page(camila_get_translation('camila.sqlerror') . ' ' . $_CAMILA['db']->ErrorMsg());
@@ -1811,7 +1812,7 @@ class configurator
                 $filename = $result->fields['filename'];
                 $sheetnum = $result->fields['sheetnum'];
             }
-            
+
             if ($filename != '') {
                 require_once(CAMILA_LIB_DIR . 'php-excel-reader/excel_reader2.php');
                 $data = new Spreadsheet_Excel_Reader(CAMILA_TMP_DIR . '/' . $filename);
