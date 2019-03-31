@@ -136,7 +136,7 @@ class dbObject {
 	/**
 	* NOP
 	*/
-	function dbObject( &$parent, $attributes = NULL ) {
+	function __construct( &$parent, $attributes = NULL ) {
 		$this->parent = $parent;
 	}
 
@@ -175,7 +175,6 @@ class dbObject {
 	* Destroys the object
 	*/
 	function destroy() {
-		unset( $this );
 	}
 
 	/**
@@ -273,7 +272,7 @@ class dbTable extends dbObject {
 	* @param string $prefix DB Object prefix
 	* @param array $attributes Array of table attributes.
 	*/
-	function dbTable( &$parent, $attributes = NULL ) {
+	function __construct( &$parent, $attributes = NULL ) {
 		$this->parent = $parent;
 		$this->name = $this->prefix($attributes['NAME']);
 	}
@@ -290,12 +289,14 @@ class dbTable extends dbObject {
 		switch( $this->currentElement ) {
 			case 'INDEX':
 				if( !isset( $attributes['PLATFORM'] ) OR $this->supportedPlatform( $attributes['PLATFORM'] ) ) {
-					xml_set_object( $parser, $this->addIndex( $attributes ) );
+					$index = $this->addIndex( $attributes );
+					xml_set_object( $parser,  $index );
 				}
 				break;
 			case 'DATA':
 				if( !isset( $attributes['PLATFORM'] ) OR $this->supportedPlatform( $attributes['PLATFORM'] ) ) {
-					xml_set_object( $parser, $this->addData( $attributes ) );
+					$data = $this->addData( $attributes );
+					xml_set_object( $parser, $data );
 				}
 				break;
 			case 'DROP':
@@ -683,7 +684,7 @@ class dbIndex extends dbObject {
 	*
 	* @internal
 	*/
-	function dbIndex( &$parent, $attributes = NULL ) {
+	function __construct( &$parent, $attributes = NULL ) {
 		$this->parent = $parent;
 
 		$this->name = $this->prefix ($attributes['NAME']);
@@ -828,7 +829,7 @@ class dbData extends dbObject {
 	*
 	* @internal
 	*/
-	function dbData( &$parent, $attributes = NULL ) {
+	function __construct( &$parent, $attributes = NULL ) {
 		$this->parent = $parent;
 	}
 
@@ -1084,7 +1085,7 @@ class dbQuerySet extends dbObject {
 	* @param object $parent Parent object
 	* @param array $attributes Attributes
 	*/
-	function dbQuerySet( &$parent, $attributes = NULL ) {
+	function __construct( &$parent, $attributes = NULL ) {
 		$this->parent = $parent;
 
 		// Overrides the manual prefix key
@@ -1405,11 +1406,12 @@ class adoSchema {
 	*
 	* @param object $db ADOdb database connection object.
 	*/
-	function adoSchema( $db ) {
+	function __construct( $db ) {
 		// Initialize the environment
 		$this->mgq = get_magic_quotes_runtime();
-		#set_magic_quotes_runtime(0);
-		ini_set("magic_quotes_runtime", 0);
+		if ($this->mgq !== false) {
+			ini_set('magic_quotes_runtime', 0 );
+		}
 
 		$this->db = $db;
 		$this->debug = $this->db->debug;
@@ -1420,7 +1422,6 @@ class adoSchema {
 		$this->continueOnError( XMLS_CONTINUE_ON_ERROR );
 		$this->existingData( XMLS_EXISTING_DATA );
 		$this->setUpgradeMethod();
-		echo "!";
 	}
 
 	/**
@@ -1591,7 +1592,6 @@ class adoSchema {
 	*/
 	function ParseSchemaFile( $filename, $returnSchema = FALSE ) {
 		// Open the file
-		echo $filename;
 		if( !($fp = fopen( $filename, 'r' )) ) {
 			logMsg( 'Unable to open file' );
 			return FALSE;
@@ -2106,11 +2106,12 @@ class adoSchema {
 
 		$schema = '<?xml version="1.0"?>' . "\n"
 				. '<schema version="' . $this->schemaVersion . '">' . "\n";
-
-		if( is_array( $tables = $this->db->MetaTables( 'TABLES' , ($prefix) ? $prefix.'%' : '') ) ) {
+		if( is_array( $tables = $this->db->MetaTables( 'TABLES' ,false ,($prefix) ? str_replace('_','\_',$prefix).'%' : '') ) ) {
 			foreach( $tables as $table ) {
-				if ($stripprefix) $table = str_replace(str_replace('\\_', '_', $pfx ), '', $table);
-				$schema .= $indent . '<table name="' . htmlentities( $table ) . '">' . "\n";
+				$schema .= $indent
+					. '<table name="'
+					. htmlentities( $stripprefix ? str_replace($prefix, '', $table) : $table )
+					. '">' . "\n";
 
 				// grab details from database
 				$rs = $this->db->Execute( 'SELECT * FROM ' . $table . ' WHERE -1' );
@@ -2377,9 +2378,9 @@ class adoSchema {
 	* @deprecated adoSchema now cleans up automatically.
 	*/
 	function Destroy() {
-		ini_set("magic_quotes_runtime", $this->mgq );
-		#set_magic_quotes_runtime( $this->mgq );
-		unset( $this );
+		if ($this->mgq !== false) {
+			ini_set('magic_quotes_runtime', $this->mgq );
+		}
 	}
 }
 

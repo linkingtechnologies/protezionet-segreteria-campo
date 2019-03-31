@@ -1,7 +1,9 @@
 <?php
 
 /**
-  V5.19  23-Apr-2014  (c) 2000-2014 John Lim (jlim#natsoft.com). All rights reserved.
+  @version   v5.20.14  06-Jan-2019
+  @copyright (c) 2000-2013 John Lim (jlim#natsoft.com). All rights reserved.
+  @copyright (c) 2014      Damien Regad, Mark Newnham and the ADOdb community
   Released under both BSD license and Lesser GPL library license.
   Whenever there is any discrepancy between the two licenses,
   the BSD license will take precedence.
@@ -168,7 +170,7 @@ class ADODB_DataDict {
 	var $renameTable = 'RENAME TABLE %s TO %s';
 	var $dropIndex = 'DROP INDEX %s';
 	var $addCol = ' ADD';
-	var $alterCol = ' MODIFY COLUMN';
+	var $alterCol = ' ALTER COLUMN';
 	var $dropCol = ' DROP COLUMN';
 	var $renameColumn = 'ALTER TABLE %s RENAME COLUMN %s TO %s';	// table, old-column, new-column, column-definitions (not used by default)
 	var $nameRegex = '\w';
@@ -518,7 +520,7 @@ class ADODB_DataDict {
 			list($lines,$pkey,$idxs) = $this->_GenFields($flds);
 			// genfields can return FALSE at times
 			if ($lines == null) $lines = array();
-			list(,$first) = each($lines);
+			$first  = current($lines);
 			list(,$column_def) = preg_split("/[\t ]+/",$first,2);
 		}
 		return array(sprintf($this->renameColumn,$tabname,$this->NameQuote($oldcolumn),$this->NameQuote($newcolumn),$column_def));
@@ -938,10 +940,7 @@ class ADODB_DataDict {
 	*/
 	function ChangeTableSQL($tablename, $flds, $tableoptions = false, $dropOldFlds=false)
 	{
-		if ($this->connection->databaseType == 'postgres9')
-			$this->alterCol = ' ALTER COLUMN';
-		global $ADODB_FETCH_MODE;
-	
+	global $ADODB_FETCH_MODE;
 
 		$save = $ADODB_FETCH_MODE;
 		$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
@@ -969,12 +968,7 @@ class ADODB_DataDict {
 			foreach($flds as $k=>$v) {
 				if ( isset($cols[$k]) && is_object($cols[$k]) ) {
 					// If already not allowing nulls, then don't change
-					if ($this->connection->databaseType == 'postgres9') {
-						unset($v['DEFAULT']);
-					}
-
 					$obj = $cols[$k];
-					
 					if (isset($obj->not_null) && $obj->not_null)
 						$v = str_replace('NOT NULL','',$v);
 					if (isset($obj->auto_increment) && $obj->auto_increment && empty($v['AUTOINCREMENT']))
@@ -1002,6 +996,7 @@ class ADODB_DataDict {
 			$flds = $holdflds;
 		}
 
+
 		// already exists, alter table instead
 		list($lines,$pkey,$idxs) = $this->_GenFields($flds);
 		// genfields can return FALSE at times
@@ -1011,15 +1006,8 @@ class ADODB_DataDict {
 
 		foreach ( $lines as $id => $v ) {
 			if ( isset($cols[$id]) && is_object($cols[$id]) ) {
+
 				$flds = Lens_ParseArgs($v,',');
-				
-				if ($this->connection->databaseType == 'postgres9') {
-					
-					$v = substr($v, 0, strpos($v,' ')). ' TYPE ' . substr($v,strpos($v,' '));
-					if (strpos($v, 'NOT NULL') !== false) {
-						$v = str_replace('NOT NULL','',$v);
-					}
-				}
 
 				//  We are trying to change the size of the field, if not allowed, simply ignore the request.
 				// $flds[1] holds the type, $flds[2] holds the size -postnuke addition
@@ -1029,7 +1017,7 @@ class ADODB_DataDict {
 					#echo "<h3>$this->alterCol cannot be changed to $flds currently</h3>";
 					continue;
 	 			}
-					$sql[] = $alter . $this->alterCol . ' ' . $v;
+				$sql[] = $alter . $this->alterCol . ' ' . $v;
 			} else {
 				$sql[] = $alter . $this->addCol . ' ' . $v;
 			}
