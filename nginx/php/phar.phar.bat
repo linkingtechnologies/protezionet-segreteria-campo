@@ -1,1 +1,1 @@
-%~dp0php.exe %~dp0pharcommand.phar %*
+"%~dp0php.exe" "%~dp0pharcommand.phar" %*
