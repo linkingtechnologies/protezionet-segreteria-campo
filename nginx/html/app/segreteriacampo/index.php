@@ -18,6 +18,7 @@
 
 
 require_once('../../camila/header.php');
+
 require_once('../../camila/views/index.inc.php');
 require_once('../../camila/footer.php');
 ?>

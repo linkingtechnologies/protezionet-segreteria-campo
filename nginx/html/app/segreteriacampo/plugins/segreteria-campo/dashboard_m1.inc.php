@@ -23,6 +23,8 @@ $aSheet = $camilaWT->getWorktableSheetId('BROGLIACCIO');
 
 require(CAMILA_LIB_DIR.'/fpdf/fpdf.php');
 
+
+
 class PDF extends FPDF
 {
 
@@ -91,7 +93,6 @@ $camilaReport = new CamilaReport($_CAMILA['db']);
 $reports = $camilaReport->loadXmlFromFile(CAMILA_HOMEDIR.'/plugins/'.basename(dirname(__FILE__)).'/conf/reports.xml');
 
 if (isset($_REQUEST['gid'])) {
-
 	foreach ($reports as $k => $v) {
 		if ($_REQUEST['rid']== ($v->id)) {
 			$query = $v->query;

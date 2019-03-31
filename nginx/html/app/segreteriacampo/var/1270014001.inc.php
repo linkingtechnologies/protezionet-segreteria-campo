@@ -48,6 +48,7 @@ define('CAMILA_AUTH_PASSWORD_HASHING', true);
 //define('CAMILA_DB_DSN', "mysql://user:pass@host/dbname");
 //define('CAMILA_AUTH_DSN', "mysql://user:pass@host/dbname");
 
+
 define('CAMILA_APPLICATION_NAME', 'ProtezioNET - Segreteria Campo');
 define('CAMILA_APPLICATION_TITLE', 'Segreteria campo');
 define('CAMILA_APPLICATION_GROUP', 'ProtezioNET');
@@ -101,4 +102,5 @@ define('CAMILA_FM_EXPORT_SAVETO_DISABLED', true);
 define('CAMILA_SHOW_ERRORS', false);
 define('CAMILA_BAN_IP_SECS', 20);
 define('CAMILA_ADMINISTRATOR_EMAIL', 'mail@example.com');
+
 ?>
