@@ -90,9 +90,12 @@
               $this->_checkboxes(true);
 
           global $_CAMILA;
+		  
+		  //echo $_CAMILA['db_genid'];
 
           if ($this->form->fields[$this->formkey]->value == '' || !isset($this->form->fields[$this->formkey]->value)) {
-              $avalue = $_CAMILA['db']->Insert_ID();
+              //$avalue = $_CAMILA['db']->Insert_ID();
+			  $avalue = $_CAMILA['db_genid'];
               $this->form->fields[$this->formkey]->value = $avalue;
           } else {
               $avalue = $this->form->fields[$this->formkey]->value;
