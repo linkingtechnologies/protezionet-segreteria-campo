@@ -57,9 +57,7 @@ class CAMILA_XLS_deck extends CHAW_deck
         $spreadsheet = new Spreadsheet();
         $spreadsheet->setActiveSheetIndex(0);
         
-		$maxlength = 31;
-		$i18nStr = ' - ' . camila_get_translation('camila.worktable.worksheet.data');			
-        $spreadsheet->getActiveSheet()->setTitle(substr($_CAMILA['page_short_title'],0,$maxlength-strlen($i18nStr)) . ' - ' . camila_get_translation('camila.worktable.worksheet.data'));
+        $spreadsheet->getActiveSheet()->setTitle($_CAMILA['page_short_title'] . ' - ' . camila_get_translation('camila.worktable.worksheet.data'));
         
         $i = 0;
         $m = camila_get_translation('camila.dateformat.monthpos');
@@ -146,10 +144,7 @@ class CAMILA_XLS_deck extends CHAW_deck
 
             //$aLeft = $workbook->addformat();
             //$aLeft->setAlign('left');
-			
-			$maxlength = 31;
-			$i18nStr = ' - ' . camila_get_translation('camila.worktable.worksheet.conf');					
-			$myWorkSheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, substr($_CAMILA['page_short_title'],0,$maxlength-strlen($i18nStr)) . ' - ' . camila_get_translation('camila.worktable.worksheet.conf'));
+			$myWorkSheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, $_CAMILA['page_short_title'] . ' - ' . camila_get_translation('camila.worktable.worksheet.conf'));
 			$spreadsheet->addSheet($myWorkSheet);
 			$spreadsheet->setActiveSheetIndex(1);
 
