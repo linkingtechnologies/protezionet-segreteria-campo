@@ -1,9 +1,9 @@
 This snapshot was automatically generated on
-Tue, 05 Feb 2019 23:46:25 +0000
+Wed, 29 May 2019 14:32:22 +0000
 
-Version: 7.2.15
+Version: 7.2.19
 Branch: HEAD
-Build: C:\php-snap-build\php72\vc15\x86\obj\Release_TS
+Build: C:\php-snap-build\php72\vc15\x64\obj\Release_TS
 
 Built-in Extensions
 ===========================
@@ -16,7 +16,6 @@ filter
 hash
 iconv
 json
-mcrypt
 SPL
 pcre
 readline
@@ -47,18 +46,18 @@ mysqli
 Dependency information:
 Module: php_curl.dll
 ===========================
-	libcrypto-1_1.dll
-	libssl-1_1.dll
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
 	libssh2.dll
 	nghttp2.dll
 
-Module: libssl-1_1.dll
+Module: libssl-1_1-x64.dll
 ===========================
-	libcrypto-1_1.dll
+	libcrypto-1_1-x64.dll
 
 Module: libssh2.dll
 ===========================
-	libcrypto-1_1.dll
+	libcrypto-1_1-x64.dll
 
 Module: php_enchant.dll
 ===========================
@@ -75,8 +74,8 @@ Module: gmodule-2.dll
 
 Module: php_ftp.dll
 ===========================
-	libcrypto-1_1.dll
-	libssl-1_1.dll
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
 
 Module: php_intl.dll
 ===========================
@@ -100,13 +99,13 @@ Module: icuio63.dll
 Module: php_ldap.dll
 ===========================
 	libsasl.dll
-	libcrypto-1_1.dll
-	libssl-1_1.dll
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
 
 Module: php_openssl.dll
 ===========================
-	libcrypto-1_1.dll
-	libssl-1_1.dll
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
 
 Module: php_pgsql.dll
 ===========================
@@ -114,12 +113,12 @@ Module: php_pgsql.dll
 
 Module: libpq.dll
 ===========================
-	libssl-1_1.dll
-	libcrypto-1_1.dll
+	libssl-1_1-x64.dll
+	libcrypto-1_1-x64.dll
 
 Module: php_snmp.dll
 ===========================
-	libcrypto-1_1.dll
+	libcrypto-1_1-x64.dll
 
 Module: php_sodium.dll
 ===========================
