@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2019 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ $camilaUI->insertDivider();
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="row">'));
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="col-xs-12 col-md-4">'));
 
-$camilaUI->insertButton('http://www.protezionet.it/dokuwiki/segreteria-campo', 'Manuale','globe');
+$camilaUI->insertButton('https://github.com/linkingtechnologies/protezionet-segreteria-campo/wiki', 'Manuale','globe');
 
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '</div>'));
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="col-xs-12 col-md-4">'));
@@ -33,7 +33,7 @@ $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="col-xs-12 col-md-4"
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '</div><br/><br/><br/><br/><br/><br/>'));
 
 $camilaUI->insertDivider();
-$camilaUI->insertText('Powered by Camila PHP Framework - Copyright (C) 2006-2018 Umberto Bresciani');
+$camilaUI->insertText('Powered by Camila PHP Framework - Copyright (C) 2006-2019 Umberto Bresciani');
 $camilaUI->insertText('Programma rilasciato sotto licenza GNU GPL');
 //$camilaUI->insertButton('https://it.wikipedia.org/wiki/GNU_General_Public_License', 'Licenza d\'uso','globe');
 
