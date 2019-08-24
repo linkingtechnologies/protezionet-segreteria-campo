@@ -57,7 +57,9 @@ class CAMILA_XLS_deck extends CHAW_deck
         $spreadsheet = new Spreadsheet();
         $spreadsheet->setActiveSheetIndex(0);
         
-        $spreadsheet->getActiveSheet()->setTitle($_CAMILA['page_short_title'] . ' - ' . camila_get_translation('camila.worktable.worksheet.data'));
+		$maxlength = 31;
+		$i18nStr = ' - ' . camila_get_translation('camila.worktable.worksheet.data');			
+        $spreadsheet->getActiveSheet()->setTitle(substr($_CAMILA['page_short_title'],0,$maxlength-strlen($i18nStr)) . ' - ' . camila_get_translation('camila.worktable.worksheet.data'));
         
         $i = 0;
         $m = camila_get_translation('camila.dateformat.monthpos');
@@ -144,7 +146,10 @@ class CAMILA_XLS_deck extends CHAW_deck
 
             //$aLeft = $workbook->addformat();
             //$aLeft->setAlign('left');
-			$myWorkSheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, $_CAMILA['page_short_title'] . ' - ' . camila_get_translation('camila.worktable.worksheet.conf'));
+			
+			$maxlength = 31;
+			$i18nStr = ' - ' . camila_get_translation('camila.worktable.worksheet.conf');					
+			$myWorkSheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, substr($_CAMILA['page_short_title'],0,$maxlength-strlen($i18nStr)) . ' - ' . camila_get_translation('camila.worktable.worksheet.conf'));
 			$spreadsheet->addSheet($myWorkSheet);
 			$spreadsheet->setActiveSheetIndex(1);
 
@@ -199,7 +204,8 @@ class CAMILA_XLS_deck extends CHAW_deck
                 $text = $result->fields['name'];
                 $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($count+1, 1, ($text));
                 if ($_REQUEST['camila_worktable_export'] == 'all' && !$dataFound)
-                    $dWorksheet->writeString($count, 1, ($text));
+					$spreadsheet->getSheet(0)->setCellValueByColumnAndRow($count, 1, $text);
+				
                 $text = $result->fields['sequence'];
                 $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($count+1, 2, intval($text));
                 $text = $result->fields['name_abbrev'];
