@@ -76,8 +76,6 @@ function GetInt4d($data, $pos) {
 // http://uk.php.net/manual/en/function.getdate.php
 function gmgetdate($ts = null){
 	$k = array('seconds','minutes','hours','mday','wday','mon','year','yday','weekday','month',0);
-	//return(array_comb($k,split(":",gmdate('s:i:G:j:w:n:Y:z:l:F:U',is_null($ts)?time():$ts))));
-	//split deprecated
 	return(array_comb($k,explode(":",gmdate('s:i:G:j:w:n:Y:z:l:F:U',is_null($ts)?time():$ts))));
 	} 
 
@@ -366,7 +364,7 @@ class Spreadsheet_Excel_Reader {
 		return "";
 	}
 	function type($row,$col,$sheet=0) {
-		return $this->info($row,$col,'rectype',$sheet);
+		return $this->info($row,$col,'type',$sheet);
 	}
 	function raw($row,$col,$sheet=0) {
 		return $this->info($row,$col,'raw',$sheet);
@@ -843,7 +841,7 @@ class Spreadsheet_Excel_Reader {
 
 		// Custom pattern can be POSITIVE;NEGATIVE;ZERO
 		// The "text" option as 4th parameter is not handled
-		$parts = split(";",$format);
+		$parts = explode(";",$format);
 		$pattern = $parts[0];
 		// Negative pattern
 		if (count($parts)>2 && $num==0) {
@@ -1119,8 +1117,7 @@ class Spreadsheet_Excel_Reader {
 								$spos += $len;
 							}
 						}
-						//$retstr = ($asciiEncoding) ? $retstr : $this->_encodeUTF16($retstr);
-						$retstr = ($asciiEncoding) ? iconv('ISO-8859-1', 'utf-8', $retstr) : $this->_encodeUTF16($retstr);
+						$retstr = ($asciiEncoding) ? $retstr : $this->_encodeUTF16($retstr);
 
 						if ($richString){
 							$spos += 4 * $formattingRuns;
