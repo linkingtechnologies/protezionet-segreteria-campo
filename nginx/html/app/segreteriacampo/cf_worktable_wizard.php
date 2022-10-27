@@ -16,7 +16,10 @@
     along with Camila PHP Framework. If not, see <http://www.gnu.org/licenses/>. */
 
 
+
 require('../../camila/header.php');
 require('../../camila/views/'.substr($_SERVER['PHP_SELF'], 0, -4).'.inc.php');
 require('../../camila/footer.php');
+
+
 ?>

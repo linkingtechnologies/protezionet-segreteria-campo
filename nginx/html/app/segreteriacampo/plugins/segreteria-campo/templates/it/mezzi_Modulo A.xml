@@ -22,6 +22,7 @@ ORGANIZZAZIONE: ${organizzazione}
 PROVINCIA: ${provincia}
 TIPOLOGIA MEZZO (MARCA E MODELLO): ${marca e modello}
 TARGA: ${targa}
+COSTO TABELLE ACI: ${costo tabelle aci}
 DATA ARRIVO AL CAMPO: ${data inizio attestato}
 KM RILEVATI ALLA PARTENZA DALLA SEDE DELL’ORGANIZZAZIONE: ${km inizio missione}
 KM RILEVATI ALL’ARRIVO AL CAMPO: ${km all'arrivo}
@@ -56,6 +57,7 @@ ORGANIZZAZIONE: ${organizzazione}
 PROVINCIA: ${provincia}
 TIPOLOGIA MEZZO (MARCA E MODELLO): ${marca e modello}
 TARGA: ${targa}
+COSTO TABELLE ACI: ${costo tabelle aci}
 DATA ARRIVO AL CAMPO: ${data inizio attestato}
 KM RILEVATI ALLA PARTENZA DALLA SEDE DELL’ORGANIZZAZIONE: ${km inizio missione}
 KM RILEVATI ALL’ARRIVO AL CAMPO: ${km all'arrivo}

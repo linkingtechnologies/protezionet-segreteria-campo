@@ -12,10 +12,4 @@
   <url>?admin&amp;dashboard=users</url>
   <pages></pages>
  </tab>
- <tab>
-  <id>plugins</id>
-  <lic_title>camila.admin.title.plugins</lic_title>
-  <url>?admin&amp;dashboard=plugins</url>
-  <pages></pages>
- </tab>
 </menu>

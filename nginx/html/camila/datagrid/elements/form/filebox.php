@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2019 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,6 @@
               $this->uploadfolder = $uploadfolder;
 
           $this->size = $size;
-          $this->maxsize = $maxsize;
 
           $form->add($this);
           if ($extfsenabled) {
@@ -100,7 +99,7 @@
           }
 
           if ($this->showmaxsizewarning) {
-		     $text = new CHAW_text(camila_get_translation('camila.fm.maxfilesizeallowed') . ': ' . $this->_convertfilesize(CAMILA_FM_MAX_UPLOAD_SIZE));
+		     $text = new CHAW_text(camila_get_translation('camila.fm.maxfilesizeallowed') . ': ' . $this->_convertfilesize($this->maxsize));
              $text->set_br(2);
              $form->add_text($text);
 		  }

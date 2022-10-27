@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2016 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,6 +18,9 @@
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
 
 
+require_once(CAMILA_VENDOR_DIR . 'rospdf/pdf-php/src/Cezpdf.php');
+
+
   class CAMILA_PDF_deck extends CHAW_deck {
 
       var $pdf;
@@ -25,7 +28,7 @@
 
       function create_page() {
 
-          require_once(CAMILA_LIB_DIR . 'pdf-php/Cezpdf.php');
+          //require_once(CAMILA_LIB_DIR . 'pdf-php/Cezpdf.php');
 
           if (isset($_REQUEST['camila_page_orient']) && $_REQUEST['camila_page_orient'] == "o")
               $this->pdf = new Cezpdf($_REQUEST['camila_page_dim'],'landscape');

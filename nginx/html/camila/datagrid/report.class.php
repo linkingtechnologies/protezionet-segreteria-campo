@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -192,7 +192,7 @@ class report
         
         if (isset($_REQUEST['filter'])) {
             $this->filter = camila_worktable_filter_decode($_REQUEST['filter'], $_CAMILA['page']->camila_worktable_id);
-            //print_r($this->filter);
+			//print_r($this->filter);
         }
         
         if (!((isset($_REQUEST['camila_w1f'])) || (isset($_REQUEST['count']) && $_REQUEST['count'] > 0) || (isset($_REQUEST['camila_count']) && $_REQUEST['camila_count'] > 0))) {
@@ -1145,7 +1145,8 @@ class report
 					//print_r($fld);
 					$fieldname = '_' . $fld[1]->metatype . '_' . $fld[1]->field;
 					//echo $this->filternum;
-					if ($_CAMILA['db']->databaseType == 'sqlite') {
+					//echo $_CAMILA['db']->databaseType;
+					if ($_CAMILA['db']->databaseType == 'sqlite' || $_CAMILA['db']->databaseType == 'sqlite3') {
 						for($x=1; $x<=$this->filternum; $x++)
 						{
 							if ($_REQUEST['camila_w'.$x.'f'] == '_I_' . $fld[1]->field)
@@ -1162,11 +1163,11 @@ class report
 							}
 						}
 					}
-					
+
 					//echo $fieldname;
 					$options .=  $fieldname . ';' . $fld[1]->title . ',';
-                    $options_array[$count][0]                                     = '_' . $fld[1]->metatype . '_' . $fld[1]->field;
-                    $options_array[$count][1]                                     = $fld[1]->title; ////
+                    $options_array[$count][0] = '_' . $fld[1]->metatype . '_' . $fld[1]->field;
+                    $options_array[$count][1] = $fld[1]->title; ////
                     $fields_array['_' . $fld[1]->metatype . '_' . $fld[1]->field] = $fld[1]->title;
                     $count++;
                 }
@@ -1310,6 +1311,7 @@ class report
     }
     
 	function getFilterDescription() {
+		global $_CAMILA;
 		
 		require_once(CAMILA_DIR . 'datagrid/form.class.php');
             require_once(CAMILA_DIR . 'datagrid/elements/form/hidden.php');
@@ -1397,11 +1399,10 @@ class report
                 }
             }
 		
-		
-		
-		
 		$filterstring = '';
 		$condstring   = camila_get_translation('camila.report.condstring') . $addfilterconds;
+		
+		$_CAMILA['page']->camila_worktable_filter_values = Array();
 
 		for ($i = 1; $i <= $this->filternum; $i++) {
 			$val = null;
@@ -1448,7 +1449,10 @@ class report
 			{
 				$v = $_REQUEST['camila_w' . $i . 'v'];
 
-				$filterstring .= ' "' . $v . '"';	
+				$filterstring .= ' "' . $v . '"';
+				//2019
+				$_CAMILA['page']->camila_worktable_filter_values[$i] = $v;
+				
 			}
 		}
 		

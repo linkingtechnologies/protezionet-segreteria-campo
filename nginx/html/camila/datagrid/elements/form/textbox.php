@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2016 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -59,12 +59,24 @@
               $myText = new CHAW_text($this->title.$this->labelseparator.' '.$this->value);
               $form->add_text($myText);
           }
+		  
+		  //2019
+		  if ($this->updatable && $this->autosuggest_table != '' && strpos($this->key, 'worktable') !== false) {
+			  $code = ( '<script type=\'text/javascript\'>xParent(\''.$this->key.'\',true).removeChild(xNextSib(\''.$this->key.'\',\'br\'))</script>' );
+              $js = new CHAW_js($code);
+              $form->add_userdefined($js);
+			  $autosuggest_callback = 'camila_autosuggest_cb_' . $this->field;
+			  $url = $this->autosuggest_script . "?camila_autosuggest&table=" . $this->autosuggest_table . "&field=" . $this->autosuggest_field . "&id=" . $this->autosuggest_idfield . "&infofields=" . urlencode($this->autosuggest_infofields) . "&pickfields=" . urlencode($this->autosuggest_pickfields) . "&maxresults=" . $this->autosuggest_maxresults . "&";
+			  $l = '<a tabindex="-1" onclick="camila_autosuggest_open_modal(\''.$url.'\',\''.$autosuggest_callback.'\',\''.$this->key.'\',\''.addslashes($this->title).'\')" class=""><span class="glyphicon glyphicon-search"></span></a>';
+              $popup = new CHAW_js($l);
+              $form->add_userdefined($popup);
+		  }
+
       }
 
       function base_draw(&$form)
       {
           parent::draw($form);
-
       }
 
       function process()

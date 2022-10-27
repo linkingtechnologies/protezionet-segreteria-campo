@@ -44,7 +44,8 @@ Class xml2pdf_tag_body {
                              'A4' => array(595.28, 841.89),
                              'A5' => array(420.94, 595.28),
                              'LETTER' => array(612, 791),
-                             'LEGAL' => array(612, 1008));
+                             'LEGAL' => array(612, 1008)/*,
+							 'BUSINESSCARD' => array(3.5*72.27,2*72.27)*/ );
         $unitArray = array('PT'=>1, 'MM'=>72/25.4, 'CM'=>72/2.54, 'IN'=>72);
         
         if(isset($tagProperties['FORMAT'])) {
@@ -54,6 +55,8 @@ Class xml2pdf_tag_body {
                 die();
             }
             list($pdf->fwPt, $pdf->fhPt) = $formatArray[$format];
+			//$pdf->defaultPageSize=$tagProperties['FORMAT'];
+			//$pdf->defaultPageSize=$formatArray[$format];
         }
         if(isset($tagProperties['ORIENTATION'])) {
             $orientation = strtoupper($tagProperties['ORIENTATION']);

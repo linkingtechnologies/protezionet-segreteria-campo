@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2019 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,7 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with Camila PHP Framework. If not, see <http://www.gnu.org/licenses/>. */
 
-$camilaUI->insertTitle(CAMILA_APPLICATION_NAME . ' ' . (String)CamilaPlugins::getPluginInformation(basename(dirname(__FILE__)))->info->versionName . ' (' . (String)CamilaPlugins::getPluginInformation(basename(dirname(__FILE__)))->info->versionNumber . ')', 'question-sign');
+$camilaUI->insertTitle(CAMILA_APPLICATION_NAME, 'question-sign');
+$camilaUI->insertText('Aggiornamento del ' . date('d-m-Y', strtotime(CamilaPlugins::getRepositoryInformation(basename(dirname(__FILE__)))['pushed_at'])));
 $camilaUI->insertDivider();
 
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="row">'));
@@ -33,7 +34,7 @@ $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="col-xs-12 col-md-4"
 $_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '</div><br/><br/><br/><br/><br/><br/>'));
 
 $camilaUI->insertDivider();
-$camilaUI->insertText('Powered by Camila PHP Framework - Copyright (C) 2006-2019 Umberto Bresciani');
+$camilaUI->insertText('Powered by Camila PHP Framework - Copyright (C) 2006-2022 Umberto Bresciani');
 $camilaUI->insertText('Programma rilasciato sotto licenza GNU GPL');
 //$camilaUI->insertButton('https://it.wikipedia.org/wiki/GNU_General_Public_License', 'Licenza d\'uso','globe');
 

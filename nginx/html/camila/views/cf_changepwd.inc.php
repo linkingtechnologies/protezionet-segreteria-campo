@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,14 +47,19 @@ if (CAMILA_USER_CAN_CHANGE_PWD) {
 	{
 		$old = $form->fields['old']->value;
 		$new = $form->fields['new']->value;
+		$old2 = $form->fields['old']->originalValue;
+		$new2 = $form->fields['new']->originalValue;
 		$confirmnew = $form->fields['confirmnew']->value;
-		if ($new != $confirmnew)
+		$confirmnew2 = $form->fields['confirmnew']->originalValue;
+		//echo $new;
+		//echo $confirmnew;
+		if ($new2 != $confirmnew2) {
 			camila_error_text(camila_get_translation('camila.formvalidationerror911'));
-		
+		}
 		else
 		{
-			if (!$camilaAuth->checkCredentials($username, $old))
-				camila_error_text(camila_get_translation('camila.formvalidationerror910'));
+			if (!$camilaAuth->checkCredentials($username, $old2))
+				camila_error_text(camila_get_translation('camila.formvalidationerror910').'!');
 			else
 			{
 				if($camilaAuth->updatePassword($username, $new))

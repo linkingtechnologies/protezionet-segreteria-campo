@@ -1,6 +1,6 @@
 <?php
   /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
    
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -77,7 +77,7 @@ if (!CAMILA_FM_EXPORT_SAVETO_DISABLED)
       foreach (array_merge($_POST, $_GET) as $key => $value) {
           if (!is_array($value)) {
               $myInput = new CHAW_hidden($key, $value);
-              if ($key == 'camila_print' || $key == 'camila_rtf' || $key == 'camila_pdf' || $key == 'camila_xls' || $key == 'camila_csv' || $key == 'camila_pagnum')
+              if ($key == 'camila_print' || $key == 'camila_rtf' || $key == 'camila_pdf' || $key == 'camila_xls' || $key == 'camila_csv' || $key == 'camila_pagnum' || $key == 'camila_ods')
                   $export_format = $key;
               else
                   $myForm->add_input($myInput);
@@ -233,7 +233,7 @@ if (!CAMILA_FM_EXPORT_SAVETO_DISABLED)
       $myForm = new CHAW_form($_SERVER['PHP_SELF']);
       $export_format = camila_export_hidden_fields($myForm);
       
-      if (!isset($_REQUEST['camila_xls']) && !isset($_REQUEST['camila_csv'])) {
+      if (!isset($_REQUEST['camila_xls']) && !isset($_REQUEST['camila_ods']) && !isset($_REQUEST['camila_csv'])) {
           $myInput = new CHAW_input('camila_export_title', $_CAMILA['page_full_title'], camila_get_translation('camila.export.pagetitle'));
           $myInput->set_size(50);
           $myForm->add_input($myInput);
@@ -271,7 +271,7 @@ if (!CAMILA_FM_EXPORT_SAVETO_DISABLED)
       $text->set_br(1);
       $myForm->add_text($text);
       
-      if (substr($_SERVER['PHP_SELF'], 0, 12) == 'cf_worktable' && substr($_SERVER['PHP_SELF'], 0, 13) != 'cf_worktable_' && isset($_REQUEST['camila_xls'])) {
+      if (substr($_SERVER['PHP_SELF'], 0, 12) == 'cf_worktable' && substr($_SERVER['PHP_SELF'], 0, 13) != 'cf_worktable_' && (isset($_REQUEST['camila_xls']) || isset($_REQUEST['camila_ods']))) {
           $mySelect = new CHAW_select('camila_worktable_export');
           $mySelect->add_option(camila_get_translation('camila.worktable.export.all'), 'all', HAW_SELECTED);
           $mySelect->add_option(camila_get_translation('camila.worktable.export.dataonly'), 'dataonly');

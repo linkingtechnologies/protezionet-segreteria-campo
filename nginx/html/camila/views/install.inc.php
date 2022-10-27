@@ -38,8 +38,8 @@ if (is_object($db)) {
 }
 
 if ($accessCheck) {
-	if (version_compare(PHP_VERSION, "5.3.2", "<")) {
-		camila_error_text("PHP 5.3.2 or greater required");
+	if (version_compare(PHP_VERSION, "7.2.19", "<")) {
+		camila_error_text("PHP 7.2.19 or greater required");
 	} else {
 		camila_information_text('PHP Version Check: OK');
 	}
@@ -52,8 +52,6 @@ if ($accessCheck) {
 		camila_error_text("PHP SimpleXML extension required");
 	}
 
-
-
 	$dir_array = array(CAMILA_VAR_ROOTDIR,CAMILA_LOG_DIR,CAMILA_TMP_DIR,CAMILA_TMPL_DIR,CAMILA_WORKTABLES_DIR,CAMILA_PLUGINS_DIR,CAMILA_FM_ROOTDIR);
 	foreach ($dir_array as $dir) {
 		if (is_writable($dir.'/')) {
@@ -64,8 +62,6 @@ if ($accessCheck) {
 	}
 
 }
-
-
 
 
 	$_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="row">'));
@@ -92,8 +88,6 @@ if ($accessCheck) {
 	new form_textbox($form, 'CAMILA_APPLICATION_NAME', 'CAMILA_APPLICATION_NAME', true, 30, 200);
 	new form_textbox($form, 'CAMILA_APPLICATION_TITLE', 'CAMILA_APPLICATION_TITLE', true, 30, 200);
 	new form_textbox($form, 'CAMILA_APPLICATION_GROUP', 'CAMILA_APPLICATION_GROUP', true, 30, 200);
-
-
 
 	new form_textbox($form, 'CAMILA_DB_DSN', 'CAMILA_DB_DSN', true, 30, 200);
 
@@ -127,8 +121,6 @@ if ($accessCheck) {
 
 
 
-
-
 	if ($form->process())
 	{
 		if (1)
@@ -138,6 +130,11 @@ if ($accessCheck) {
 			$camilaApp->db = $db;
 			$camilaApp->lang = $_REQUEST['lang'];		
 			$camilaApp->resetTables(CAMILA_TABLES_DIR);
+
+			$url  = './index.php';
+			$link = new CHAW_link('Access application', $url);
+			$_CAMILA['page']->add_link($link);
+			
 		}
 		else {
 

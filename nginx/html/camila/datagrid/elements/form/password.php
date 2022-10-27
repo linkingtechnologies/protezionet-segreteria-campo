@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 
   class form_password extends form_textbox
   {
+	  var $originalValue;
 
       function draw(&$form)
       {
@@ -48,6 +49,8 @@
 		  global $_CAMILA;
 		  $camilaAuth = new CamilaAuth();
 		  //$camilaAuth->db = $_CAMILA['db'];
+		  //echo '['.$this->value.'}';
+		  $this->originalValue = $this->value;
 		  $this->value = $camilaAuth->hashPassword($this->value);
 		  }
 	  }

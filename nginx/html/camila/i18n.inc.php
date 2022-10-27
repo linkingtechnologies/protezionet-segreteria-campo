@@ -81,6 +81,9 @@
 
   function camila_information_text($msg)
   {
+	  if (php_sapi_name() == "cli") {
+			echo $msg."\n";
+		} else {
       global $_CAMILA;
 	  $myHtmlCode = '<div class="alert alert-success" role="alert">';
 	  $myDiv = new HAW_raw(HAW_HTML, $myHtmlCode);
@@ -92,6 +95,7 @@
 	  $myHtmlCode = '</div>';
 	  $myDiv = new HAW_raw(HAW_HTML, $myHtmlCode);
 	  $_CAMILA['page']->add_raw($myDiv);
+	}
   }
 
 

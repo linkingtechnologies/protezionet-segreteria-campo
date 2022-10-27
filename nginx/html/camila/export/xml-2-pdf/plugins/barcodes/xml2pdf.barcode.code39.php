@@ -87,7 +87,8 @@ class xml2pdf_barcode_code39 {
         //affichage du code
 		if ($fontSize>0)
 		{
-            $pdf->SetFont('Arial', '', $fontSize);
+            $pdf->SetTextColor(0,0,0);
+			$pdf->SetFont('Arial', '', $fontSize);
             $pdf->Text($x, $y+$h+4, $code);
 		}
 

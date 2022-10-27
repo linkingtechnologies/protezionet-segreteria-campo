@@ -1,7 +1,6 @@
 <?php
 
-require(CAMILA_LIB_DIR.'adodb5/adodb.inc.php');
-
+require(CAMILA_VENDOR_DIR.'adodb/adodb-php/adodb.inc.php');
 
 ob_start();
 

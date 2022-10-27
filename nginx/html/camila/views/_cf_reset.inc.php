@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,7 +21,8 @@ require_once('var/config.php');
 
 require_once(CAMILA_LIB_DIR.'minitemplator/MiniTemplator.class.php');
 require_once(CAMILA_LIB_DIR.'m2translator/M2Translator.class.php');
-require_once(CAMILA_LIB_DIR.'adodb5/adodb.inc.php');
+require_once(CAMILA_VENDOR_DIR . '/adodb/adodb-php/adodb.inc.php');
+//require_once(CAMILA_LIB_DIR.'adodb5/adodb.inc.php');
 require_once(CAMILA_DIR.'hawhaw/hawhaw.inc');
 require_once(CAMILA_DIR.'db/import.inc.php');
 require_once(CAMILA_DIR.'db/schema.inc.php');
@@ -135,7 +136,7 @@ class CamilaAppReset extends LongRunningTaskLogger
 		sort($files, SORT_LOCALE_STRING);
 
 		foreach($files as $file) {
-			if ($file != '.' && $file != '..' && substr($file,-3) == 'xls') {
+			if ($file != '.' && $file != '..' && (substr($file,-3) == 'xls' || substr($file,-4) == 'xlsx')) {
 				$result = XLS_import($tablesDir.'/xls/'.$_REQUEST['lang'].'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-4), $this->db);
 			}
 		}
@@ -143,7 +144,7 @@ class CamilaAppReset extends LongRunningTaskLogger
 		if (is_dir($tablesDir)) {
 
 				foreach($files as $file) {
-					if ($file != '.' && $file != '..' && substr($file,-3) == 'xls') {
+					if ($file != '.' && $file != '..' && (substr($file,-3) == 'xls' || substr($file,-4) == 'xlsx')) {
 						$result = XLS_import2($tablesDir.'/xls/'.$_REQUEST['lang'].'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-4), $this->db);
 						if ($result['result'] == 2)
 							$this->logMe(time(), $file . ' - inserted: ' . $result['processed'], 10);

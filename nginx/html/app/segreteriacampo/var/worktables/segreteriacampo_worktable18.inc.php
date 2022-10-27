@@ -77,12 +77,9 @@ if (camila_form_in_update_mode(segreteriacampo_worktable18)) {
     new form_textbox($form, 'nome', 'NOME', true, 30, 255, 'uppercase');
 
     
-    new form_textbox($form, 'codicevolontario', 'CODICE VOLONTARIO', false, 30, 255, '');
+    new form_textbox($form, 'codicefiscale', 'CODICE FISCALE', false, 30, 255, 'uppercase');
 
-if (is_object($form->fields['codicevolontario'])) $form->fields['codicevolontario']->autofocus = true;
-    
-    new form_textbox($form, 'codicefiscale', 'CODICE FISCALE', false, 30, 255, '');
-
+if (is_object($form->fields['codicefiscale'])) $form->fields['codicefiscale']->autofocus = true;
     
     new form_static_listbox($form, 'mansione', 'MANSIONE', 'OPERATORE LOGISTICO (GENERICO),OPERATORE LOGISTICO (INSACCHETTAMENTO),OPERATORE LOGISTICO (MOTOSEGA),OPERATORE LOGISTICO (MOTOPOMPE),OPERATORE LOGISTICO (SUB),OPERATORE CINOFILO,OPERATORE SEGRETERIA,OPERATORE SALA OPERATIVA,OPERATORE RADIO,OPERATORE NAUTICO,ELETTRICISTA,MURATORE,IDRAULICO,OPERATORE SANITARIO,OPERATORE CUCINA,OPERATORE ANTINCENDIO,OPERATORE A CAVALLO,OPERATORE SUBACQUEO', false, '');
 
@@ -113,11 +110,8 @@ if (is_object($form->fields['autista'])) $form->fields['autista']->help = 'Indic
     new form_static_listbox($form, 'pernottamento', 'PERNOTTAMENTO', 'n.d.,NO,SI', false, '');
 
     
-    new form_textbox($form, 'problemialimentari', 'PROBLEMI ALIMENTARI', false, 30, 255, '');
-
-    
     new form_static_listbox($form, 'beneficidilegge', 'BENEFICI DI LEGGE', 'n.d.,NO,SI', false, '');
-if (is_object($form->fields['beneficidilegge'])) $form->fields['beneficidilegge']->help = 'Indicare se intende usufruire dei benefici di legge (DPR 194/2001).';
+if (is_object($form->fields['beneficidilegge'])) $form->fields['beneficidilegge']->help = 'Indicare se intende usufruire dei "benefici di legge".';
 if (is_object($form->fields['beneficidilegge'])) $form->fields['beneficidilegge']->defaultvalue = worktable_parse_default_expression('N', $form);
 
     
@@ -137,6 +131,9 @@ if (is_object($form->fields['turno'])) $form->fields['turno']->write_value_to_fi
     
     new form_textbox($form, 'codicebadge', 'CODICE BADGE', false, 30, 255, '');
 if (is_object($form->fields['codicebadge'])) $form->fields['codicebadge']->defaultvalue = worktable_parse_default_expression('${prefissocodiceabarre}${codice riga}', $form);
+
+    
+    new form_textbox($form, 'codicevolontario', 'CODICE VOLONTARIO', false, 30, 255, '');
 
     
     new form_date($form, 'datainizioattestato', 'DATA INIZIO ATTESTATO', true, '');
@@ -211,108 +208,99 @@ if (is_object($form->fields['dataorauscitadefinitiva'])) $form->fields['dataorau
 $form->fields['organizzazione']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['organizzazione']->autosuggest_field = 'organizzazione';
 $form->fields['organizzazione']->autosuggest_idfield = 'id';
-$form->fields['organizzazione']->autosuggest_infofields = 'cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note';
-$form->fields['organizzazione']->autosuggest_pickfields = 'cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note';
-$form->fields['organizzazione']->autosuggest_destfields = 'cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note';
+$form->fields['organizzazione']->autosuggest_infofields = 'cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note';
+$form->fields['organizzazione']->autosuggest_pickfields = 'cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note';
+$form->fields['organizzazione']->autosuggest_destfields = 'cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note';
 }
 if (is_object($form->fields['cognome']))
 {
 $form->fields['cognome']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['cognome']->autosuggest_field = 'cognome';
 $form->fields['cognome']->autosuggest_idfield = 'id';
-$form->fields['cognome']->autosuggest_infofields = 'nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione';
-$form->fields['cognome']->autosuggest_pickfields = 'nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione';
-$form->fields['cognome']->autosuggest_destfields = 'nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione';
+$form->fields['cognome']->autosuggest_infofields = 'nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione';
+$form->fields['cognome']->autosuggest_pickfields = 'nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione';
+$form->fields['cognome']->autosuggest_destfields = 'nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione';
 }
 if (is_object($form->fields['nome']))
 {
 $form->fields['nome']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['nome']->autosuggest_field = 'nome';
 $form->fields['nome']->autosuggest_idfield = 'id';
-$form->fields['nome']->autosuggest_infofields = 'codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome';
-$form->fields['nome']->autosuggest_pickfields = 'codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome';
-$form->fields['nome']->autosuggest_destfields = 'codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome';
-}
-if (is_object($form->fields['codicevolontario']))
-{
-$form->fields['codicevolontario']->autosuggest_table = 'segreteriacampo_worktable22';
-$form->fields['codicevolontario']->autosuggest_field = 'codicevolontario';
-$form->fields['codicevolontario']->autosuggest_idfield = 'id';
-$form->fields['codicevolontario']->autosuggest_infofields = 'codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome';
-$form->fields['codicevolontario']->autosuggest_pickfields = 'codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome';
-$form->fields['codicevolontario']->autosuggest_destfields = 'codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome';
+$form->fields['nome']->autosuggest_infofields = 'codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome';
+$form->fields['nome']->autosuggest_pickfields = 'codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome';
+$form->fields['nome']->autosuggest_destfields = 'codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome';
 }
 if (is_object($form->fields['codicefiscale']))
 {
 $form->fields['codicefiscale']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['codicefiscale']->autosuggest_field = 'codicefiscale';
 $form->fields['codicefiscale']->autosuggest_idfield = 'id';
-$form->fields['codicefiscale']->autosuggest_infofields = 'mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario';
-$form->fields['codicefiscale']->autosuggest_pickfields = 'mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario';
-$form->fields['codicefiscale']->autosuggest_destfields = 'mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario';
+$form->fields['codicefiscale']->autosuggest_infofields = 'mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome';
+$form->fields['codicefiscale']->autosuggest_pickfields = 'mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome';
+$form->fields['codicefiscale']->autosuggest_destfields = 'mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome';
 }
 if (is_object($form->fields['mansione']))
 {
 $form->fields['mansione']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['mansione']->autosuggest_field = 'mansione';
 $form->fields['mansione']->autosuggest_idfield = 'id';
-$form->fields['mansione']->autosuggest_infofields = 'responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale';
-$form->fields['mansione']->autosuggest_pickfields = 'responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale';
-$form->fields['mansione']->autosuggest_destfields = 'responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale';
+$form->fields['mansione']->autosuggest_infofields = 'responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale';
+$form->fields['mansione']->autosuggest_pickfields = 'responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale';
+$form->fields['mansione']->autosuggest_destfields = 'responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale';
 }
 if (is_object($form->fields['responsabile']))
 {
 $form->fields['responsabile']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['responsabile']->autosuggest_field = 'responsabile';
 $form->fields['responsabile']->autosuggest_idfield = 'id';
-$form->fields['responsabile']->autosuggest_infofields = 'cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione';
-$form->fields['responsabile']->autosuggest_pickfields = 'cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione';
-$form->fields['responsabile']->autosuggest_destfields = 'cellulare,problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione';
+$form->fields['responsabile']->autosuggest_infofields = 'cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione';
+$form->fields['responsabile']->autosuggest_pickfields = 'cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione';
+$form->fields['responsabile']->autosuggest_destfields = 'cellulare,provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione';
 }
 if (is_object($form->fields['cellulare']))
 {
 $form->fields['cellulare']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['cellulare']->autosuggest_field = 'cellulare';
 $form->fields['cellulare']->autosuggest_idfield = 'id';
-$form->fields['cellulare']->autosuggest_infofields = 'problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile';
-$form->fields['cellulare']->autosuggest_pickfields = 'problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile';
-$form->fields['cellulare']->autosuggest_destfields = 'problemialimentari,provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile';
-}
-if (is_object($form->fields['problemialimentari']))
-{
-$form->fields['problemialimentari']->autosuggest_table = 'segreteriacampo_worktable22';
-$form->fields['problemialimentari']->autosuggest_field = 'problemialimentari';
-$form->fields['problemialimentari']->autosuggest_idfield = 'id';
-$form->fields['problemialimentari']->autosuggest_infofields = 'provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare';
-$form->fields['problemialimentari']->autosuggest_pickfields = 'provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare';
-$form->fields['problemialimentari']->autosuggest_destfields = 'provincia,codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare';
+$form->fields['cellulare']->autosuggest_infofields = 'provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile';
+$form->fields['cellulare']->autosuggest_pickfields = 'provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile';
+$form->fields['cellulare']->autosuggest_destfields = 'provincia,codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile';
 }
 if (is_object($form->fields['provincia']))
 {
 $form->fields['provincia']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['provincia']->autosuggest_field = 'provincia';
 $form->fields['provincia']->autosuggest_idfield = 'id';
-$form->fields['provincia']->autosuggest_infofields = 'codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari';
-$form->fields['provincia']->autosuggest_pickfields = 'codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari';
-$form->fields['provincia']->autosuggest_destfields = 'codiceorganizzazione,note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari';
+$form->fields['provincia']->autosuggest_infofields = 'codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare';
+$form->fields['provincia']->autosuggest_pickfields = 'codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare';
+$form->fields['provincia']->autosuggest_destfields = 'codiceorganizzazione,codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare';
 }
 if (is_object($form->fields['codiceorganizzazione']))
 {
 $form->fields['codiceorganizzazione']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['codiceorganizzazione']->autosuggest_field = 'codiceorganizzazione';
 $form->fields['codiceorganizzazione']->autosuggest_idfield = 'id';
-$form->fields['codiceorganizzazione']->autosuggest_infofields = 'note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia';
-$form->fields['codiceorganizzazione']->autosuggest_pickfields = 'note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia';
-$form->fields['codiceorganizzazione']->autosuggest_destfields = 'note,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia';
+$form->fields['codiceorganizzazione']->autosuggest_infofields = 'codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia';
+$form->fields['codiceorganizzazione']->autosuggest_pickfields = 'codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia';
+$form->fields['codiceorganizzazione']->autosuggest_destfields = 'codicevolontario,note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia';
+}
+if (is_object($form->fields['codicevolontario']))
+{
+$form->fields['codicevolontario']->autosuggest_table = 'segreteriacampo_worktable22';
+$form->fields['codicevolontario']->autosuggest_field = 'codicevolontario';
+$form->fields['codicevolontario']->autosuggest_idfield = 'id';
+$form->fields['codicevolontario']->autosuggest_infofields = 'note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione';
+$form->fields['codicevolontario']->autosuggest_pickfields = 'note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione';
+$form->fields['codicevolontario']->autosuggest_destfields = 'note,organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione';
 }
 if (is_object($form->fields['note']))
 {
 $form->fields['note']->autosuggest_table = 'segreteriacampo_worktable22';
 $form->fields['note']->autosuggest_field = 'note';
 $form->fields['note']->autosuggest_idfield = 'id';
-$form->fields['note']->autosuggest_infofields = 'organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione';
-$form->fields['note']->autosuggest_pickfields = 'organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione';
-$form->fields['note']->autosuggest_destfields = 'organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,responsabile,cellulare,problemialimentari,provincia,codiceorganizzazione';
+$form->fields['note']->autosuggest_infofields = 'organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario';
+$form->fields['note']->autosuggest_pickfields = 'organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario';
+$form->fields['note']->autosuggest_destfields = 'organizzazione,cognome,nome,codicefiscale,mansione,responsabile,cellulare,provincia,codiceorganizzazione,codicevolontario';
 }
 
 
@@ -321,9 +309,9 @@ $form->fields['note']->autosuggest_destfields = 'organizzazione,cognome,nome,cod
     $form->draw();
 
 } else {
-      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,servizio,responsabile,cellulare,autista,pranzo,cena,pernottamento,problemialimentari,beneficidilegge,numggbenlegge,provincia,codiceorganizzazione,turno,codicebadge,datainizioattestato,datafineattestato,dataoraregistrazione,dataorauscitadefinitiva,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
+      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,organizzazione,cognome,nome,codicefiscale,mansione,servizio,responsabile,cellulare,autista,pranzo,cena,pernottamento,beneficidilegge,numggbenlegge,provincia,codiceorganizzazione,turno,codicebadge,codicevolontario,datainizioattestato,datafineattestato,dataoraregistrazione,dataorauscitadefinitiva,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
 	  //$admin_report_fields = '';
-      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,organizzazione,cognome,nome,codicevolontario,codicefiscale,mansione,servizio,responsabile,cellulare,autista,pranzo,cena,pernottamento,problemialimentari,beneficidilegge,numggbenlegge,provincia,codiceorganizzazione,turno,codicebadge,datainizioattestato,datafineattestato,dataoraregistrazione,dataorauscitadefinitiva,note';
+      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,organizzazione,cognome,nome,codicefiscale,mansione,servizio,responsabile,cellulare,autista,pranzo,cena,pernottamento,beneficidilegge,numggbenlegge,provincia,codiceorganizzazione,turno,codicebadge,codicevolontario,datainizioattestato,datafineattestato,dataoraregistrazione,dataorauscitadefinitiva,note';
 
       if (isset($_REQUEST['camila_rest'])) {
           $report_fields = str_replace('cf_bool_is_special,', '', $report_fields);
@@ -335,9 +323,9 @@ $form->fields['note']->autosuggest_destfields = 'organizzazione,cognome,nome,cod
 		//  $default_fields = $admin_report_fields;
 
       if ($_CAMILA['page']->camila_exporting())
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicevolontario=CODICE VOLONTARIO#codicefiscale=CODICE FISCALE#mansione=MANSIONE#servizio=SERVIZIO#responsabile=RESPONSABILE#cellulare=CELLULARE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#pernottamento=PERNOTTAMENTO#problemialimentari=PROBLEMI ALIMENTARI#beneficidilegge=BENEFICI DI LEGGE#numggbenlegge=NUM. GG. BEN. LEGGE#provincia=PROVINCIA#codiceorganizzazione=CODICE ORGANIZZAZIONE#turno=TURNO#codicebadge=CODICE BADGE#datainizioattestato=DATA INIZIO ATTESTATO#datafineattestato=DATA FINE ATTESTATO#dataoraregistrazione=DATA/ORA REGISTRAZIONE#dataorauscitadefinitiva=DATA/ORA USCITA DEFINITIVA#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#mansione=MANSIONE#servizio=SERVIZIO#responsabile=RESPONSABILE#cellulare=CELLULARE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#pernottamento=PERNOTTAMENTO#beneficidilegge=BENEFICI DI LEGGE#numggbenlegge=NUM. GG. BEN. LEGGE#provincia=PROVINCIA#codiceorganizzazione=CODICE ORGANIZZAZIONE#turno=TURNO#codicebadge=CODICE BADGE#codicevolontario=CODICE VOLONTARIO#datainizioattestato=DATA INIZIO ATTESTATO#datafineattestato=DATA FINE ATTESTATO#dataoraregistrazione=DATA/ORA REGISTRAZIONE#dataorauscitadefinitiva=DATA/ORA USCITA DEFINITIVA#note=NOTE';
       else
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicevolontario=COD. VOLONTARIO#codicefiscale=CODICE FISCALE#mansione=MANSIONE#servizio=SERVIZIO#responsabile=RESP.#cellulare=CELLULARE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#pernottamento=PERN.#problemialimentari=PROB. ALIM.#beneficidilegge=BENEFICI DI LEGGE#numggbenlegge=NUM. GG. BEN. LEGGE#provincia=PROVINCIA#codiceorganizzazione=COD. ORGANIZZAZIONE#turno=TURNO#codicebadge=CODICE BADGE#datainizioattestato=DATA INIZIO ATTEST.#datafineattestato=DATA FINE ATTEST.#dataoraregistrazione=DATA/ORA REG.#dataorauscitadefinitiva=DATA/ORA USCITA#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#mansione=MANSIONE#servizio=SERVIZIO#responsabile=RESP.#cellulare=CELLULARE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#pernottamento=PERN.#beneficidilegge=BENEFICI DI LEGGE#numggbenlegge=NUM. GG. BEN. LEGGE#provincia=PROVINCIA#codiceorganizzazione=COD. ORGANIZZAZIONE#turno=TURNO#codicebadge=CODICE BADGE#codicevolontario=COD. VOLONTARIO#datainizioattestato=DATA INIZIO ATTEST.#datafineattestato=DATA FINE ATTEST.#dataoraregistrazione=DATA/ORA REG.#dataorauscitadefinitiva=DATA/ORA USCITA#note=NOTE';
 
       $filter = '';
 
@@ -397,12 +385,6 @@ $jarr=Array();
 $jarr['url'] = "javascript:camila_inline_update_selected('nome','')";
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA NOME...';
-$jarr['parent'] = 'index.php';
-$report->menuitems[]=$jarr;
-$jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('codicevolontario','')";
-$jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA CODICE VOLONTARIO...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();
@@ -652,12 +634,6 @@ $jarr['short_title'] = 'SI';
 $jarr['parent'] = 'pernottamento';
 $report->menuitems[]=$jarr;
 $jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('problemialimentari','')";
-$jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA PROBLEMI ALIMENTARI...';
-$jarr['parent'] = 'index.php';
-$report->menuitems[]=$jarr;
-$jarr=Array();
 $jarr['url'] = 'beneficidilegge';
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA BENEFICI DI LEGGE';
@@ -703,6 +679,12 @@ $jarr=Array();
 $jarr['url'] = "javascript:camila_inline_update_selected('codicebadge','')";
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA CODICE BADGE...';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('codicevolontario','')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA CODICE VOLONTARIO...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();

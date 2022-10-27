@@ -98,6 +98,15 @@ if (camila_form_in_update_mode(segreteriacampo_worktable22)) {
     new form_textbox($form, 'autista', 'AUTISTA', false, 30, 255, '');
 
     
+    new form_textbox($form, 'pranzo', 'PRANZO', false, 30, 255, '');
+
+    
+    new form_textbox($form, 'cena', 'CENA', false, 30, 255, '');
+
+    
+    new form_textbox($form, 'beneficidilegge', 'BENEFICI DI LEGGE', false, 30, 255, '');
+
+    
     new form_date($form, 'dataarrivo', 'DATA ARRIVO', false, '');
 
     
@@ -111,9 +120,6 @@ if (camila_form_in_update_mode(segreteriacampo_worktable22)) {
 
     
     new form_textbox($form, 'turno', 'TURNO', false, 30, 255, '');
-
-    
-    new form_textbox($form, 'problemialimentari', 'PROBLEMI ALIMENTARI', false, 30, 255, '');
 
     
     new form_textbox($form, 'codiceorganizzazione', 'CODICE ORGANIZZAZIONE', false, 30, 255, '');
@@ -180,9 +186,9 @@ if (camila_form_in_update_mode(segreteriacampo_worktable22)) {
     $form->draw();
 
 } else {
-      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,provincia,organizzazione,cognome,nome,codicefiscale,codicevolontario,cellulare,mansione,responsabile,autista,dataarrivo,oraarrivo,datapartenza,orapartenza,turno,problemialimentari,codiceorganizzazione,servizio,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
+      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,provincia,organizzazione,cognome,nome,codicefiscale,codicevolontario,cellulare,mansione,responsabile,autista,pranzo,cena,beneficidilegge,dataarrivo,oraarrivo,datapartenza,orapartenza,turno,codiceorganizzazione,servizio,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
 	  //$admin_report_fields = '';
-      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,provincia,organizzazione,cognome,nome,codicefiscale,codicevolontario,cellulare,mansione,responsabile,autista,dataarrivo,oraarrivo,datapartenza,orapartenza,turno,problemialimentari,codiceorganizzazione,servizio,note';
+      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,provincia,organizzazione,cognome,nome,codicefiscale,codicevolontario,cellulare,mansione,responsabile,autista,pranzo,cena,beneficidilegge,dataarrivo,oraarrivo,datapartenza,orapartenza,turno,codiceorganizzazione,servizio,note';
 
       if (isset($_REQUEST['camila_rest'])) {
           $report_fields = str_replace('cf_bool_is_special,', '', $report_fields);
@@ -194,9 +200,9 @@ if (camila_form_in_update_mode(segreteriacampo_worktable22)) {
 		//  $default_fields = $admin_report_fields;
 
       if ($_CAMILA['page']->camila_exporting())
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#provincia=PROVINCIA#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#codicevolontario=CODICE VOLONTARIO#cellulare=CELLULARE#mansione=MANSIONE#responsabile=RESPONSABILE#autista=AUTISTA#dataarrivo=DATA ARRIVO#oraarrivo=ORA ARRIVO#datapartenza=DATA PARTENZA#orapartenza=ORA PARTENZA#turno=TURNO#problemialimentari=PROBLEMI ALIMENTARI#codiceorganizzazione=CODICE ORGANIZZAZIONE#servizio=SERVIZIO#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#provincia=PROVINCIA#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#codicevolontario=CODICE VOLONTARIO#cellulare=CELLULARE#mansione=MANSIONE#responsabile=RESPONSABILE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#beneficidilegge=BENEFICI DI LEGGE#dataarrivo=DATA ARRIVO#oraarrivo=ORA ARRIVO#datapartenza=DATA PARTENZA#orapartenza=ORA PARTENZA#turno=TURNO#codiceorganizzazione=CODICE ORGANIZZAZIONE#servizio=SERVIZIO#note=NOTE';
       else
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#provincia=PROVINCIA#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#codicevolontario=COD. VOLONTARIO#cellulare=CELLULARE#mansione=MANSIONE#responsabile=RESPONSABILE#autista=AUTISTA#dataarrivo=DATA ARRIVO#oraarrivo=ORA ARRIVO#datapartenza=DATA PARTENZA#orapartenza=ORA PARTENZA#turno=TURNO#problemialimentari=PROBLEMI ALIMENTARI#codiceorganizzazione=COD. ORGANIZZAZIONE#servizio=SERVIZIO#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#provincia=PROVINCIA#organizzazione=ORGANIZZAZIONE#cognome=COGNOME#nome=NOME#codicefiscale=CODICE FISCALE#codicevolontario=COD. VOLONTARIO#cellulare=CELLULARE#mansione=MANSIONE#responsabile=RESPONSABILE#autista=AUTISTA#pranzo=PRANZO#cena=CENA#beneficidilegge=BENEFICI DI LEGGE#dataarrivo=DATA ARRIVO#oraarrivo=ORA ARRIVO#datapartenza=DATA PARTENZA#orapartenza=ORA PARTENZA#turno=TURNO#codiceorganizzazione=COD. ORGANIZZAZIONE#servizio=SERVIZIO#note=NOTE';
 
       $filter = '';
 
@@ -301,6 +307,24 @@ $jarr['short_title'] = 'MODIFICA AUTISTA...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('pranzo','')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA PRANZO...';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('cena','')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA CENA...';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('beneficidilegge','')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA BENEFICI DI LEGGE...';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
 $jarr['url'] = "javascript:camila_inline_update_selected('dataarrivo','')";
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA DATA ARRIVO...';
@@ -328,12 +352,6 @@ $jarr=Array();
 $jarr['url'] = "javascript:camila_inline_update_selected('turno','')";
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA TURNO...';
-$jarr['parent'] = 'index.php';
-$report->menuitems[]=$jarr;
-$jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('problemialimentari','')";
-$jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA PROBLEMI ALIMENTARI...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();

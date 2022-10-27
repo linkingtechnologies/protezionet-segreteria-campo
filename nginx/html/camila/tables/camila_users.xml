@@ -10,6 +10,8 @@
 		</field>
 		<field name="username" type="C" size="100">
 		</field>
+		<field name="email" type="C" size="250">
+		</field>
 		<field name="session_id" type="C" size="100">
 		</field>
 		<field name="session_end" type="T"></field>
@@ -20,6 +22,12 @@
 		</field>
 		<field name="visibility_type" type="C" size="30">
 		</field>
+		<field name="status" type="I">
+			<DEFAULT value="1"/>
+		</field>
+		<field name="is_deleted" type="I">
+			<DEFAULT value="1"/>
+		</field>
 		<field name="password" type="C" size="255">
 		</field>
 		<field name="preferences" type="X">
@@ -28,7 +36,11 @@
 		<field name="lang" type="C" size="5"></field>
 		<field name="output" type="C" size="10">
 		</field>
+		<field name="profile_pic" type="C" size="250">
+		</field>
 		<field name="token" type="C" size="100">
+		</field>
+		<field name="var_key" type="C" size="250">
 		</field>
 		<field name="attrib_01" type="C" size="100">
 		</field>

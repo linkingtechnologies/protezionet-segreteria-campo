@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2017 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,7 +21,8 @@ require_once('../../camila/database.inc.php');
 require_once('../../camila/auth.class.inc.php');
 require_once('../../camila/worktable.class.inc.php');
 
-require_once(CAMILA_LIB_DIR . 'adodb5/adodb-csvlib.inc.php');
+require_once(CAMILA_VENDOR_DIR . '/adodb/adodb-php/adodb-csvlib.inc.php');
+//require_once(CAMILA_LIB_DIR . 'adodb5/adodb-csvlib.inc.php');
 
 $camilaAuth                  = new CamilaAuth();
 $camilaAuth->db              = $_CAMILA['db'];

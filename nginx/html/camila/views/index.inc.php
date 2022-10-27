@@ -71,6 +71,9 @@ if (isset($_REQUEST['camila_autosuggest'])) {
     
 	
 	//echo $query . ' from ' . $_REQUEST['table'] . ' where ' . $where;
+	if (isset($_REQUEST['src']) && $_REQUEST['src'] == 'modal')
+		$_REQUEST['maxresults'] = 100;
+	
     $result = $_CAMILA['db']->SelectLimit($query . ' from ' . $_REQUEST['table'] . ' where ' . $where, $_REQUEST['maxresults']);
 	
 	

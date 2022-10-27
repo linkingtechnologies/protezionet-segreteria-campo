@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2019 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 
 
 require 'hawhaw/hawhaw.inc';
-require_once(CAMILA_LIB_DIR . 'tbs/tbs_class.php');
+require_once(CAMILA_VENDOR_DIR.'tinybutstrong/tinybutstrong/tbs_class.php');
 
 class CamilaTranslator{
 	function getTranslation($name){
@@ -33,7 +33,7 @@ $i18n = new CamilaTranslator();
 
 class CHAW_deck extends HAW_deck
 {
-  var $camila_force_js_update_token = '2017';
+  var $camila_force_js_update_token = '2021';
   var $camila_num_tables = 0;
   var $camila_headjsscripts = Array();
   var $camila_headjsscriptsids = Array();
@@ -46,6 +46,7 @@ class CHAW_deck extends HAW_deck
   var $camila_rtf_export_enabled = true;
   var $camila_csv_export_enabled = false;
   var $camila_xls_export_enabled = false;
+  var $camila_ods_export_enabled = false;
   var $camila_xml2pdf_export_enabled = true;
   var $camila_print_export_enabled = true;
   
@@ -62,7 +63,7 @@ class CHAW_deck extends HAW_deck
 
   function CHAW_deck($title = '', $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
   {
-	  $this->camila_force_js_update_token = date("mdy").'2017';
+	  $this->camila_force_js_update_token = date("mdy").'2021';
       global $_CAMILA;
 
       if (!isset($_REQUEST['camila_print'])) {
@@ -146,7 +147,7 @@ class CHAW_deck extends HAW_deck
 
   function camila_export_get_ext() {
       if(isset($_REQUEST['camila_xls']))
-          return 'xls';
+          return 'xlsx';
 
       if(isset($_REQUEST['camila_csv']))
           return 'csv';
@@ -159,6 +160,9 @@ class CHAW_deck extends HAW_deck
 
       if(isset($_REQUEST['camila_xml2pdf']))
           return 'pdf';
+	  
+	  if(isset($_REQUEST['camila_ods']))
+          return 'ods';
 
   }
 
@@ -202,7 +206,7 @@ class CHAW_deck extends HAW_deck
 
   function camila_exporting()
   {
-    if (isset($_REQUEST["camila_inline"]) || isset($_REQUEST["camila_print"]) || isset($_REQUEST["camila_soap"]) || isset($_REQUEST["camila_js"]) || isset($_REQUEST["camila_txt"]) || isset($_REQUEST["camila_pdf"]) || isset($_REQUEST["camila_xls"]) || isset($_REQUEST["camila_csv"]) || isset($_REQUEST["camila_rtf"]) || isset($_REQUEST["camila_xml2pdf"]) || isset($_REQUEST["camila_bookmark"]) || isset($_REQUEST["camila_json"]) || isset($_REQUEST["camila_xml"]))
+    if (isset($_REQUEST["camila_inline"]) || isset($_REQUEST["camila_print"]) || isset($_REQUEST["camila_soap"]) || isset($_REQUEST["camila_js"]) || isset($_REQUEST["camila_txt"]) || isset($_REQUEST["camila_pdf"]) || isset($_REQUEST["camila_xls"]) || isset($_REQUEST["camila_csv"]) || isset($_REQUEST["camila_rtf"]) || isset($_REQUEST["camila_xml2pdf"]) || isset($_REQUEST["camila_bookmark"]) || isset($_REQUEST["camila_json"]) || isset($_REQUEST["camila_xml"]) || isset($_REQUEST["camila_ods"]))
       return true;
     else
       return false;
@@ -1834,7 +1838,7 @@ class CHAW_input extends HAW_input
         if (trim($this->label)!=':')
 			printf("<label for=\"%s\">%s</label>\n",
                 $this->name, HAW_specchar($this->label, $deck));
-        printf("<input %s name=\"%s\" id=\"%s\" value=\"%s\" %s %s%s%s /> ",
+        printf("<input %s autocomplete=\"off\" name=\"%s\" id=\"%s\" value=\"%s\" %s %s%s%s /> ",
                 $type, $this->name,
                 $this->name, $this->value, $size, $maxlength, $mode, $class_param);
       }

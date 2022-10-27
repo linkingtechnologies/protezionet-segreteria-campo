@@ -40,6 +40,9 @@ require_once('Xml2PdfTag.php');
  */ // }}}
 Class xml2pdf_tag_page extends Xml2PdfTag {
     // xml2pdf_tag_page::__construct() {{{
+		
+		private $pageWidth;
+		private $pageHeight;
 
     /**
      * Constructor.
@@ -51,7 +54,8 @@ Class xml2pdf_tag_page extends Xml2PdfTag {
      */
     public function __construct($tagProperties) {
         parent::__construct($tagProperties);
-        if(isset($tagProperties['FONT'])){
+        
+		if(isset($tagProperties['FONT'])){
             $this->pdf->pageFont = $tagProperties['FONT'];
         }
         if(isset($tagProperties['FONTSIZE'])){
@@ -63,7 +67,19 @@ Class xml2pdf_tag_page extends Xml2PdfTag {
         if(isset($tagProperties['FONTSTYLE'])){
             $this->pdf->pageFontStyle = $tagProperties['FONTSTYLE'];
         }
-        $this->pdf->AddPage($tagProperties['ORIENTATION']);
+		if(isset($tagProperties['WIDTH'])){
+            $this->pageWidth = $tagProperties['WIDTH'];
+        }
+		if(isset($tagProperties['HEIGHT'])){
+            $this->pageHeight = $tagProperties['HEIGHT'];
+        }
+		
+		if ($this->pageWidth != '' && $this->pageHeight != '') {
+			$this->pdf->AddPage($tagProperties['ORIENTATION'], Array($this->pageWidth, $this->pageHeight));
+		}
+		else {
+			$this->pdf->AddPage($tagProperties['ORIENTATION']);
+		}
         $this->pdf->resetFont();
     } 
     

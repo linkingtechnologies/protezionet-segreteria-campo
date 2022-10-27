@@ -1,6 +1,6 @@
 <?php
   /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
    
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -54,6 +54,11 @@
 			  //2016
 			  $t->setVariable(camila_get_translation('camila.export.template.worktable.filter'), isUTF8($text) ? utf8_decode($_CAMILA['page']->camila_worktable_filter) : $_CAMILA['page']->camila_worktable_filter, true);
 			  
+			  //2019
+			  foreach ($_CAMILA['page']->camila_worktable_filter_values as $k => $v) {
+				  $t->setVariable(camila_get_translation('camila.export.template.worktable.filter') . ' ' . $k, isUTF8($text) ? utf8_decode($v) : $v, true);
+			  }
+
 			  $sheetName = substr ( $_REQUEST['camila_xml2pdf'] , 0 , strpos($_REQUEST['camila_xml2pdf'], '_'));
 			  $t->setVariable(camila_get_translation('camila.export.template.worktable.name'), isUTF8($text) ? utf8_decode($sheetName) : $sheetName, true);
           }
@@ -276,6 +281,8 @@
           }
 		  
           $t->generateOutputToString($xml);
+		  
+		  //echo $xml;
 
           $obj = new Xml2Pdf($xml);
           $pdf = $obj->render();

@@ -10,7 +10,8 @@ Class xml2pdf_tag_qrcode {
     public $height = 0;
 	public $size = 1;
     public $position = 'relative';
-	public $level = 'L';
+	public $level = 'M';
+	public $base64 = 'no';
 
     private $_parent;
 
@@ -44,14 +45,17 @@ Class xml2pdf_tag_qrcode {
 		if(isset($tagProperties['SIZE'])) {
             $this->size = $tagProperties['SIZE'];
         }
+		if(isset($tagProperties['BASE64'])) {
+            $this->base64 = $tagProperties['BASE64'];
+        }
 
         $this->_parent = $parent;    
         $this->pdf = Pdf::singleton();
    }
 
-    public function addContent($content) {
+    /*public function addContent($content) {
         $this->file = base64_decode($content);
-    } 
+    } */
     
     public function close() {
         if (is_a($this->_parent, 'xml2pdf_tag_header')) {
@@ -61,8 +65,13 @@ Class xml2pdf_tag_qrcode {
                 $this->left += $this->pdf->GetX();
                 $this->top += $this->pdf->GetY();
             }
-			$qrcode = new QRcode($this->content, $this->level); // error level : L, M, Q, H			
-			$qrcode->displayFPDF($this->pdf, $this->left, $this->top, $this->size);
+			if ($this->base64 == 'yes')
+				$qrcode = new QRcode(base64_encode(utf8_encode($this->content)), $this->level);
+			else
+				$qrcode = new QRcode(utf8_encode($this->content), $this->level);
+			//$qrcode = new QRcode($this->content, $this->level); // error level : L, M, Q, H
+			$qrcode->disableBorder();
+			$qrcode->displayFPDF($this->pdf, $this->left, $this->top, $this->size, array(255,255,255), array(0,0,0));
         }
     }
 

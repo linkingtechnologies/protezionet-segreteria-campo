@@ -1,5 +1,5 @@
 <?php
-require_once(CAMILA_LIB_DIR . 'adodb5/adodb.inc.php');
+require_once(CAMILA_VENDOR_DIR . '/adodb/adodb-php/adodb.inc.php');
 
 class CamilaAuth
 {    

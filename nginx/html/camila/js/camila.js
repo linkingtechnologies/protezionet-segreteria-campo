@@ -1,5 +1,5 @@
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2012 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -29,11 +29,8 @@ function camila_waiting_box() {
 
 function camila_gva_set_response(data)
 {
-
     var outputhtml = "<b>"+data['camila_record_count']+"</b>";
     document.getElementById(data['reqId']).innerHTML = outputhtml;
-
-
 }
 
 function camila_init(strings,splash,printmode)
@@ -42,7 +39,6 @@ function camila_init(strings,splash,printmode)
 
     if (stringsobj != null)
         window['camila_messages'] = stringsobj;
-
 
     // set textareas id for y_TextCounter.js
     for (i=0; i<xGetElementsByTagName("textarea").length; i++)
@@ -758,4 +754,18 @@ function camila_addDOMLoadEvent(func) {
    
    // add function to event stack
    window.__load_events.push(func);
+}
+
+function camila_autosuggest_open_modal(url, cb, field, title) {
+	$("#autosuggestmodal").modal('show');
+	$('#autosuggesturl').val(url);
+	$('#autosuggestcb').val(cb);
+	$("#autosuggestinput").val("");
+	$("#autosuggestresults").first().html("");
+	$("#autosuggesttitle").html(title);
+	$("#autosuggestfield").val(field);
+}
+
+function camila_autosuggest_close_modal() {
+	$("#autosuggestmodal").modal('hide');
 }

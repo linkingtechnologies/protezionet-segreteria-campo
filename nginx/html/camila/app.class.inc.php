@@ -51,19 +51,29 @@ class CamilaApp
 			if ($file != '.' && $file != '..' && substr($file,-3) == 'xls') {
 				$result = XLS_import($tablesDir.'/xls/'.$this->lang.'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-4), $this->db);
 			}
+			if ($file != '.' && $file != '..' && substr($file,-4) == 'xlsx') {
+				$result = XLS_import($tablesDir.'/xls/'.$this->lang.'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-5), $this->db);
+			}
 		}
 
 		if (is_dir($tablesDir)) {
 
-				foreach($files as $file) {
-					if ($file != '.' && $file != '..' && substr($file,-3) == 'xls') {
+			foreach($files as $file) {
+				if ($file != '.' && $file != '..' && substr($file,-3) == 'xls') {
 						$result = XLS_import2($tablesDir.'/xls/'.$this->lang.'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-4), $this->db);
 						if ($result['result'] == 2)
 							CamilaLogger::logMe(time(), $file . ' - inserted: ' . $result['processed'], 10);
 						else
 							CamilaLogger::logMe(time(), $file . ' - error: ' . $result['error'] . ', failed: ' . $result['failed'] . ', inserted: ' . $result['processed'], 10);
 				}
-		}
+				if ($file != '.' && $file != '..' && substr($file,-4) == 'xlsx') {
+						$result = XLS_import2($tablesDir.'/xls/'.$this->lang.'/'.$file, CAMILA_APPLICATION_PREFIX . substr($file,0,-5), $this->db);
+						if ($result['result'] == 2)
+							CamilaLogger::logMe(time(), $file . ' - inserted: ' . $result['processed'], 10);
+						else
+							CamilaLogger::logMe(time(), $file . ' - error: ' . $result['error'] . ', failed: ' . $result['failed'] . ', inserted: ' . $result['processed'], 10);
+				}
+			}
 
 			$res = $this->db->Execute('update ' . CAMILA_TABLE_PLANG . ' set full_title=short_title where page_url LIKE '.$this->db->qstr('cf_app.php?cat%') . ' and lang='.$this->db->qstr($this->lang));
 			if ($res === false)

@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2009 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -90,9 +90,12 @@
               $this->_checkboxes(true);
 
           global $_CAMILA;
+		  
+		  //echo $_CAMILA['db_genid'];
 
           if ($this->form->fields[$this->formkey]->value == '' || !isset($this->form->fields[$this->formkey]->value)) {
-              $avalue = $_CAMILA['db']->Insert_ID();
+              //$avalue = $_CAMILA['db']->Insert_ID();
+			  $avalue = $_CAMILA['db_genid'];
               $this->form->fields[$this->formkey]->value = $avalue;
           } else {
               $avalue = $this->form->fields[$this->formkey]->value;

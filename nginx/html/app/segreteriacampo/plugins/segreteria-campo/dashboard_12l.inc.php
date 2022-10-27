@@ -33,8 +33,8 @@ function drawMap() {
 		$sub2 = '(SELECT count(*) FROM  ${'.$resourceTable2.'} WHERE ${'.$resourceTable2.'.'.$serviceColumn.'} = ${'.$serviceTable.'.NOME}) as tot2';
 		//$queryList = 'SELECT ${'.$serviceTable.'.LATITUDINE},${'.$serviceTable.'.LONGITUDINE},${'.$serviceTable.'.DESCRIZIONE}, ${'.$serviceTable.'.NOME}, ${'.$serviceTable.'.LETTERA}, '.$sub1.', '.$sub2.' FROM ${'.$serviceTable.'} ORDER BY ${'.$serviceTable.'.ORDINE}';
 		$queryList = 'SELECT ${'.$serviceTable.'.LATITUDINE},${'.$serviceTable.'.LONGITUDINE},${'.$serviceTable.'.DESCRIZIONE}, ${'.$serviceTable.'.NOME}, ${'.$serviceTable.'.LETTERA} as lettera, '.$sub1.', '.$sub2.' FROM ${'.$serviceTable.'} WHERE ${'.$serviceTable.'.LATITUDINE} <> "" ORDER BY ${'.$serviceTable.'.ORDINE}';
-
-		require_once(CAMILA_LIB_DIR.'tbs/tbs_class.php');
+		
+		require_once(CAMILA_VENDOR_DIR.'tinybutstrong/tinybutstrong/tbs_class.php');
 		require_once(CAMILA_DIR.'tbs/plugins/tbsdb_jladodb.php');
 
 		$TBS = new clsTinyButStrong();

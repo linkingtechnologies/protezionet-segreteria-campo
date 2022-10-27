@@ -92,6 +92,9 @@ if (is_object($form->fields['turno'])) $form->fields['turno']->defaultvalue = wo
 if (is_object($form->fields['turno'])) $form->fields['turno']->write_value_to_file = worktable_get_safe_temp_filename('TURNO');
 
     
+    new form_decimal($form, 'costotabelleaci', 'COSTO TABELLE ACI', false, 5, 2, '');
+
+    
     new form_textbox($form, 'kminiziomissione', 'KM INIZIO MISSIONE', false, 30, 255, '');
 
     
@@ -288,9 +291,9 @@ $form->fields['note']->autosuggest_destfields = 'organizzazione,marcaemodello,ta
     $form->draw();
 
 } else {
-      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,organizzazione,marcaemodello,targa,x,cassone,postiasedere,turno,kminiziomissione,kmallarrivo,kmallapartenza,dataoraregistrazione,dataorauscitadefinitiva,servizio,numero,datainizioattestato,datafineattestato,codiceorganizzazione,provincia,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
+      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,organizzazione,marcaemodello,targa,x,cassone,postiasedere,turno,costotabelleaci,kminiziomissione,kmallarrivo,kmallapartenza,dataoraregistrazione,dataorauscitadefinitiva,servizio,numero,datainizioattestato,datafineattestato,codiceorganizzazione,provincia,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
 	  //$admin_report_fields = '';
-      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,organizzazione,marcaemodello,targa,x,cassone,postiasedere,turno,kminiziomissione,kmallarrivo,kmallapartenza,dataoraregistrazione,dataorauscitadefinitiva,servizio,numero,datainizioattestato,datafineattestato,codiceorganizzazione,provincia,note';
+      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,organizzazione,marcaemodello,targa,x,cassone,postiasedere,turno,costotabelleaci,kminiziomissione,kmallarrivo,kmallapartenza,dataoraregistrazione,dataorauscitadefinitiva,servizio,numero,datainizioattestato,datafineattestato,codiceorganizzazione,provincia,note';
 
       if (isset($_REQUEST['camila_rest'])) {
           $report_fields = str_replace('cf_bool_is_special,', '', $report_fields);
@@ -302,9 +305,9 @@ $form->fields['note']->autosuggest_destfields = 'organizzazione,marcaemodello,ta
 		//  $default_fields = $admin_report_fields;
 
       if ($_CAMILA['page']->camila_exporting())
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#marcaemodello=MARCA E MODELLO#targa=TARGA#x=4X4#cassone=CASSONE#postiasedere=POSTI A SEDERE#turno=TURNO#kminiziomissione=KM INIZIO MISSIONE#kmallarrivo=KM ALL\'ARRIVO#kmallapartenza=KM ALLA PARTENZA#dataoraregistrazione=DATA/ORA REGISTRAZIONE#dataorauscitadefinitiva=DATA/ORA USCITA DEFINITIVA#servizio=SERVIZIO#numero=NUMERO#datainizioattestato=DATA INIZIO ATTESTATO#datafineattestato=DATA FINE ATTESTATO#codiceorganizzazione=CODICE ORGANIZZAZIONE#provincia=PROVINCIA#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#marcaemodello=MARCA E MODELLO#targa=TARGA#x=4X4#cassone=CASSONE#postiasedere=POSTI A SEDERE#turno=TURNO#costotabelleaci=COSTO TABELLE ACI#kminiziomissione=KM INIZIO MISSIONE#kmallarrivo=KM ALL\'ARRIVO#kmallapartenza=KM ALLA PARTENZA#dataoraregistrazione=DATA/ORA REGISTRAZIONE#dataorauscitadefinitiva=DATA/ORA USCITA DEFINITIVA#servizio=SERVIZIO#numero=NUMERO#datainizioattestato=DATA INIZIO ATTESTATO#datafineattestato=DATA FINE ATTESTATO#codiceorganizzazione=CODICE ORGANIZZAZIONE#provincia=PROVINCIA#note=NOTE';
       else
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#marcaemodello=MARCA E MODELLO#targa=TARGA#x=4X4#cassone=CASSONE#postiasedere=POSTI A SEDERE#turno=TURNO#kminiziomissione=KM INIZIO MISSIONE#kmallarrivo=KM ALL\'ARRIVO#kmallapartenza=KM ALLA PARTENZA#dataoraregistrazione=DATA/ORA REG.#dataorauscitadefinitiva=DATA/ORA USCITA#servizio=SERVIZIO#numero=NUMERO#datainizioattestato=DATA INIZIO ATTEST.#datafineattestato=DATA FINE ATTEST.#codiceorganizzazione=COD. ORGANIZZAZIONE#provincia=PROVINCIA#note=NOTE';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#organizzazione=ORGANIZZAZIONE#marcaemodello=MARCA E MODELLO#targa=TARGA#x=4X4#cassone=CASSONE#postiasedere=POSTI A SEDERE#turno=TURNO#costotabelleaci=COSTO ACI#kminiziomissione=KM INIZIO MISSIONE#kmallarrivo=KM ALL\'ARRIVO#kmallapartenza=KM ALLA PARTENZA#dataoraregistrazione=DATA/ORA REG.#dataorauscitadefinitiva=DATA/ORA USCITA#servizio=SERVIZIO#numero=NUMERO#datainizioattestato=DATA INIZIO ATTEST.#datafineattestato=DATA FINE ATTEST.#codiceorganizzazione=COD. ORGANIZZAZIONE#provincia=PROVINCIA#note=NOTE';
 
       $filter = '';
 

@@ -74,23 +74,31 @@ if (is_object($form->fields['dataora'])) $form->fields['dataora']->defaultvalue 
 
     
     new form_textbox($form, 'operatore', 'Operatore', false, 30, 255, '');
+if ($_CAMILA['adm_user_group'] != CAMILA_ADM_USER_GROUP && is_object($form->fields['operatore'])) $form->fields['operatore']->updatable = false;
 if (is_object($form->fields['operatore'])) $form->fields['operatore']->defaultvalue = worktable_parse_default_expression('${cognome utente} ${nome utente}', $form);
-
-    
-    new form_textbox($form, 'dain', 'Da/In', false, 30, 255, '');
-
-    
-    new form_textbox($form, 'aout', 'A/Out', false, 30, 255, '');
-
-    
-    new form_textarea($form, 'messaggioevento', 'Messaggio/Evento', true, 10, 80, 1000, '');
 
     
     new form_textbox($form, 'nummessaggio', 'Num. Messaggio', false, 30, 255, '');
 if (is_object($form->fields['nummessaggio'])) $form->fields['nummessaggio']->defaultvalue = worktable_parse_default_expression('${codice riga}', $form);
 
     
-    new form_textbox($form, 'nummissione', 'Num. Missione', false, 30, 255, '');
+    new form_textbox($form, 'da', 'Da', false, 30, 255, '');
+
+    
+    new form_textbox($form, 'a1', 'A', false, 30, 255, '');
+
+    
+    new form_static_listbox($form, 'necessariarisposta', 'Necessaria risposta', 'No,Sì', false, '');
+if (is_object($form->fields['necessariarisposta'])) $form->fields['necessariarisposta']->defaultvalue = worktable_parse_default_expression('No', $form);
+
+    
+    new form_static_listbox($form, 'priorit', 'Priorità', 'n.d.,ALTA,MEDIA,BASSA', false, '');
+
+    
+    new form_textarea($form, 'messaggioevento', 'Messaggio/Evento', true, 10, 80, 1000, '');
+
+    
+    new form_textarea($form, 'note', 'Note', false, 10, 80, 1000, '');
 
     
 
@@ -148,9 +156,9 @@ if (is_object($form->fields['nummessaggio'])) $form->fields['nummessaggio']->def
     $form->draw();
 
 } else {
-      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,dataora,operatore,dain,aout,messaggioevento,nummessaggio,nummissione,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
+      $report_fields = 'id,cf_bool_is_special,cf_bool_is_selected,dataora,operatore,nummessaggio,da,a1,necessariarisposta,priorit,messaggioevento,note,created,created_by,created_by_surname,created_by_name,last_upd,last_upd_by,last_upd_by_surname,last_upd_by_name,mod_num';
 	  //$admin_report_fields = '';
-      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,dataora,operatore,dain,aout,messaggioevento,nummessaggio,nummissione';
+      $default_fields = 'cf_bool_is_special,cf_bool_is_selected,dataora,operatore,nummessaggio,da,a1,necessariarisposta,priorit,messaggioevento,note';
 
       if (isset($_REQUEST['camila_rest'])) {
           $report_fields = str_replace('cf_bool_is_special,', '', $report_fields);
@@ -162,9 +170,9 @@ if (is_object($form->fields['nummessaggio'])) $form->fields['nummessaggio']->def
 		//  $default_fields = $admin_report_fields;
 
       if ($_CAMILA['page']->camila_exporting())
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#dataora=Data/ora#operatore=Operatore#dain=Da/In#aout=A/Out#messaggioevento=Messaggio/Evento#nummessaggio=Num. Messaggio#nummissione=Num. Missione';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#dataora=Data/ora#operatore=Operatore#nummessaggio=Num. Messaggio#da=Da#a1=A#necessariarisposta=Necessaria risposta#priorit=Priorità#messaggioevento=Messaggio/Evento#note=Note';
       else
-          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#dataora=Data/ora#operatore=Operatore#dain=Da/In#aout=A/Out#messaggioevento=Descrizione#nummessaggio=Num. Mess#nummissione=Num. Miss.';
+          $mapping = 'created=Data creazione#last_upd=Ultimo aggiornamento#last_upd_by=Utente ult. agg.#last_upd_src=Sorgente Ult. agg.#last_upd_by_name=Nome Utente ult. agg.#last_upd_by_surname=Cognome Utente ult. agg.#mod_num=Num. mod.#id=Cod. riga#created_by=Utente creaz.#created_src=Sorgente creaz.#created_by_surname=Cognome Utente creaz.#created_by_name=Nome Utente creaz.#cf_bool_is_special=contrassegnati come speciali#cf_bool_is_selected=selezionati#dataora=Data/ora#operatore=Operatore#nummessaggio=Num. Mess#da=Da#a1=A#necessariarisposta=Nec. risp.#priorit=Priorità#messaggioevento=Descrizione#note=Note';
 
       $filter = '';
 
@@ -179,7 +187,7 @@ if (is_object($form->fields['nummessaggio'])) $form->fields['nummessaggio']->def
 	  //else
 		  $stmt = 'select ' . $report_fields . ' from segreteriacampo_worktable8';
       
-      $report = new report($stmt.$filter, '', 'dataora', 'asc', $mapping, null, 'id', $default_fields, '', (isset($_REQUEST['camila_rest'])) ? false : true, (isset($_REQUEST['camila_rest'])) ? false : true);
+      $report = new report($stmt.$filter, '', 'dataora', 'desc', $mapping, null, 'id', $default_fields, '', (isset($_REQUEST['camila_rest'])) ? false : true, (isset($_REQUEST['camila_rest'])) ? false : true);
 
       if (true && !isset($_REQUEST['camila_rest'])) {
           $report->additional_links = Array(camila_get_translation('camila.report.insertnew') => basename($_SERVER['PHP_SELF']) . '?camila_update=new');
@@ -215,28 +223,70 @@ $jarr['short_title'] = 'MODIFICA Operatore...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('dain','')";
-$jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA Da/In...';
-$jarr['parent'] = 'index.php';
-$report->menuitems[]=$jarr;
-$jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('aout','')";
-$jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA A/Out...';
-$jarr['parent'] = 'index.php';
-$report->menuitems[]=$jarr;
-$jarr=Array();
 $jarr['url'] = "javascript:camila_inline_update_selected('nummessaggio','')";
 $jarr['visible'] = 'yes';
 $jarr['short_title'] = 'MODIFICA Num. Messaggio...';
 $jarr['parent'] = 'index.php';
 $report->menuitems[]=$jarr;
 $jarr=Array();
-$jarr['url'] = "javascript:camila_inline_update_selected('nummissione','')";
+$jarr['url'] = "javascript:camila_inline_update_selected('da','')";
 $jarr['visible'] = 'yes';
-$jarr['short_title'] = 'MODIFICA Num. Missione...';
+$jarr['short_title'] = 'MODIFICA Da...';
 $jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('a1','')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA A...';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = 'necessariarisposta';
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA Necessaria risposta';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('necessariarisposta','No')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'No';
+$jarr['parent'] = 'necessariarisposta';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('necessariarisposta','Sì')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'Sì';
+$jarr['parent'] = 'necessariarisposta';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = 'priorit';
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MODIFICA Priorità';
+$jarr['parent'] = 'index.php';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('priorit','n.d.')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'n.d.';
+$jarr['parent'] = 'priorit';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('priorit','ALTA')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'ALTA';
+$jarr['parent'] = 'priorit';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('priorit','MEDIA')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'MEDIA';
+$jarr['parent'] = 'priorit';
+$report->menuitems[]=$jarr;
+$jarr=Array();
+$jarr['url'] = "javascript:camila_inline_update_selected('priorit','BASSA')";
+$jarr['visible'] = 'yes';
+$jarr['short_title'] = 'BASSA';
+$jarr['parent'] = 'priorit';
 $report->menuitems[]=$jarr;
 
 

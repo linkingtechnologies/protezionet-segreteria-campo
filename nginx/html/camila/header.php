@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -550,6 +550,14 @@ $smartMenusTheme = 'sm-camila';
       } else {
           include(CAMILA_DIR . 'export.php');
       } 
+  } elseif (isset($_REQUEST['camila_ods'])) {
+      if ($_REQUEST['camila_ods'] != '') {
+          include(CAMILA_DIR . 'export/camila_ods.php');
+          $_CAMILA['page'] = new CAMILA_ODS_deck($_CAMILA['page_short_title'], HAW_ALIGN_CENTER, HAW_OUTPUT_AUTOMATIC);
+
+      } else {
+          include(CAMILA_DIR . 'export.php');
+      } 
   } elseif (isset($_REQUEST['camila_xml2pdf'])) {
       if ($_REQUEST['camila_xml2pdf'] != '') {
           include(CAMILA_DIR . 'export/camila_xml2pdf.php');
@@ -882,5 +890,9 @@ if (!$_CAMILA['page']->camila_exporting())
   $_CAMILA['page']->add_userdefined($js);
 
   $_CAMILA['page']->smartMenusTheme = $smartMenusTheme;
+
+
+require('../../camila/views/cf_worktable_rebuild.inc.php');
+
  
 ?>

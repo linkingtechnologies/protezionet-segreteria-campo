@@ -18,7 +18,7 @@
 		</field>
 		<field name="name" type="C" size="40">
 		</field>
-		<field name="name_abbrev" type="C" size="20">
+		<field name="name_abbrev" type="C" size="40">
 		</field>
 		<field name="col_name" type="C" size="100">
 		</field>

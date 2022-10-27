@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+	<table name="camila_template_params">
+		<field name="name" type="C" size="255">
+		</field>
+		<field name="lang" type="C" size="10">
+		</field>
+		<field name="value" type="C" size="255">
+		</field>
+		<index name="camila_template_params_unique">
+		<UNIQUE/>
+			<col>name</col>
+			<col>lang</col>
+		</index>
+	</table>
+</schema>

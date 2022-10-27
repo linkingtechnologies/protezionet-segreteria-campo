@@ -4,11 +4,18 @@ class CamilaTemplate
 {
 	private $dir;
 	public $lang;
+	public $db;
 
 	function CamilaTemplate($lang='en')
     {
 		$this->lang = $lang;
 		$this->dir = CAMILA_TMPL_DIR . '/' . $this->lang . '/';
+		
+		global $_CAMILA;
+		if (defined('CAMILA_TABLE_TEMPL')) {
+			global $_CAMILA;
+			$this->db = $_CAMILA['db'];
+		}		
     }
 
 	function getParameters() {
@@ -54,8 +61,27 @@ class CamilaTemplate
 
 	function setParameter($name, $value) {
 		file_put_contents($this->dir.$name.'.txt', $value);
+
+		if (defined('CAMILA_TABLE_TEMPL')) {
+			if (is_object($this->db)) {
+				$record = Array();
+				$record['name'] = $name;
+				$record['lang'] = $this->lang;
+				$record['value'] = $value;
+				$updateSQL = $this->db->AutoExecute(CAMILA_TABLE_TEMPL, $record, 'INSERT', 'name=' . $this->db->qstr($name) . ' and lang=' . $this->db->qstr($lang));
+				
+				echo $updateSQL;
+
+
+				if (!$updateSQL) {
+					//$success = false;
+				} else  {
+					//echo "OK";
+				}
+			}
+		}
 	}
-	
+
 	function getXmlTemplatePath($templateName) {
 		$templatePath = $this->dir . $templateName;
 		if (is_file($templatePath)) {

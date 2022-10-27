@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-Copyright (C) 2006-2019 Umberto Bresciani
+Copyright (C) 2006-2022 Umberto Bresciani
 
 Camila PHP Framework is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,19 +17,9 @@ You should have received a copy of the GNU General Public License
 along with Camila PHP Framework; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
 
-//error_reporting( E_ALL );
 
+require_once CAMILA_VENDOR_DIR . 'autoload.php';
 
-require_once CAMILA_LIB_DIR . 'simple-cache/src/CacheException.php';
-require_once CAMILA_LIB_DIR . 'simple-cache/src/CacheInterface.php';
-require_once CAMILA_LIB_DIR . 'simple-cache/src/InvalidArgumentException.php';
-
-
-spl_autoload_register(function($class)
-{
-    $filename = CAMILA_LIB_DIR . str_replace('\\', '/', $class) . '.php';
-    require_once($filename);
-});
 
 use PhpOffice\PhpSpreadsheet\Helper\Sample;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -38,8 +28,12 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class CAMILA_XLS_deck extends CHAW_deck
 {
-    
-    function create_page()
+    function create_page() {
+		$this->_create_page(true);
+	}
+	
+	
+    function _create_page($isExcel)
     {
         
         global $_CAMILA;
@@ -103,12 +97,14 @@ class CAMILA_XLS_deck extends CHAW_deck
                                     $text = $column->get_label();
                                     $url  = $column->get_url();
                                     $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $text);
-                                    $spreadsheet->getActiveSheet()->getCellValueByColumnAndRow($b + 1, $a + 1)->getHyperlink()->setUrl($url);
+									//FIX ME
+                                    //$spreadsheet->getActiveSheet()->getCellValueByColumnAndRow($b + 1, $a + 1)->getHyperlink()->setUrl($url);
                                 } else {
                                     
                                     if (is_object($column) && $column->get_elementtype() == HAW_PLAINTEXT)
                                         $text = $column->get_text();
                                     
+									//echo $column->metatype;
                                     switch ($column->metatype) {
                                         
                                         case 'I':
@@ -117,16 +113,34 @@ class CAMILA_XLS_deck extends CHAW_deck
                                                 $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, intval($text));
                                             }
                                             break;
-                                        
+
                                         case 'D':
                                             if ($text != '') {
                                                 $date = new DateTime();
                                                 $date->setDate(intval(substr($text, $y, 4)), intval(substr($text, $m, 2)), intval(substr($text, $d, 2)));
-                                                $excelDateValue = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($date);
-                                                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $excelDateValue);
+                                                $date->setTime(0,0,0,0);
+												$excelDateValue = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($date);
+												if ($isExcel) {
+													$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $excelDateValue);
+												} else {
+													$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $date);
+												}
                                                 $spreadsheet->getActiveSheet()->getStyleByColumnAndRow($b + 1, $a + 1)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_DDMMYYYY);
                                             }
-                                            break;
+										/*case 'T':
+                                            if ($text != '') {
+                                                $date = new DateTime();
+                                                $date->setDate(intval(substr($text, $y, 4)), intval(substr($text, $m, 2)), intval(substr($text, $d, 2)));
+                                                $date->setTime(0,0,0,0);
+												$excelDateValue = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($date);
+												if ($isExcel) {
+													$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $excelDateValue);
+												} else {
+													$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, $date);
+												}
+                                                $spreadsheet->getActiveSheet()->getStyleByColumnAndRow($b + 1, $a + 1)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_DDMMYYYY);
+                                            }
+                                            break;*/
                                         
                                         default:
                                             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($b + 1, $a + 1, ($text));
@@ -326,11 +340,13 @@ class CAMILA_XLS_deck extends CHAW_deck
             header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
             header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
             header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
-            header('Pragma: public'); // HTTP/1.0     
-            $writer = IOFactory::createWriter($spreadsheet, 'Xls');
-            $writer->save('php://output');
-            
-            
+            header('Pragma: public'); // HTTP/1.0
+			if ($isExcel) {
+				$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+			} else {
+				$writer = IOFactory::createWriter($spreadsheet, 'Ods');
+			}
+            $writer->save('php://output');            
         }
         
         //$fh = fopen($fname, "rb");
@@ -343,7 +359,7 @@ class CAMILA_XLS_deck extends CHAW_deck
         
         if ($_REQUEST['camila_export_action'] == 'sendmail') {
             
-            global $_CAMILA;
+            /*global $_CAMILA;
             
             require_once(CAMILA_LIB_DIR . 'phpmailer/class.phpmailer.php');
             $mail = new PHPMailer();
@@ -359,9 +375,7 @@ class CAMILA_XLS_deck extends CHAW_deck
             $mail->AddAttachment($fname, 'file.xls');
             
             $mail->AddAddress(CAMILA_WORKTABLE_CONFIRM_VIA_MAIL_TO);
-            
-            //$mail->AddCC(CAMILA_WORKTABLE_CONFIRM_VIA_MAIL_CC, CAMILA_WORKTABLE_CONFIRM_VIA_MAIL_CC);
-            
+                        
             $mail->IsHTML(false);
             
             $mail->Subject = CAMILA_WORKTABLE_CONFIRM_VIA_MAIL_SUBJECT;
@@ -371,7 +385,7 @@ class CAMILA_XLS_deck extends CHAW_deck
             $mail->AltBody = $text;
        
             $mail->Send();
-            unlink($fname);
+            unlink($fname);*/
    
         }        
         

@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -36,20 +36,29 @@
       $text->set_br(0);
       $_CAMILA['page']->add_text($text);
 
-      if ($_CAMILA['page']->camila_num_tables > 0 || $_CAMILA['page']->camila_csv_export_enabled) {
+      /*if ($_CAMILA['page']->camila_num_tables > 0 || $_CAMILA['page']->camila_csv_export_enabled) {
           $myLink = new CHAW_link('CSV', camila_get_export_link('csv'));
           $myLink->set_br(0);
           $_CAMILA['page']->add_link($myLink);
           $text = new CHAW_text(camila_get_translation('camila.export.csv'), HAW_TEXTFORMAT_SMALL);
           $text->set_br(0);
           $_CAMILA['page']->add_text($text);
-      }
+      }*/
 
       if ($_CAMILA['page']->camila_num_tables > 0 || $_CAMILA['page']->camila_xls_export_enabled || $_CAMILA['page']->camila_worktable) {
           $myLink = new CHAW_link('XLS', camila_get_export_link('xls'));
           $myLink->set_br(0);
           $_CAMILA['page']->add_link($myLink);
           $text = new CHAW_text(camila_get_translation('camila.export.xls'), HAW_TEXTFORMAT_SMALL);
+          $text->set_br(0);
+          $_CAMILA['page']->add_text($text);
+      }
+	  
+	  if ($_CAMILA['page']->camila_num_tables > 0 || $_CAMILA['page']->camila_ods_export_enabled || $_CAMILA['page']->camila_worktable) {
+          $myLink = new CHAW_link('ODS', camila_get_export_link('ods'));
+          $myLink->set_br(0);
+          $_CAMILA['page']->add_link($myLink);
+          $text = new CHAW_text(camila_get_translation('camila.export.ods'), HAW_TEXTFORMAT_SMALL);
           $text->set_br(0);
           $_CAMILA['page']->add_text($text);
       }

@@ -13,7 +13,11 @@ class CamilaLogger {
 		echo PHP_EOL;
 		ob_flush();
 		flush();*/
-		CamilaUserInterface::insertSuccess($value);
+		if (php_sapi_name() == "cli") {
+			echo $value."\n";
+		} else {
+			CamilaUserInterface::insertSuccess($value);
+		}
 	}
 
 	public function getLogs() {

@@ -1,6 +1,6 @@
 <?php
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -53,12 +53,17 @@ class CamilaPlugins
 	public static function getPluginInformation($pluginId) {
 		return new SimpleXMLElement(file_get_contents(CAMILA_APP_PATH . '/plugins/'.$pluginId.'/conf/plugin.xml'));
 	}
+	
+	public static function getRepositoryInformation($pluginId) {
+		return json_decode(file_get_contents(CAMILA_APP_PATH . '/plugins/'.$pluginId.'/conf/repo.json'), true);
+	}
 
 	public static function install($db, $lang, $pluginId) {
 		global $_CAMILA;
 		$camilaApp = new CamilaApp();
 		$camilaApp->db = $db;
 		$camilaApp->lang = $lang;
+		$_CAMILA['worktable_configurator_force_lang'] = $lang;
 		$camilaApp->resetTables(CAMILA_APP_PATH . '/plugins/'.$pluginId.'/tables');
 		$camilaApp->resetWorkTables(CAMILA_APP_PATH . '/plugins/'.$pluginId.'/tables');
 		CamilaFileManagement::copyFiles(CAMILA_APP_PATH . '/plugins/'.$pluginId.'/templates/'.$lang,CAMILA_TMPL_DIR.'/'.$lang,'txt',false);

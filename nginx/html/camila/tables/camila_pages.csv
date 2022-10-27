@@ -1,6 +1,6 @@
 "url","active","visible","label_order","title_attributes","title_color","title_boxcolor","level","filter","parent","login","dos_threshold","help"
 "cf_app.php?admin","yes","yes",99,41,"red","#FFFF80",1,"admin",,1,0,
-"cf_docs.php","yes","yes",98,41,"red","#FFFF80",5,,,1,0,
+"cf_docs.php","yes","no",98,41,"red","#FFFF80",5,,,1,0,
 "cf_ajaxplorer_content.php","yes","no",100,41,"red","#FFFF80",10,,,1,0,
 "index.php","yes","no",0,41,"red","#FFFF80",100,,,1,0,
 "cf_login.php","yes","no",0,41,"red","#FFFF80",100,,,1,0,

@@ -1,7 +1,7 @@
 <?php
 
 /* This File is part of Camila PHP Framework
-   Copyright (C) 2006-2017 Umberto Bresciani
+   Copyright (C) 2006-2022 Umberto Bresciani
 
    Camila PHP Framework is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -154,6 +154,65 @@ require_once(CAMILA_DIR . 'datagrid/form.class.php');
 
       }
 
+	  function insert_suggest_modal() {
+	  $code = '<div id="autosuggestmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 id="autosuggesttitle" class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="autosuggesturl">
+			<input class="form-control" id="autosuggesturl" type="hidden">
+			<input class="form-control" id="autosuggestcb" type="hidden">
+			<input class="form-control" id="autosuggestfield" type="hidden">
+			<input class="form-control" id="autosuggestinput" type="text" placeholder="'.camila_get_translation('camila.search').'...">
+		</p>
+		<div id="autosuggestresults" style="height:250px;overflow:auto;">
+			<table id="results" class="table-striped">
+			</table>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">' . camila_get_translation('camila.close') . '</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#autosuggestinput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+	//lunghezza minima
+	if (value.length >=2) {
+		$("#autosuggestresults").first().html("");
+		$.ajax({
+			url: $("#autosuggesturl").val() + "input=" + encodeURIComponent(value) + "&src=modal" ,
+			type: "GET",
+			success: function( data, textStatus, jQxhr ){
+				var html = "<table class=\"table-striped\">";
+				console.log(JSON.stringify( data ));
+				$.each (data.results, function (bb,aa) {
+					html +="<tr><td id=\"pop_"+aa.id+"\">"+aa.value+"</td><td><a onclick=\'"+$("#autosuggestcb").val()+"({id: "+aa.id+"});$(\"#"+$("#autosuggestfield").val()+"\").val($(\"#pop_"+aa.id+"\").text());camila_autosuggest_close_modal();\'>" + aa.info + "</a></td></tr>";
+				});
+				html+="</table>";
+				console.log($("#autosuggestresults").first().id);
+				$("#autosuggestresults").first().html(html);
+			},
+			error: function( jqXhr, textStatus, errorThrown ){
+				console.log( errorThrown );
+			}
+		});
+	}
+  });
+});
+</script>';
+            $js = new CHAW_js($code);
+			global $_CAMILA;
+            $_CAMILA['page']->add_userdefined($js);
+	  }
 
       function get_fields($table)
       {
@@ -457,6 +516,8 @@ require_once(CAMILA_DIR . 'datagrid/form.class.php');
               phpform::add_hidden('camila_returl', $_REQUEST['camila_returl']);
           if (isset($_REQUEST['camila_preferences']) )
               phpform::add_hidden('camila_preferences', $_REQUEST['camila_preferences']);
+		  
+		  $this->insert_suggest_modal();
 
       }
 
@@ -501,6 +562,8 @@ require_once(CAMILA_DIR . 'datagrid/form.class.php');
 
           global $_CAMILA;
 
+		  
+
           if ($this->selform == 0 || isset($_REQUEST['camila_delete']) || isset($_GET['camila_update']) || $_REQUEST[$this->table.'_sess_mode'] == 'update' || $_REQUEST[$this->table.'_sess_mode'] == 'insert') {
               if (!isset($_REQUEST['camila_popup']) && !$_CAMILA['page']->camila_exporting() && (isset ($_REQUEST['camila_returl']) && $_REQUEST['camila_returl'] != '') && (!is_object($this->validator) || count($this->validator->getErrors()) == 0)) {
 	              $text = new CHAW_text('');
@@ -514,7 +577,6 @@ require_once(CAMILA_DIR . 'datagrid/form.class.php');
 
               //if (!$this->_data_inserted && !$this->_data_updated)
               phpform::draw();
-
           }
       }
 

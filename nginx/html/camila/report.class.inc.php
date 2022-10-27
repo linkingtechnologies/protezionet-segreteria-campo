@@ -1,6 +1,6 @@
 <?php
 /*  This File is part of Camila PHP Framework
-    Copyright (C) 2006-2016 Umberto Bresciani
+    Copyright (C) 2006-2022 Umberto Bresciani
 
     Camila PHP Framework is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,7 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with Camila PHP Framework. If not, see <http://www.gnu.org/licenses/>. */
 
-require_once(CAMILA_LIB_DIR.'adodb5/adodb.inc.php');
+//require_once(CAMILA_LIB_DIR.'adodb5/adodb.inc.php');
+require_once(CAMILA_VENDOR_DIR . '/adodb/adodb-php/adodb.inc.php');
 require_once('worktable.class.inc.php');
 
 class CamilaReport
