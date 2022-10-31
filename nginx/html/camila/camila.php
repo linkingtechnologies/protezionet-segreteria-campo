@@ -275,7 +275,7 @@ require_once('i18n.inc.php');
       else
           $m = '4';
       
-      $codicesessione = $m + date('ydLzg');
+      $codicesessione = $m + /*date('ydLzg')*/ + date('z') + 1;
       srand($codicesessione);
 
       $c1 = rand(1, CAMILA_PASSWORD_LENGTH);

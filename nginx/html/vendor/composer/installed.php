@@ -127,15 +127,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'splitbrain/php-cli' => array(
-            'pretty_version' => '1.2.0',
-            'version' => '1.2.0.0',
-            'reference' => 'e7d5dad2be4641c8719b34f7e0c350f70a80fda4',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../splitbrain/php-cli',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => 'v1.26.0',
             'version' => '1.26.0.0',

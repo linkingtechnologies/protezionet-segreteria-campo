@@ -15,10 +15,6 @@ class ComposerStaticInit53a81370871755f8d209560b0ef96d21
     );
 
     public static $prefixLengthsPsr4 = array (
-        's' => 
-        array (
-            'splitbrain\\phpcli\\' => 18,
-        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -46,10 +42,6 @@ class ComposerStaticInit53a81370871755f8d209560b0ef96d21
     );
 
     public static $prefixDirsPsr4 = array (
-        'splitbrain\\phpcli\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/splitbrain/php-cli/src',
-        ),
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',

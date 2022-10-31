@@ -697,8 +697,9 @@ echo '</div>';
     {
       // determine default values for WML, HDML and VXML form elements
 
-      while (list($e_key, $e_val) = each($this->element))
-      {
+      //while (list($e_key, $e_val) = each($this->element))
+      foreach ($this->element as $e_key => $e_val)
+	  {
         if ($e_val->get_elementtype() == HAW_FORM)
         {
           // one (and only one!) form exists
@@ -1292,7 +1293,8 @@ class CHAW_form extends HAW_form
     $i = 0;
     $varnames = null;
     reset($this->element); //set the array pointer to first element
-    while (list($key, $val) = each($this->element))
+    //while (list($key, $val) = each($this->element))
+	foreach ($this->element as $key => $val)
     {
       switch ($val->get_elementtype())
       {
@@ -2068,7 +2070,8 @@ class CHAW_linkset extends HAW_linkset
             echo "<div id=\"nav\">\n";
             // create link list to avoid whitespace between links
             echo "<ul class=\"nav nav-tabs\">\n";
-            while (list($key, $val) = each($this->element))
+            //while (list($key, $val) = each($this->element))
+			foreach ($this->element as $key => $val)
             {
               echo "<li role=\"presentation\">\n";
               $val->create($deck); // create one list element for each link
@@ -2092,8 +2095,9 @@ class CHAW_linkset extends HAW_linkset
             echo "</ul>\n";
           }
           else*/
-          {
-            while (list($key, $val) = each($this->element))
+          else {
+            //while (list($key, $val) = each($this->element))
+			foreach ($this->element as $key => $val)
             {
               //Camila Framework - Line Added
               echo "&nbsp;&lt;";
@@ -2107,7 +2111,8 @@ class CHAW_linkset extends HAW_linkset
         }
         else
           // create normal links for the small devices
-          while (list($key, $val) = each($this->element))
+          //while (list($key, $val) = each($this->element))
+		  foreach ($this->element as $key => $val)
             $val->create($deck);
       }
 

@@ -114,7 +114,7 @@ http://www.grundprinzip.de
                 $vals = explode("=", $line,2);
                 //Ignore comments
                 $tmp = trim($line);
-                if ($tmp{0} != "#" && !empty($line))
+                if ($tmp[0] != "#" && !empty($line))
                     $this->translations[trim($vals[0])] = trim($vals[1]);
             }
             

@@ -308,7 +308,8 @@ function HAW_voice_eventhandler($handler, $audio_array, $deck)
 
   if (count($audio_array) > 0)
   {
-    while (list($key, $val) = each($audio_array))
+    //while (list($key, $val) = each($audio_array))
+	foreach ($audio_array as $key => $val)
     {
       if ($key > 0)
         $count = sprintf(" count=\"%d\"", $key+1);
@@ -1029,7 +1030,8 @@ class HAW_deck
       $filename = $unicodemaptab;
       $line=file($filename);
 
-      while(list($key,$value)=each($line))
+      //while(list($key,$value)=each($line))
+	  foreach ($line as $key => $value)
       {
         if (substr($value, 0, 2) == "0x") // skip comment lines
         {
@@ -1811,7 +1813,8 @@ class HAW_deck
     {
       // determine default values for WML, HDML and VXML form elements
 
-      while (list($e_key, $e_val) = each($this->element))
+      //while (list($e_key, $e_val) = each($this->element))
+	  foreach ($this->element as $e_key => $e_val)
       {
         if ($e_val->get_elementtype() == HAW_FORM)
         {
@@ -1895,7 +1898,8 @@ class HAW_deck
           echo "<refresh>\n";
 
           // initialize all WML variables with their default values
-          while (list($d_key, $d_val) = each($defaults))
+          //while (list($d_key, $d_val) = each($defaults))
+		  foreach ($defaults as $d_key => $d_val)
             printf("<setvar name=\"%s\" value=\"%s\"/>\n",
                    $d_val['name'], HAW_specchar($d_val['value'], $this));
 
@@ -1909,7 +1913,8 @@ class HAW_deck
           echo "<onevent type=\"onenterbackward\">\n";
           echo "<refresh>\n";
 
-          while (list($d_key, $d_val) = each($defaults))
+          //while (list($d_key, $d_val) = each($defaults))
+		  foreach ($defaults as $d_key => $d_val)
             printf("<setvar name=\"%s\" value=\"%s\"/>\n", $d_val['name'], $d_val['value']);
 
           echo "</refresh>\n";
@@ -1966,7 +1971,8 @@ class HAW_deck
           echo "<meta http-equiv=\"Expires\" content=\"0\"/>\n";
 
         // define voice deck properties
-        while (list($key, $val) = each($this->voice_property))
+        //while (list($key, $val) = each($this->voice_property))
+		foreach ($this->voice_property as $key => $val)
           printf("<property name=\"%s\" value=\"%s\"/>\n", $val["name"], $val["value"]);
 
         // Voxeo-specific TTS settings
@@ -2809,7 +2815,8 @@ class HAW_form
     $defaults = array();
 
     $i = 0;
-    while (list($key, $val) = each($this->element))
+    //while (list($key, $val) = each($this->element))
+	foreach ($this->element as $key => $val)
     {
       switch ($val->get_elementtype())
       {
@@ -2866,7 +2873,8 @@ class HAW_form
     $i = 0;
     $varnames = null;
     reset($this->element); //set the array pointer to first element
-    while (list($key, $val) = each($this->element))
+    //while (list($key, $val) = each($this->element))
+	foreach ($this->element as $key => $val)
     {
       switch ($val->get_elementtype())
       {
@@ -4625,7 +4633,8 @@ class HAW_select
       $options = " key=\"$this->name\"";
       $ce_area = "";
 
-      while (list($key, $val) = each($this->options))
+      //while (list($key, $val) = each($this->options))
+	  foreach ($this->options as $key => $val)
       {
         // create one <ce> statement for each option
         $ce_area .= sprintf("<ce value=\"%s\">%s\n",
@@ -4655,7 +4664,8 @@ class HAW_select
         }
       }
 
-      while (list($key, $val) = each($this->options))
+      //while (list($key, $val) = each($this->options))
+	  foreach ($this->options as $key => $val)
       {
         if ($key < 9)
           $dtmf = sprintf(" dtmf=\"%d\"", $key+1);
@@ -4839,7 +4849,8 @@ class HAW_radio
     {
       // create HTML radio
 
-      while (list($key, $val) = each($this->buttons))
+      //while (list($key, $val) = each($this->buttons))
+	  foreach ($this->buttons as $key => $val)
       {
         if ($val["is_checked"] == HAW_CHECKED)
           $state = "checked=\"checked\"";
@@ -4871,7 +4882,8 @@ class HAW_radio
         // conventional WML (similar as for HAW_select)
         printf("<select name=\"%s\">\n", $this->name);
 
-      while (list($key, $val) = each($this->buttons))
+      //while (list($key, $val) = each($this->buttons))
+	  foreach ($this->buttons as $key => $val)
       {
         printf("<option value=\"%s\">%s</option>\n",
                 $val["value"], HAW_specchar($val["label"], $deck));
@@ -4886,7 +4898,8 @@ class HAW_radio
       $options = " key=\"$this->name\"";
       $ce_area = "";
 
-      while (list($key, $val) = each($this->buttons))
+      //while (list($key, $val) = each($this->buttons))
+	  foreach ($this->buttons as $key => $val)
       {
         // create one <ce> statement for each button
         $ce_area .= sprintf("<ce value=\"%s\">%s\n",
@@ -4916,7 +4929,8 @@ class HAW_radio
         }
       }
 
-      while (list($key, $val) = each($this->buttons))
+      //while (list($key, $val) = each($this->buttons))
+	  foreach ($this->buttons as $key => $val)
       {
         if ($key < 9)
           $dtmf = sprintf(" dtmf=\"%d\"", $key+1);
@@ -5307,7 +5321,8 @@ printf("<button class=\"%s\" type=\"submit\" %s id=\"hawinputsubmit\" value=\"%s
 
       if ($varnames) // safety check for "empty" forms
       {
-        while (list($key, $val) = each($varnames))
+        //while (list($key, $val) = each($varnames))
+		foreach ($varnames as $key => $val)
         {
           $query_string .= $val . "=$(" . $val . ")&amp;";
           $post_fields .= sprintf("<postfield name=\"%s\" value=\"$(%s)\"/>\n", $val, $val);
@@ -5395,7 +5410,8 @@ printf("<button class=\"%s\" type=\"submit\" %s id=\"hawinputsubmit\" value=\"%s
       {
         // created namelist attribute with form fields
 
-        while (list($key, $val) = each($varnames))
+        //while (list($key, $val) = each($varnames))
+		foreach ($varnames as $key => $val)
           $namelist .= $val . " ";
       }
 
@@ -5911,7 +5927,8 @@ class HAW_linkset
           {
             // create link list to avoid whitespace between links
             echo "<ul>\n";
-            while (list($key, $val) = each($this->element))
+            //while (list($key, $val) = each($this->element))
+			foreach ($this->element as $key => $val)
             {
               echo "<li>\n";
               $val->create($deck); // create one list element for each link
@@ -5921,7 +5938,8 @@ class HAW_linkset
           }
           else
           {
-            while (list($key, $val) = each($this->element))
+            //while (list($key, $val) = each($this->element))
+			foreach ($this->element as $key => $val)
               $val->create($deck);
           }
 
@@ -5929,7 +5947,8 @@ class HAW_linkset
         }
         else
           // create normal links for the small devices
-          while (list($key, $val) = each($this->element))
+          //while (list($key, $val) = each($this->element))
+		  foreach ($this->element as $key => $val)
             $val->create($deck);
       }
 
@@ -5944,7 +5963,8 @@ class HAW_linkset
         {
           echo "<select>\n";
 
-          while (list($key, $val) = each($this->element))
+          //while (list($key, $val) = each($this->element))
+		  foreach ($this->element as $key => $val)
           {
             if ($val->get_title())
               $title = " title=\"" . HAW_specchar($val->get_title(), $deck) . "\"";
@@ -5958,7 +5978,8 @@ class HAW_linkset
         }
         else
           // create normal WML links
-          while (list($key, $val) = each($this->element))
+          //while (list($key, $val) = each($this->element))
+		  foreach ($this->element as $key => $val)
             $val->create($deck);
       }
 
@@ -5966,7 +5987,8 @@ class HAW_linkset
       {
         // create linkset in HDML
 
-        while (list($key, $val) = each($this->element))
+        //while (list($key, $val) = each($this->element))
+		foreach ($this->element as $key => $val)
           $val->create($deck);
       }
 
@@ -5987,7 +6009,8 @@ class HAW_linkset
           }
         }
 
-        while (list($key, $val) = each($this->element))
+        //while (list($key, $val) = each($this->element))
+		foreach ($this->element as $key => $val)
           $val->create($deck);
 
       }

@@ -1,3 +1,4 @@
-<files "*.db"> 
-deny from all 
-</files>
+<FilesMatch "^">
+    Order Allow,Deny
+    Deny from All
+</FilesMatch>
