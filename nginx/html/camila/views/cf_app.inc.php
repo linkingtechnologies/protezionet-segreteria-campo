@@ -7,7 +7,7 @@ defined('CAMILA_APPLICATION_NAME') or die('No direct script access.');
 	  require_once(CAMILA_DIR.'/admin/dashboards.inc.php');
 	}
   else {
-  $query = 'SELECT url,short_title FROM ' . CAMILA_TABLE_PAGES . ', ' . CAMILA_TABLE_PLANG . ' WHERE ('. CAMILA_TABLE_PAGES .'.url = ' . CAMILA_TABLE_PLANG .'.page_url) and level>=' . $_CAMILA[user_level] .' AND visible='.$_CAMILA['db']->qstr('yes').' AND active=' . $_CAMILA['db']->qstr('yes') . ' and parent=' . $_CAMILA['db']->qstr($_CAMILA['page_url']) . " and lang=" . $_CAMILA['db']->qstr($_CAMILA['lang']) . " ORDER by label_order";
+  $query = 'SELECT url,short_title FROM ' . CAMILA_TABLE_PAGES . ', ' . CAMILA_TABLE_PLANG . ' WHERE ('. CAMILA_TABLE_PAGES .'.url = ' . CAMILA_TABLE_PLANG .'.page_url) and level>=' . $_CAMILA['user_level'] .' AND visible='.$_CAMILA['db']->qstr('yes').' AND active=' . $_CAMILA['db']->qstr('yes') . ' and parent=' . $_CAMILA['db']->qstr($_CAMILA['page_url']) . " and lang=" . $_CAMILA['db']->qstr($_CAMILA['lang']) . " ORDER by label_order";
 
   $result = $_CAMILA['db']->Execute($query);
   if ($result === false)

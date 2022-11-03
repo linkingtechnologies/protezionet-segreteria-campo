@@ -496,7 +496,7 @@ class HAW_deck
        With this parameter you can offer dedicated links for PC's, WAP phones, PDA's,
        XHTML phones etc.
   */
-  function HAW_deck($title=HAW_NOTITLE, $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
+  function __construct($title=HAW_NOTITLE, $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
   {
     // determine environment variables
     if (isset($_SERVER['HTTP_USER_AGENT']))
@@ -2561,7 +2561,7 @@ class HAW_form
       HAW_METHOD_GET  (default)<br>
       HAW_METHOD_POST
   */
-  function HAW_form($url, $method=HAW_METHOD_GET)
+  function __construct($url, $method=HAW_METHOD_GET)
   {
     if (!is_int($method) || (($method != HAW_METHOD_GET) && ($method != HAW_METHOD_POST)))
       die("invalid method in HAW_form: " . $method . " (possible values: HAW_METHOD_GET or HAW_METHOD_POST)");
@@ -3009,7 +3009,7 @@ class HAW_text
       HAW_TEXTFORMAT_SMALL<br>
       HAW_TEXTFORMAT_BOXED (text in a colored box for headings etc.)
   */
-  function HAW_text($text, $attrib=HAW_TEXTFORMAT_NORMAL)
+  function __construct($text, $attrib=HAW_TEXTFORMAT_NORMAL)
   {
     $this->text = $text;
     $this->attrib = $attrib;
@@ -3323,7 +3323,7 @@ class HAW_image
        image/bmp and not image/vnd.wap.wbmp (e.g. the UPSim 3.2 did so), this image
        will be sent.
   */
-  function HAW_image($src_wbmp, $src_html, $alt, $src_bmp="")
+  function __construct($src_wbmp, $src_html, $alt, $src_bmp="")
   {
     $this->src_wbmp = $src_wbmp;
     $this->src_html = $src_html;
@@ -3603,7 +3603,7 @@ class HAW_table
   /**
     Constructor
   */
-  function HAW_table()
+  function __construct()
   {
     $this->number_of_rows = 0;
     $this->voice_text = "";
@@ -3747,7 +3747,7 @@ class HAW_row
   /**
     Constructor
   */
-  function HAW_row()
+  function __construct()
   {
     $this->number_of_columns = 0;
   }
@@ -3866,7 +3866,7 @@ class HAW_input
        Input format code according to the WAP standard.
        Allows the WAP user client e.g. to input only digits and no characters.
   */
-  function HAW_input($name, $value, $label, $format="*M")
+  function __construct($name, $value, $label, $format="*M")
   {
     $this->name = $name;
     $this->value = $value;
@@ -4282,7 +4282,7 @@ class HAW_textarea
     @param rows Rows (optional, default: 3)
     @param cols Columns (optional, default: 16)
   */
-  function HAW_textarea($name, $value, $label, $rows=3, $cols=16)
+  function __construct($name, $value, $label, $rows=3, $cols=16)
   {
     $this->name   = $name;
     $this->value  = $value;
@@ -4449,7 +4449,7 @@ class HAW_select
       HAW_SELECT_POPUP: popup the whole selection list  (default)<br>
       HAW_SELECT_SPIN: rotate options on a WAP device screen<br>
   */
-  function HAW_select($name, $type=HAW_SELECT_POPUP)
+  function __construct($name, $type=HAW_SELECT_POPUP)
   {
     $this->name = $name;
     $this->type = $type;
@@ -4724,7 +4724,7 @@ class HAW_radio
     @param name Variable in which the information about the pressed button is sent to
        the destination URL.
   */
-  function HAW_radio($name)
+  function __construct($name)
   {
     $this->name  = $name;
     $this->value = "";
@@ -4998,7 +4998,7 @@ class HAW_checkbox
     @param state (optional)<br>Allowed values are HAW_CHECKED or HAW_NOTCHECKED
        (default).
   */
-  function HAW_checkbox($name, $value, $label, $state=HAW_NOTCHECKED)
+  function __construct($name, $value, $label, $state=HAW_NOTCHECKED)
   {
     $this->name  = $name;
     $this->value = $value;
@@ -5203,7 +5203,7 @@ class HAW_hidden
     @param name Variable in which "value" sent to the destination URL.
     @param value See name.
   */
-  function HAW_hidden($name, $value)
+  function __construct($name, $value)
   {
     $this->name = $name;
     $this->value = $value;
@@ -5270,7 +5270,7 @@ class HAW_submit
     @param name (optional)<br>
        Variable in which "label" is sent to the destination URL.
   */
-  function HAW_submit($label, $name="")
+  function __construct($label, $name="")
   {
     $this->label = $label;
     $this->name = $name;
@@ -5489,7 +5489,7 @@ class HAW_link
        on the WAP/XHTML display. In order to work well with a broad range of user agents,
        keep your title under 6 characters.
   */
-  function HAW_link($label, $url, $title="")
+  function __construct($label, $url, $title="")
   {
 
     $this->label = $label;
@@ -5843,7 +5843,7 @@ class HAW_linkset
   /**
     Constructor
   */
-  function HAW_linkset()
+  function __construct()
   {
     $this->number_of_elements = 0;
     $this->voice_text = HAW_VOICE_ENUMERATE;
@@ -6048,7 +6048,7 @@ class HAW_raw
     @param ml Markup language (HAW_HTML, HAW_WML, HAW_HDML, HAW_VXML).
     @param code Some markup code to be inserted for the selected markup language
   */
-  function HAW_raw($ml,$code)
+  function __construct($ml,$code)
   {
     $this->ml = $ml;
     $this->code = $code;
@@ -6097,7 +6097,7 @@ class HAW_rule
            number of pixels (e.g. "50%", 100).
     @param size (optional)<br>Height of the line to be drawn in pixels.
   */
-  function HAW_rule($width="", $size="")
+  function __construct($width="", $size="")
   {
     $this->width = $width;
     $this->size = $size;

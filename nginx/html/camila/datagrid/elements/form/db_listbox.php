@@ -32,9 +32,9 @@
       // separate fields with comma
       var $fields_to;
 
-      function form_db_listbox(&$form, $field, $title, $table, $key, $value, $order, $required, $fields_from, $fields_to, $validation)
+      function __construct(&$form, $field, $title, $table, $key, $value, $order, $required, $fields_from, $fields_to, $validation)
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->table = $table;
           $this->lbkey = $key;
           $this->lbvalue = $value;

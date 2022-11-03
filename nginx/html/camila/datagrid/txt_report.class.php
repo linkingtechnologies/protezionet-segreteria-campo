@@ -26,7 +26,9 @@ class txt_report extends report {
   {
     reset( $this->fields );
 
-    while( $fld = each( $this->fields ) ) {
+    //while( $fld = each( $this->fields ) ) {
+	foreach ($this->fields as $key => $val) {
+		$fld = [$key, $val];
         if( $fld[1]->print ) {
           $fld[1]->print_title($myRow);
           $fld[1]->print_value($myRow);

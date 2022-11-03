@@ -80,13 +80,13 @@ class Validator {
 	var $errors = array();
 	var $request = array();
 	
-	function Validator($requestArray) {
+	function __construct($requestArray) {
 		//get a unique 3 number id
 		$id = uniqid("");
 		$id = preg_replace("/[[:alpha:]]/", "", $id);
 		$id = strrev($id);
 		$id = substr($id, 0, 3);
-		if($id{0} == 0){
+		if($id[0] == 0){
 			$id = strrev($id);
 		}
 		$this->validatorId = $id;

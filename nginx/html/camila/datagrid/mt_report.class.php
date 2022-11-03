@@ -28,7 +28,9 @@ class mt_report extends report {
 
     reset( $this->fields );
 
-    while( $fld = each( $this->fields ) ) {
+    //while( $fld = each( $this->fields ) ) {
+	foreach ($this->fields as $key => $val) {
+			$fld = [$key, $val];
         if( $fld[1]->print ) {
             $myRow = new CHAW_row();
             $fld[1]->draw_title($myRow);

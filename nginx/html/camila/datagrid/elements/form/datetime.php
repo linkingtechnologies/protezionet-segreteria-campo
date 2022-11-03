@@ -32,9 +32,9 @@
 
       var $hslots=12;
 
-      function form_datetime(&$form, $field, $title, $required = false, $validation='')
+      function __construct(&$form, $field, $title, $required = false, $validation='')
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->size = 12;
           $this->maxlength = 10;
           $form->add($this);
@@ -60,7 +60,8 @@
           ksort($f);
           reset($f);
           $count = 0;
-          while (list($k, $v) = each($f)) {
+          //while (list($k, $v) = each($f)) {
+		  foreach ($f as $k => $v) {
               $fmt.=$v;
               $fmt2.='%'.$v;
               $this->tFormat.=camila_get_translation('camila.dateformat.placeholder.'.$v);
@@ -118,7 +119,9 @@
               }
 
               $mySelect = new CHAW_select($this->key.'_hour');
-              while ($tok = each($this->hour_options) ) {
+              //while ($tok = each($this->hour_options) ) {
+			  foreach ($this->hour_options as $key => $val) {
+				$tok = [$key, $val];
                   $selected = ($tok[1][0] == $this->value_hour) ? HAW_SELECTED : HAW_NOTSELECTED;
                   $mySelect->add_option($tok[1][1], $tok[1][0], $selected);
               }
@@ -135,7 +138,9 @@
               }
 
               $mySelect = new CHAW_select($this->key.'_minute');
-              while( $tok = each($this->minute_options) ) {
+              //while( $tok = each($this->minute_options) ) {
+			  foreach ($this->minute_options as $key => $val) {
+				$tok = [$key, $val];
                   $selected = ($tok[1][0] == $this->value_minute) ? HAW_SELECTED : HAW_NOTSELECTED;
                   $mySelect->add_option($tok[1][1], $tok[1][0], $selected);
               }
@@ -213,7 +218,8 @@
           ksort($f);
           reset($f);
           $count = 0;
-          while (list($k, $v) = each($f)) {
+          //while (list($k, $v) = each($f)) {
+		  foreach ($f as $k => $v) {
 	          $fmt.=$v;
 	          if ($count<2) {
 	              $fmt.=camila_get_translation('camila.dateformat.separator');

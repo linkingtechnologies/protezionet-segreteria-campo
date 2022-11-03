@@ -24,9 +24,9 @@
 
       var $alphanumeric = false;
 
-      function form_db_key_textbox(&$form, $field, $title, $required = false, $size = 0, $maxlength = 0, $validation = '')
+      function __construct(&$form, $field, $title, $required = false, $size = 0, $maxlength = 0, $validation = '')
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           
           if ($form->hasdblink) {
               if ($size == 0)

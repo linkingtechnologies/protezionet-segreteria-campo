@@ -22,15 +22,15 @@ require_once(CAMILA_DIR.'datagrid/evalmath/evalmath.class.php');
 
 class report_formula extends report_field {
 
-  function report_formula($field, $title)
+  function __construct($field, $title)
   {
-    parent::report_field($field, $title);
+    parent::__construct($field, $title);
     $this->inline = false;
     $this->orderable = false;
   }
 
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
     global $_CAMILA;
 

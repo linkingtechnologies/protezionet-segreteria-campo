@@ -20,13 +20,13 @@
 
 class report_int extends report_field {
 
-  function report_int($field, $title)
+  function __construct($field, $title)
   {
-      report_field::report_field($field, $title);
+      parent::__construct($field, $title);
       $this->type = 'int';
   }
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
       parent::draw($row, $fields);
   }

@@ -52,7 +52,7 @@
   new form_text_separator($form, camila_get_translation('camila.export.options'));
 
   $nodata = 'n';
-  new form_checklist($form, xml2pdf_checklist_options, '', Array(camila_get_translation('camila.export.nodata')), Array('y'));
+  new form_checklist($form, 'xml2pdf_checklist_options', '', Array(camila_get_translation('camila.export.nodata')), Array('y'));
 
   new form_text_separator($form, '');
 

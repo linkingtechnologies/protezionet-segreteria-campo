@@ -1,0 +1,115 @@
+a.links:active, a.links:visited, a.links:link {
+  font-family: arial;
+  font-size: .833em;
+  font-weight: bold;
+  padding: 0px 2px 0px 2px;
+  color: #444444;
+}
+
+a.links:hover {
+  font-family: arial;
+  font-size: .833em;
+  font-weight: bold;
+  background-color: #999999;
+  color: #000000;
+  padding: 0px 2px 0px 2px;
+}
+
+a:visited, a:link {
+  font-family: arial;
+  font-size: 10pt;
+  color: #0000ff;
+  outline: thick red;
+}
+
+a:hover {
+  color: #FF0000;
+}
+
+div.links, table.links {
+  border: 2px solid #999999;
+  background-color: #dadada;
+}
+
+div.function {
+  font-family: arial;
+  font-size: .833em;
+  background-color: #dadada;
+  border: 1px solid #999999;
+  width: 99%;
+  padding: 5px 0px 5px 5px;
+}
+
+.tableheadingcolor {
+  background-color: #dadada;
+  color: #000000;
+  border-bottom: 2px solid #999999;
+}
+
+table.border {
+  border: 2px solid #999999;
+}
+
+table.bordernobottom {
+  border-top: 2px solid #999999;
+  border-left: 2px solid #999999;
+  border-right: 2px solid #999999;
+}
+
+th {
+ font-family: arial;
+ font-size: .833em;
+ font-weight: bold;
+ white-space: nowrap;
+}
+
+
+
+.font8 { 
+ font-family: arial, helvetica, lucida;
+ font-size: 8pt; 
+}
+.font8bold { 
+ font-family: arial, helvetica, lucida;
+ font-size: 8pt;
+ font-weight: bold;
+}
+.font10 { 
+ font-family: arial, helvetica, lucida;
+ font-size: 10pt; 
+}
+.font10bold { 
+ font-family: arial, helvetica, lucida;
+ font-size: 10pt;
+ font-weight: bold;
+}
+.font12 {
+ font-family: arial, helvetica, lucida;
+ font-size: 12pt;
+}
+.font12bold {
+ font-family: arial, helvetica, lucida;
+ font-size: 12pt;
+ font-weight: bold;
+}
+.font14 {
+ font-family: arial, helvetica, lucida;
+ font-size: 14pt;
+}
+.font14bold {
+ font-family: arial, helvetica, lucida;
+ font-size: 15pt;
+ font-weight: bold;
+}
+
+ul {
+	margin:			0px;
+	padding:		0px;
+	padding-left:		5px;
+}
+
+li {
+	text-indent:		-15px;
+	padding-bottom:		2px;
+	padding-left:		14px;
+}

@@ -17,7 +17,7 @@
 
 class CamilaUserInterface
 {
-	function CamilaUserInterface()
+	function __construct()
     {
     }
 

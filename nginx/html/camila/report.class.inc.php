@@ -23,7 +23,7 @@ class CamilaReport
 {
     public $camilaWT;
 
-    function CamilaReport($db)
+    function __construct($db)
     {
 		$this->camilaWT = new CamilaWorkTable();
 		$this->camilaWT->wtTable = CAMILA_TABLE_WORKT;

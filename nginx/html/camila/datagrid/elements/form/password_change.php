@@ -23,10 +23,10 @@
 
   class form_password_change extends form_field
   {
-      function form_password_change(&$form, $field, $title, $required = true, $size = CAMILA_PASSWORD_LENGTH, $maxlength = CAMILA_PASSWORD_LENGTH, $validation = '')
+      function __construct(&$form, $field, $title, $required = true, $size = CAMILA_PASSWORD_LENGTH, $maxlength = CAMILA_PASSWORD_LENGTH, $validation = '')
       {
 
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           
           if ($form->hasdblink) {
               if ($size == 0)

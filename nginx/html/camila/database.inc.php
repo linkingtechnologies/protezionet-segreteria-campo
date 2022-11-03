@@ -12,9 +12,6 @@ $_CAMILA['db_error'] = strip_tags(ob_get_contents());
 
 ob_end_clean();
 
-     
-
-
 if (is_object($_CAMILA['db']))
 	$_CAMILA['db']->Execute("set names 'utf8'");
 

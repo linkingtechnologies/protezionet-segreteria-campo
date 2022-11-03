@@ -25,9 +25,9 @@
       var $init;
       var $filename;
 
-      function form_os3grid_csv_textarea(&$form, $field, $title, $required = true, $init, $rows, $cols, $validation)
+      function __construct(&$form, $field, $title, $required = true, $init, $rows, $cols, $validation)
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->cols = $cols;
           $this->rows = $rows;
           $this->init = $init;

@@ -23,7 +23,7 @@
       var $usergroup;
 
 
-      function fs($usergroup = '')
+      function __construct($usergroup = '')
       {
           //$this->stmt=$stmt;
           $this->usergroup = $usergroup;

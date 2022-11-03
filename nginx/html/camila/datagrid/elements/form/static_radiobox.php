@@ -24,9 +24,9 @@ class form_static_radiobox extends form_field {
     // array of value, text
     var $options = array();
 
-    function form_static_radiobox(&$form, $field, $title, $options)
+    function __construct(&$form, $field, $title, $options)
     {
-        $this->form_field($form, $field, $title);
+        parent::__construct($form, $field, $title);
         if( is_array($options) )
             $this->options = $options;
         else {
@@ -55,7 +55,9 @@ class form_static_radiobox extends form_field {
             $myText->set_br(0);
         }
         else {
-            while( $tok = each($this->options) ) {
+            //while( $tok = each($this->options) ) {
+			foreach ($this->options as $key => $val) {
+			$tok = [$key, $val];
 		//$mySelect->add_option($tok[1][1], $tok[1][0], $selected);
             if ($tok[1][0] == $this->value)
 		$value = $tok[1][1];
@@ -67,7 +69,9 @@ class form_static_radiobox extends form_field {
 
         if ($this->updatable) {
 	        $mySelect = new CHAW_select($this->key);
-	        while( $tok = each($this->options) ) {
+	        //while( $tok = each($this->options) ) {
+			foreach ($this->options as $key => $val) {
+				$tok = [$key, $val];
 	            $selected = ($tok[1][0] == $this->value) ? HAW_SELECTED : HAW_NOTSELECTED;
 	            $mySelect->add_option($tok[1][1], $tok[1][0], $selected);
 	        }

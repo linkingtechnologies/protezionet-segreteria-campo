@@ -69,7 +69,7 @@ http://www.grundprinzip.de
         * @param String $langCode The international language Code
         *
         */
-        function M2Translator($langCode = null, $langDir = null)
+        function __construct($langCode = null, $langDir = null)
         {
         	if ($langDir != null)
         		$this->langDir = $langDir;

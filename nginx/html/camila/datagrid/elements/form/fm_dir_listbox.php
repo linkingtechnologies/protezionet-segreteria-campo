@@ -26,7 +26,7 @@
       var $usergroup;
       var $fs;
 
-      function form_fm_dir_listbox(&$form, $field, $title, $usergroup, $required, $validation)
+      function __construct(&$form, $field, $title, $usergroup, $required, $validation)
       {
           $this->form_field($form, $field, $title, $required, $validation);
           $this->usergroup = $usergroup;

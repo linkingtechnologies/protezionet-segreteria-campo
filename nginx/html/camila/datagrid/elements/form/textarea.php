@@ -23,9 +23,9 @@
   {
       var $maxlength;
 
-      function form_textarea(&$form, $field, $title, $required = false, $rows=30, $cols=80, $maxlength = null, $validation = '')
+      function __construct(&$form, $field, $title, $required = false, $rows=30, $cols=80, $maxlength = null, $validation = '')
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->cols = $cols;
           $this->rows = $rows;
           $this->maxlength = $maxlength;

@@ -22,9 +22,9 @@
   class form_decimal extends form_field
   {
 
-      function form_decimal(&$form, $field, $title, $required = false, $precision=5, $scale=2, $validation='')
+      function __construct(&$form, $field, $title, $required = false, $precision=5, $scale=2, $validation='')
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->precision = $precision;
           $this->scale = $scale;
           $form->add($this);

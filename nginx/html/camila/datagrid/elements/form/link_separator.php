@@ -21,9 +21,9 @@
 
 class form_link_separator extends form_field {
 
-  function form_link_separator(&$form, $text, $textformat = HAW_TEXTFORMAT_BOLD, $link, $css_class)
+  function __construct(&$form, $text, $textformat = HAW_TEXTFORMAT_BOLD, $link, $css_class)
   {
-    $this->form_field($form, $field, $title);
+    parent::__construct($form, $field, $title);
     $this->process = false;
     $this->dummy = true;
     $this->updatable = false;

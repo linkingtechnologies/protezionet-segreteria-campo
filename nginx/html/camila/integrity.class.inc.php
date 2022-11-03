@@ -25,7 +25,7 @@ class CamilaIntegrity
     public $camilaWT;
 	private $confXml;
 
-    function CamilaIntegrity($xmlFile)
+    function __construct($xmlFile)
     {	
 		$this->confXml = $xmlFile;
     }

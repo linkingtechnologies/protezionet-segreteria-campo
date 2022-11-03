@@ -22,15 +22,15 @@ class report_timestamp extends report_field {
 
   var $timeformat = 'H:i:s';
 
-  function report_timestamp($field, $title)
+  function __construct($field, $title)
   {
-    parent::report_field($field, $title);
+    parent::__construct($field, $title);
     $this->type = 'timestamp';
     $this->inline = true;
   }
 
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
     global $_CAMILA;
 

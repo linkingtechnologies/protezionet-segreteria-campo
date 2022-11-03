@@ -84,7 +84,7 @@ class selectform {
   // filter support
   var $filter;
 
-    function selectform($table, $keys, $fields, $order, $orderdirection='asc', $whereclause='', $candelete=false, $caninsert=false)
+    function __construct($table, $keys, $fields, $order, $orderdirection='asc', $whereclause='', $candelete=false, $caninsert=false)
     {
         $this->table = $table;
         $this->keys = explode(',', $keys);
@@ -95,8 +95,9 @@ class selectform {
         $this->candelete = $candelete;
         $this->caninsert = $caninsert;
 
-        reset($this->keys );
-        reset($this->fields );
+        reset($this->keys);
+		if (is_array($this->fields))
+			reset($this->fields);
     }
 
     // process input from selection

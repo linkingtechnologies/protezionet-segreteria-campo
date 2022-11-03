@@ -34,7 +34,7 @@ function worktable_parse_default_expression($expression, $form) {
 }
 
 
-if (camila_form_in_update_mode(${table})) {
+if (camila_form_in_update_mode('${table}')) {
 
     <!-- $BeginBlock require -->
     require_once(CAMILA_DIR . 'datagrid/elements/form/${form_require}.php');

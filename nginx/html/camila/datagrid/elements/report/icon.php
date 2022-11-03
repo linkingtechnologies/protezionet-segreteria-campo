@@ -20,10 +20,10 @@
 
 class report_icon extends report_field {
     
-  function report_icon($field, $title)
+  function __construct($field, $title)
   {
       $this->orderable = false;
-      parent::report_field($field, $title);
+      parent::__construct($field, $title);
   }
 
   function draw_header(&$row, $link)

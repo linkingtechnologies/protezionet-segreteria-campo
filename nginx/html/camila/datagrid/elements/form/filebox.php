@@ -28,13 +28,13 @@
       var $override = true;
 	  var $showmaxsizewarning = true;
 
-      function form_filebox(&$form, $field, $title, $size = 50, $uploadfolder, $maxsize = CAMILA_FM_MAX_UPLOAD_SIZE, $extfsenabled = false, $usergroup = '', $selectuploadfolder = true)
+      function __construct(&$form, $field, $title, $size = 50, $uploadfolder, $maxsize = CAMILA_FM_MAX_UPLOAD_SIZE, $extfsenabled = false, $usergroup = '', $selectuploadfolder = true)
       {
           new form_hidden($form, $field.'_camilauploaded');
 
           $this->extfsenabled = $extfsenabled;
           $this->usergroup = $usergroup;
-          $this->form_field($form, $field, $title);
+          parent::__construct($form, $field, $title);
           $this->maxsize = $maxsize;
           $this->selectuploadfolder = $selectuploadfolder;
 

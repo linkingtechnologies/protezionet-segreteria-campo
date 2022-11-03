@@ -20,12 +20,12 @@
 
 class report_real extends report_field {
 
-  function report_real( $field, $title )
+  function __construct( $field, $title )
   {
-    parent::report_field( $field, $title );
+    parent::__construct( $field, $title );
   }
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
     $this->value = str_replace('.',camila_get_translation('camila.decimal.separator'), $this->value);
     parent::draw($row, $fields);

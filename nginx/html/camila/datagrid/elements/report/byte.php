@@ -20,12 +20,12 @@
 
 class report_byte extends report_field {
 
-  function report_byte($field, $title)
+  function __construct($field, $title)
   {
-      parent::report_field($field, $title);
+      parent::__construct($field, $title);
   }
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
 
      $size = $this->value;

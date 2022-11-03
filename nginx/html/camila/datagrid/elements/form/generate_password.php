@@ -21,9 +21,9 @@
 
   class form_generate_password extends form_textbox
   {
-      function form_generate_password(&$form, $field, $title, $size = CAMILA_PASSWORD_LENGTH, $required=true, $type='numeric',$length = CAMILA_PASSWORD_LENGTH)
+      function __construct(&$form, $field, $title, $size = CAMILA_PASSWORD_LENGTH, $required=true, $type='numeric',$length = CAMILA_PASSWORD_LENGTH)
       {
-          $this->form_textbox($form, $field, $title, $required, $size, $length, 'FIT');
+          parent::__construct($form, $field, $title, $required, $size, $length, 'FIT');
           $this->pwdtype = $type;
           $this->pwdlength = $length;
 

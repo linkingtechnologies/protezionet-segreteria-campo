@@ -26,10 +26,10 @@ class form_static_listbox extends form_field {
     var $options2 = array();
 
     // options can be an array or string
-    function form_static_listbox(&$form, $field, $title, $options, $required = false, $validation = '')
+    function __construct(&$form, $field, $title, $options, $required = false, $validation = '')
     {
         $this->options2 = array();
-        $this->form_field($form, $field, $title, $required, $validation);
+        parent::__construct($form, $field, $title, $required, $validation);
         if (is_array($options))
             $this->options = $options;
         else {
@@ -65,7 +65,9 @@ class form_static_listbox extends form_field {
             $myText->set_br(0);
         }
         else {
-            while( $tok = each($this->options) ) {
+            //while( $tok = each($this->options) ) {
+			foreach ($this->options as $key => $val) {
+			$tok = [$key, $val];
 		//$mySelect->add_option($tok[1][1], $tok[1][0], $selected);
             if ($tok[1][0] == $this->value)
 		$value = $tok[1][1];
@@ -79,7 +81,9 @@ class form_static_listbox extends form_field {
 
         if ($this->updatable) {
 	        $mySelect = new CHAW_select($this->key);
-	        while( $tok = each($this->options) ) {
+	        //while( $tok = each($this->options) ) {
+			foreach ($this->options as $key => $val) {
+				$tok = [$key, $val];
 	            $selected = ($tok[1][0] == $this->value) ? HAW_SELECTED : HAW_NOTSELECTED;
 	            $mySelect->add_option($tok[1][1], $tok[1][0], $selected);
 	        }
@@ -112,7 +116,9 @@ class form_static_listbox extends form_field {
         $found = false;
 
         reset ($this->options);
-        while( $tok = each($this->options) ) {
+        //while( $tok = each($this->options) ) {
+		foreach ($this->options as $key => $val) {
+			$tok = [$key, $val];
             $curr = isUTF8($tok[1][0]) ? $tok[1][0] : utf8_encode($tok[1][0]);
             if ($curr == $this->value)
                 $found = true;

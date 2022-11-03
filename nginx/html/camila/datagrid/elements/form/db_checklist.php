@@ -29,7 +29,7 @@
       var $values;
       var $labels;
 
-      function form_db_checklist(&$form, $field, $title, $query, $label_field, $value_field, $required, $validation = false)
+      function __construct(&$form, $field, $title, $query, $label_field, $value_field, $required, $validation = false)
       {
 
           global $_CAMILA;
@@ -57,7 +57,7 @@
 //          for ($i=0; $i<$result->RecordCount(); $i++)
 //              new form_hidden ( $form, $field.'_labels_'.$i );
 
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->query = $query;
           $this->label_field = $label_field;
           $this->value_field = $value_field;

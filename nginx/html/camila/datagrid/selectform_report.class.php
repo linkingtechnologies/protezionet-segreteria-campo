@@ -28,7 +28,9 @@ class selectform_report extends report {
       $myRow = new CHAW_row();
 
       reset($this->fields );
-      while($fld = each($this->fields)) {
+      //while($fld = each($this->fields)) {
+	  foreach ($this->fields as $key => $val) {
+			$fld = [$key, $val];
           if ($fld[1]->print && !($_CAMILA['page']->camila_exporting() && !(strpos($fld[1]->field, 'camilakey_') === false) ) ) {
               $fld[1]->draw($myRow, $this->fields);
           }

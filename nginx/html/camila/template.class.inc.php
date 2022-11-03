@@ -6,7 +6,7 @@ class CamilaTemplate
 	public $lang;
 	public $db;
 
-	function CamilaTemplate($lang='en')
+	function __construct($lang='en')
     {
 		$this->lang = $lang;
 		$this->dir = CAMILA_TMPL_DIR . '/' . $this->lang . '/';

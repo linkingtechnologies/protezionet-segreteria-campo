@@ -35,7 +35,7 @@ class report_field {
 
 
 
-  function report_field($field, $title)
+  function __construct($field, $title)
   {
     $this->field = $field;
     $this->title = $title;

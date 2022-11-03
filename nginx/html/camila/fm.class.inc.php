@@ -9,7 +9,7 @@ class CamilaFileManagement
 	// must be in UTF-8 or `basename` doesn't work
 	//setlocale(LC_ALL,'it_IT.UTF-8');
 
-    function CamilaFileManagement($rootDir)
+    function __construct($rootDir)
     {
         $this->rootDir = $rootDir;
     }

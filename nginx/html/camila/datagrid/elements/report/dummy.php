@@ -22,7 +22,7 @@ class report_dummy extends report_field {
     
   function phpdbform_rep_field_dummy( $field, $title, $value )
   {
-    parent::report_field( $field, $title );
+    parent::__construct( $field, $title );
     $this->value = $value;
     $this->type = "dummy";
     $this->align = "left";

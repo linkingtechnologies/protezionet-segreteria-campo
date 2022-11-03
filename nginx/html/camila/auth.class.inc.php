@@ -9,7 +9,7 @@ class CamilaAuth
     private $domainName;
     public $authUserTable;
     
-    function CamilaAuth($domain = '')
+    function __construct($domain = '')
     {
         $this->domainName = $domain;
 		$this->userTable = CAMILA_TABLE_USERS;

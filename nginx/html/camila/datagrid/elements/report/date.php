@@ -19,13 +19,13 @@
 
 class report_date extends report_field {
 
-  function date($field, $title)
+  function __construct($field, $title)
   {
-      parent::field($field, $title);
+      parent::__construct($field, $title);
       $this->type = 'date';
   }
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
       if ($this->value!='' && $this->value!='0000-00-00') {
           global $_CAMILA;

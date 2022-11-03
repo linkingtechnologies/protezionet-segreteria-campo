@@ -35,9 +35,9 @@
       var $checklist_checkboxes;
       var $_checkboxes_loaded = false;
 
-      function form_intertable_checklist(&$form, $field, $title, $query, $label_field, $key_field, $intertable, $akey, $formkey, $bkey, $required, $validation = false)
+      function __construct(&$form, $field, $title, $query, $label_field, $key_field, $intertable, $akey, $formkey, $bkey, $required, $validation = false)
       {
-          $this->form_field($form, 'camilafield_'.$field, $title, $required, $validation);
+          parent::__construct($form, 'camilafield_'.$field, $title, $required, $validation);
           $this->query = $query;
           $this->label_field = $label_field;
           $this->key_field = $key_field;

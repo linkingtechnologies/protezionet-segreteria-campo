@@ -219,7 +219,7 @@ require_once('i18n.inc.php');
       ksort($f);
       reset($f);
       $count = 0;
-      while (list($k, $v) = each($f)) {
+	  foreach ($f as $k => $v) {
           $tFormat.=camila_get_translation('camila.dateformat.placeholder.'.$v);
           if ($count<2) {
               $tFormat.=camila_get_translation('camila.date.separator');
@@ -244,7 +244,7 @@ require_once('i18n.inc.php');
       ksort($f);
       reset($f);
       $count = 0;
-      while (list($k, $v) = each($f)) {
+	  foreach ($f as $k => $v) {
           $fmt.=$v;
           $tFormat.=camila_get_translation('camila.dateformat.placeholder.'.$v);
           if ($count<2) {
@@ -667,6 +667,11 @@ function camila_worktable_get_table_id($name)
     $ttemp->generateOutputToString($expression);
 
     return $expression;
+  }
+  
+  function camila_session_cookie_name() {
+	  //return preg_replace('/\s+/', '', CAMILA_APPLICATION_NAME);
+	  return preg_replace('/[^a-z0-9]/', '', CAMILA_APPLICATION_NAME);
   }
 
 

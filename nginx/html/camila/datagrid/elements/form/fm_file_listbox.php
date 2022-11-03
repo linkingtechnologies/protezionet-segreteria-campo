@@ -28,9 +28,9 @@
       var $fs;
       var $basedir;
 
-      function form_fm_file_listbox(&$form, $field, $title, $basedir, $extfsenabled=false, $usergroup='', $extensions='', $required = false, $validation = '')
+      function __construct(&$form, $field, $title, $basedir, $extfsenabled=false, $usergroup='', $extensions='', $required = false, $validation = '')
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->usergroup = $usergroup;
           $this->fs = new fs($usergroup);
           $this->basedir = $basedir;

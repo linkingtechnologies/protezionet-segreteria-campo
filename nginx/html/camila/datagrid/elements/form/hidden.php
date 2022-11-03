@@ -21,8 +21,8 @@
 
 class form_hidden extends form_field {
 
-  function form_hidden(&$form, $field, $value = '') {
-  	$this->form_field($form, $field, '');
+  function __construct(&$form, $field, $value = '') {
+	parent::__construct($form, $field, '');
   	$this->value = $value;
   	$this->cleanable = false;
   	$this->hidden = true;

@@ -7,7 +7,7 @@
 /**
 * A compact template engine for HTML files.
 *
-* Requires PHP 4.0.4 or newer.
+* Requires PHP 5 or newer.
 *
 * <pre>
 * Template syntax:
@@ -69,6 +69,8 @@
 *   "$Include" command implemented.<br>
 * 2004-11-20 chdh:<br>
 *   "$Include" command changed so that the command text is not copied to the output file.<br>
+* 2019-02-04 chdh:<br>
+*   Class constructor changed to PHP 5 style, because the old constructor syntax is deprecated in PHP 7.<br>
 */
 
 class MiniTemplator {
@@ -160,7 +162,7 @@ var $outputString;                    // string buffer for the generated HTML pa
 * Constructs a MiniTemplator object.
 * @access public
 */
-function MiniTemplator() {
+function __construct() {
    $this->templateValid = false; }
 
 //--- template string handling --------------------------------------------------------------------------------------
@@ -309,7 +311,7 @@ function processTemplateCommand ($cmdL, $cmdTPosBegin, $cmdTPosEnd, &$resumeFrom
          $resumeFromStart = true;
          break;
       default:
-         if ($cmd{0} == '$' && !(strlen($cmd) >= 2 && $cmd{1} == '{')) {
+         if ($cmd[0] == '$' && !(strlen($cmd) >= 2 && $cmd[1] == '{')) {
             $this->triggerError ("Unknown command \"$cmd\" in template at offset $cmdTPosBegin.");
             return false; }}
     return true; }
@@ -856,10 +858,10 @@ function readFileIntoString ($fileName, &$s) {
 */
 function parseWord ($s, &$p, &$w) {
    $sLen = strlen($s);
-   while ($p < $sLen && ord($s{$p}) <= 32) $p++;
+   while ($p < $sLen && ord($s[$p]) <= 32) $p++;
    if ($p >= $sLen) return false;
    $p0 = $p;
-   while ($p < $sLen && ord($s{$p}) > 32) $p++;
+   while ($p < $sLen && ord($s[$p]) > 32) $p++;
    $w = substr($s, $p0, $p - $p0);
    return true; }
 
@@ -869,11 +871,11 @@ function parseWord ($s, &$p, &$w) {
 */
 function parseQuotedString ($s, &$p, &$w) {
    $sLen = strlen($s);
-   while ($p < $sLen && ord($s{$p}) <= 32) $p++;
+   while ($p < $sLen && ord($s[$p]) <= 32) $p++;
    if ($p >= $sLen) return false;
    if (substr($s,$p,1) != '"') return false;
    $p++; $p0 = $p;
-   while ($p < $sLen && $s{$p} != '"') $p++;
+   while ($p < $sLen && $s[$p] != '"') $p++;
    if ($p >= $sLen) return false;
    $w = substr($s, $p0, $p - $p0);
    $p++;
@@ -885,7 +887,7 @@ function parseQuotedString ($s, &$p, &$w) {
 */
 function parseWordOrQuotedString ($s, &$p, &$w) {
    $sLen = strlen($s);
-   while ($p < $sLen && ord($s{$p}) <= 32) $p++;
+   while ($p < $sLen && ord($s[$p]) <= 32) $p++;
    if ($p >= $sLen) return false;
    if (substr($s,$p,1) == '"')
       return $this->parseQuotedString($s,$p,$w);

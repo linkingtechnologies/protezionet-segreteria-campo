@@ -268,7 +268,7 @@ Class Xml2PdfTextTag extends Xml2PdfTag {
             if(ereg('(.+) (.+)=\'(.+)\' *', $regs[2])) {
                 $params = split(" +",$regs[2]);
                 $result[2] = trim($params[0]);
-                while(list($i, $couple) = each($params)) {
+				foreach ($params as $i => $couple) {
                     if($i>0) {
                         $couple = explode('=',$couple);
                         $couple[0] = trim($couple[0]);
@@ -359,7 +359,7 @@ Class Xml2PdfTextTag extends Xml2PdfTag {
                 $foo = '';
                 $indent = 0;
                 for($i=0 ; $i<$lineLength ; $i++) {
-                    $char = $tmp{$i}; 
+                    $char = $tmp[$i]; 
                     if($char == " ") {
                         $spacePos = $i;
                         $foo .= " ";

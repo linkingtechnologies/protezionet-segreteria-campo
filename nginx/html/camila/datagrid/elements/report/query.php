@@ -21,15 +21,15 @@
 class report_query extends report_field {
 
 
-  function report_query($field, $title)
+  function __construct($field, $title)
   {
-    parent::report_field($field, $title);
+    parent::__construct($field, $title);
     $this->inline = false;
     $this->orderable = false;
   }
 
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
 	  global $_CAMILA;
 	  $camilaWT  = new CamilaWorkTable();

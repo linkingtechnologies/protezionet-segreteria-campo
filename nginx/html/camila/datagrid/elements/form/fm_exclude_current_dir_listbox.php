@@ -24,9 +24,9 @@
   {
       var $node;
 
-      function form_fm_exclude_current_dir_listbox(&$form, $field, $title, $node, $usergroup, $required, $validation)
+      function __construct(&$form, $field, $title, $node, $usergroup, $required, $validation)
       {
-          $this->form_fm_dir_listbox($form, $field, $title, $usergroup, $required, $validation);
+          parent::__construct($form, $field, $title, $usergroup, $required, $validation);
           $this->node = $node;
           $form->add($this);
       }

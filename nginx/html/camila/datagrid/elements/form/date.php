@@ -26,9 +26,9 @@
       var $calendar_setup_file = 'calendar-setup.js';
       var $form;
 
-      function form_date(&$form, $field, $title, $required = false, $validation)
+      function __construct(&$form, $field, $title, $required = false, $validation)
       {
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->size = 12;
           $this->maxlength = 10;
           $form->add($this);
@@ -54,7 +54,8 @@
           ksort($f);
           reset($f);
           $count = 0;
-          while (list($k, $v) = each($f)) {
+          //while (list($k, $v) = each($f)) {
+		  foreach ($f as $k => $v) {
               $fmt.=$v;
               $fmt2.='%'.$v;
               $tFormat.=camila_get_translation('camila.dateformat.placeholder.'.$v);
@@ -122,7 +123,8 @@
           ksort($f);
           reset($f);
           $count = 0;
-          while (list($k, $v) = each($f)) {
+          //while (list($k, $v) = each($f)) {
+		  foreach ($f as $k => $v) {
               $fmt.=$v;
               if ($count<2) {
                   $fmt.=camila_get_translation('camila.dateformat.separator');

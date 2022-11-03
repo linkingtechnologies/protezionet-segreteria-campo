@@ -1729,7 +1729,7 @@ class configurator
             new form_static_listbox($dbform, 'share_candelete', camila_get_translation('camila.worktable.share.candelete'), camila_get_translation('camila.worktable.options.noyes'));
 
 			$dbform->formupdatelinktext = camila_get_translation('camila.worktable.field.formupdatelinktext');
-            $dbform->onupdate           = camila_configurator_worktable_title_db_onupdate;
+            $dbform->onupdate           = 'camila_configurator_worktable_title_db_onupdate';
             
             $dbform->process();
             $dbform->draw();
@@ -1748,16 +1748,16 @@ class configurator
             );
             
             $report->process();
-            $report->fields['camila_worktable_reconfig']->onprint = camila_configurator_reconfig;
+            $report->fields['camila_worktable_reconfig']->onprint = 'camila_configurator_reconfig';
             $report->fields['camila_worktable_reconfig']->dummy   = true;
             
-            $report->fields['camila_worktable_import']->onprint = camila_configurator_import;
+            $report->fields['camila_worktable_import']->onprint = 'camila_configurator_import';
             $report->fields['camila_worktable_import']->dummy   = true;
             
-            $report->fields['camila_worktable_rebuild']->onprint = camila_configurator_rebuild;
+            $report->fields['camila_worktable_rebuild']->onprint = 'camila_configurator_rebuild';
             $report->fields['camila_worktable_rebuild']->dummy   = true;
             
-            $report->fields['camila_worktable_delete']->onprint = camila_configurator_delete;
+            $report->fields['camila_worktable_delete']->onprint = 'camila_configurator_delete';
             $report->fields['camila_worktable_delete']->dummy   = true;
             
             //$report->fields['camila_worktable_templates']->onprint = camila_configurator_templates;
@@ -1785,7 +1785,7 @@ class configurator
         new form_textbox($dbform, 'full_title', camila_get_translation('camila.worktable.desc'), true, 40, 20);
         
         $dbform->mapping  = camila_get_translation('camila.worktable.categories.mapping');
-        $dbform->onupdate = camila_configurator_worktable_description_db_onupdate;
+        $dbform->onupdate = 'camila_configurator_worktable_description_db_onupdate';
         
         $dbform->process();
         $dbform->draw();
@@ -2265,11 +2265,11 @@ class configurator
             
             $report->process();
 
-            $report->fields['colname_form']->onprint   = camila_configurator_template_fieldname_form;
+            $report->fields['colname_form']->onprint   = 'camila_configurator_template_fieldname_form';
             $report->fields['colname_form']->dummy     = true;
             $report->fields['colname_form']->orderable = false;
             
-            $report->fields['colname_table']->onprint   = camila_configurator_template_fieldname_table;
+            $report->fields['colname_table']->onprint   = 'camila_configurator_template_fieldname_table';
             $report->fields['colname_table']->dummy     = true;
             $report->fields['colname_table']->orderable = false;
             

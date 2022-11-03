@@ -67,8 +67,8 @@ $smartMenusTheme = 'sm-camila';
   if (!camila_isUTF8($_COOKIE))
       camila_utf8_encode_array($_COOKIE);
 
-  if (isset($_REQUEST[CAMILA_APPLICATION_NAME]))
-      session_id($_REQUEST[CAMILA_APPLICATION_NAME]);
+  if (isset($_REQUEST[camila_session_cookie_name()]))
+      session_id($_REQUEST[camila_session_cookie_name()]);
 
   //session_set_cookie_params(3600);
 
@@ -101,8 +101,9 @@ $smartMenusTheme = 'sm-camila';
   if (!CAMILA_LOGIN_MLANG)
 	  $_CAMILA['lang'] = CAMILA_LANG;
 
-  if (isset($_REQUEST['openid_mode']) || (isset($HTTP_COOKIE_VARS['camila_js_enabled']) && $HTTP_COOKIE_VARS['camila_js_enabled'] == '1') || (isset($_REQUEST['js']) && $_REQUEST['js'] == 'enabled'))
+  if (isset($_REQUEST['openid_mode']) || (isset($_COOKIE['camila_js_enabled']) && $_COOKIE['camila_js_enabled'] == '1') || (isset($_REQUEST['js']) && $_REQUEST['js'] == 'enabled'))
       $_CAMILA['javascript_enabled'] = 1;
+
 
   // tentativo di accesso
   if (isset($_REQUEST['camila_login_token']) || isset($_REQUEST['openid_mode']) || (((isset($_REQUEST['camila_s'])) && (isset($_REQUEST['camila_n'])) && (isset($_REQUEST['camila_1'])) && (isset($_REQUEST['camila_2'])) && (isset($_REQUEST['camila_3']))) || (isset($_REQUEST['submit'])) && (isset($_REQUEST['camila_pwloginbox'])) && ($_REQUEST['camila_pwloginbox'] == 'yes'))) {
@@ -253,12 +254,12 @@ $smartMenusTheme = 'sm-camila';
               camila_error_page(camila_get_translation('camila.sqlerror') . ' ' . $_CAMILA['db']->ErrorMsg());
 
           if (isset($_REQUEST['remembersession']) && $_REQUEST['remembersession'] == 'yes')
-              setcookie(CAMILA_APPLICATION_NAME, session_id(), time() + CAMILA_SESSION_DURATION, "/", false);
+              setcookie(camila_session_cookie_name(), session_id(), time() + CAMILA_SESSION_DURATION, "/", false);
           else
-              setcookie(CAMILA_APPLICATION_NAME, '', time() + CAMILA_SESSION_DURATION, "/", false);
+              setcookie(camila_session_cookie_name(), '', time() + CAMILA_SESSION_DURATION, "/", false);
 
           if (CAMILA_ANON_LOGIN)
-              setcookie(CAMILA_APPLICATION_NAME . '_username', $_REQUEST['username'], time() + CAMILA_SESSION_DURATION, "/", false);
+              setcookie(camila_session_cookie_name() . '_username', $_REQUEST['username'], time() + CAMILA_SESSION_DURATION, "/", false);
 
 		  //230515
 		  
@@ -317,7 +318,6 @@ $smartMenusTheme = 'sm-camila';
 			  $_CAMILA['lang'] = $sLang;
 		  }
 		  
-		  //echo $loggedUser;
 		  if ($loggedUser != '') {
 			  //$query = 'SELECT * FROM ' . CAMILA_TABLE_USERS . ' WHERE username = ' . $_CAMILA['db']->qstr($loggedUser);
 			  $query = $camilaAuth->getUserInfoSqlFromUsername($loggedUser);
@@ -795,7 +795,7 @@ $smartMenusTheme = 'sm-camila';
       $camila_linkset_sep = new CHAW_text(' ' . CAMILA_LINKSET_SEPARATOR . ' ');
       $camila_linkset_sep->set_br(0);
 
-      $camila_temp_text = new CHAW_text(camila_get_translation(camila.youarein), HAW_TEXTFORMAT_SMALL | HAW_TEXTFORMAT_ITALIC);
+      $camila_temp_text = new CHAW_text(camila_get_translation('camila.youarein'), HAW_TEXTFORMAT_SMALL | HAW_TEXTFORMAT_ITALIC);
       $camila_temp_text->set_br(0);
       if ($_CAMILA['user_loggedin']) {
           $_CAMILA['page']->add_text($camila_temp_text);

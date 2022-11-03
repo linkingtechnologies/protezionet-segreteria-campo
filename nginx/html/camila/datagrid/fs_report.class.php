@@ -140,7 +140,7 @@
       var $dir_id;
       var $is_root_dir = true;
 
-      function fs_report($basedir, $extfsenabled = false, $usergroup, $title, $orderby = 'name', $direction = 'asc', $canupdate = true, $candelete = true, $caninsert = true, $canmove = true)
+      function __construct($basedir, $extfsenabled = false, $usergroup, $title, $orderby = 'name', $direction = 'asc', $canupdate = true, $candelete = true, $caninsert = true, $canmove = true)
       {
           $this->filter = $filter;
           $this->canupdate = $canupdate;
@@ -470,7 +470,9 @@
 
           reset($this->fields);
           $noprint = 0;
-          while ($fld = each($this->fields)) {
+          //while ($fld = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$fld = [$key, $val];
               if (!$fld[1]->print )
                   $noprint++;
           }
@@ -481,7 +483,9 @@
 
           $count = 0;
           reset($this->fields);
-          while ($fld = each($this->fields)) {
+          //while ($fld = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$fld = [$key, $val];
               if ($fld[1]->print && !($_CAMILA['page']->camila_exporting() && $fld[1]->dummy) && !($_CAMILA['page']->camila_exporting() && !(strpos($fld[1]->field, 'camilakey_') === false))) {
                   if (($this->direction == 'asc') && ($fld[1]->field == $orderby))
                       $fld[1]->draw_header($myRow, basename($_SERVER['PHP_SELF']) . $this->urlappendnoorder . '&d=1&f0=' . urlencode($fld[1]->field));
@@ -496,7 +500,8 @@
 
       function load_row(&$row, $line)
       {
-          if ((list($item, ) = each($this->file_list))) {
+          //if ((list($item, ) = each($this->file_list))) {
+		  foreach ($this->file_list as $item => $val) {
               if ($item == '..') {
                   $this->fields['name']->title = 'Cartella sup.';
                   $this->fields['name']->value = 'up';
@@ -554,7 +559,9 @@
           $myRow = new CHAW_row();
           
           reset($this->fields);
-          while ($fld = each($this->fields)) {
+          //while ($fld = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$fld = [$key, $val];
               if ($fld[1]->print && !($_CAMILA['page']->camila_exporting() && $fld[1]->dummy) && !($_CAMILA['page']->camila_exporting() && (!(strpos($fld[1]->field, 'camilakey_') === false)))) {
                   $fld[1]->draw($myRow, $this->fields);
               }

@@ -21,9 +21,9 @@
 
 class form_text_separator extends form_field {
 
-  function form_text_separator(&$form, $text, $textformat = HAW_TEXTFORMAT_BOLD)
+  function __construct(&$form, $text, $textformat = HAW_TEXTFORMAT_BOLD)
   {
-    $this->form_field($form, $field, $title);
+    parent::__construct($form, $field, $title);
     $this->process = false;
     $this->dummy = true;
     $this->updatable = false;

@@ -102,7 +102,7 @@ $mySelect3 = new CHAW_select('camila_table_font_face');
 
 $_fields = explode(',','Arial,Times,Verdana');
 
-while (list($key, $value) = each($_fields)) {
+foreach ($_fields as $key => $value) {
     if ($_CAMILA['user_preferences']['c_ff'] == $value)
         $mySelect->add_option($value, $value, HAW_SELECTED);
     else
@@ -135,7 +135,7 @@ $mySelect2 = new CHAW_select('camila_table_font_size');
 
 $_fields = explode(',','7pt,8pt,9pt,10pt,11pt,12pt,13pt,15pt,16pt,17pt,18pt,19pt,20pt,21pt,22pt,23pt,24pt');
 
-while (list($key, $value) = each($_fields)) {
+foreach ($_fields as $key => $value) {
     if ($_CAMILA['user_preferences']['c_fs'] == $value)
         $mySelect->add_option($value, $value, HAW_SELECTED);
     else

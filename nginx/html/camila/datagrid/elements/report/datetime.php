@@ -25,12 +25,12 @@ class report_datetime extends report_field {
 
   function datetime($field, $title)
   {
-    parent::report_field($field, $title);
+    parent::__construct($field, $title);
     $this->type = 'datetime';
     $this->inline = true;
   }
 
-  function draw(&$row, $fields)
+  function draw(&$row, &$fields)
   {
     if( isset($this->format) ) {
       $this->value = date($this->format, strtotime($this->value));

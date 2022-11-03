@@ -61,7 +61,7 @@ class CHAW_deck extends HAW_deck
   
   var $js_no_camila_init = false;
 
-  function CHAW_deck($title = '', $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
+  function __construct($title = '', $alignment=HAW_ALIGN_LEFT, $output=HAW_OUTPUT_AUTOMATIC)
   {
 	  $this->camila_force_js_update_token = date("mdy").'2021';
       global $_CAMILA;
@@ -134,7 +134,7 @@ class CHAW_deck extends HAW_deck
       if (file_exists($this->camila_export_get_dir() . $this->camila_export_safe_filename() . '.' . $this->camila_export_get_ext()))
           $this->camila_export_file_exists = true;
           
-      $this->{get_parent_class(__CLASS__)}($title, $alignment, $output);
+      parent::__construct($title, $alignment, $output);
 }
 
   function camila_export_get_dir() {
@@ -923,7 +923,7 @@ class CHAW_file
   var $type;
   var $br;
 
-  function CHAW_file($name, $label, $size="", $maxfilesize="")
+  function __construct($name, $label, $size="", $maxfilesize="")
   {
     $this->name = $name;
     $this->label = $label;
@@ -1013,7 +1013,7 @@ class CHAW_file
 class CHAW_preferences
 {
 
-  function CHAW_preferences()
+  function __construct()
   {
   }
 
@@ -1117,7 +1117,7 @@ class CHAW_preferences
 class CHAW_storepwd
 {
 
-  function CHAW_storepwd()
+  function __construct()
   {
   }
 
@@ -1141,7 +1141,7 @@ class CHAW_storepwd
 class CHAW_getpwd
 {
 
-  function CHAW_getpwd($c1,$c2,$c3)
+  function __construct($c1,$c2,$c3)
   {
     $this->c1=$c1;
     $this->c2=$c2;
@@ -1169,7 +1169,7 @@ class CHAW_getpwd
 class CHAW_js
 {
 
-  function CHAW_js($js, $force='false')
+  function __construct($js, $force='false')
   {
     $this->js=$js;
     $this->force=$force;
@@ -1194,7 +1194,7 @@ class CHAW_js
 class CHAW_tbs
 {
 
-  function CHAW_tbs($tbs, $force='false')
+  function __construct($tbs, $force='false')
   {
     $this->tbs=$tbs;
     $this->force=$force;
@@ -1759,7 +1759,7 @@ class CHAW_input extends HAW_input
     $this->css_class = $css_class;
   }
 
-  function CHAW_input($name, $value, $label, $format="*M")
+  function __construct($name, $value, $label, $format="*M")
   {
     global $_CAMILA;
     $this->name = $name;
@@ -2025,7 +2025,7 @@ class CHAW_submit extends HAW_submit
 class CHAW_link extends HAW_link
 {
 
-  function CHAW_link($label, $url, $title="")
+  function __construct($label, $url, $title="")
   {
 
     if (isset($_REQUEST["camila_print"])) {
@@ -2040,7 +2040,7 @@ class CHAW_link extends HAW_link
 	    
 	}
 
-    $this->{get_parent_class(__CLASS__)}($label, $url, $title);
+    parent::__construct($label, $url, $title);
 
   }
 

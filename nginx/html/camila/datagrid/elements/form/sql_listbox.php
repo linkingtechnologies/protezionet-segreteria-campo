@@ -26,14 +26,14 @@
       var $lbkey;
       var $lbvalue;
 
-      function form_sql_listbox(&$form, $field, $title, $query, $key, $value, $required = false, $validation = '')
+      function __construct(&$form, $field, $title, $query, $key, $value, $required = false, $validation = '')
       {
           if (strpos($query, 'where') !== false)
               $tables = explode(',', substr($query, strpos($query, 'from')+4, strpos($query, 'where') - 5 - strpos($query, 'from')));
           else
               $tables = explode(',', substr($query, strpos($query, 'from')+4));
 
-          $this->form_field($form, $field, $title, $required, $validation);
+          parent::__construct($form, $field, $title, $required, $validation);
           $this->query = $query;
           $this->lbkey = $key;
           $this->lbvalue = $value;

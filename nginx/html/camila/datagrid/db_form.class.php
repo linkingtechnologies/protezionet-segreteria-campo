@@ -99,14 +99,14 @@ require_once(CAMILA_DIR . 'datagrid/form.class.php');
       // keys - fields separeted by comma that select an unique row
       // sel_fields - fields shown at the selection box
       // sel_order - order used to sort the list at the selection box
-      function dbform($table, $keys, $sel_fields = '', $sel_order = '', $orderdirection = 'asc', $whereclause = '', $candelete = false, $caninsert = false, $canupdate=true, $drawfilterbox=true, $drawnavigationbox=true)
+      function __construct($table, $keys, $sel_fields = '', $sel_order = '', $orderdirection = 'asc', $whereclause = '', $candelete = false, $caninsert = false, $canupdate=true, $drawfilterbox=true, $drawnavigationbox=true)
       {
           $this->table = $table;
           $this->keys = explode(',', $keys);
           $this->orderdirection = $orderdirection;
           $this->whereclause = $whereclause;
           global $_CAMILA;
-          $this->phpform($table, $_CAMILA['page_url']);
+          parent::__construct($table, $_CAMILA['page_url']);
           $this->hasdblink = true;
           $this->candelete = $candelete;
           $this->caninsert = $caninsert;
@@ -258,7 +258,10 @@ $(document).ready(function(){
           $i = 1;
 
           reset($this->fields);
-          while ($afield = each($this->fields)) {
+		  
+          //while ($afield = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $afield = [$key, $val];
               if (!$afield[1]->dummy && $afield[1]->field != '' && !(substr(trim($afield[1]->field), 0, strlen('camilafield_')) == 'camilafield_')) {
                   if ($afield[1]->field != 'group')
                       $stmt .= $afield[1]->field;
@@ -283,8 +286,10 @@ $(document).ready(function(){
           reset($this->keyvalue);
 
           $i = 0;
-          while ($akey = each($this->keyvalue)) {
-              if ($i > 0)
+          //while ($akey = each($this->keyvalue)) {
+		  foreach ($this->keyvalue as $key => $val) {
+              $akey = [$key, $val];
+			  if ($i > 0)
                   $stmt .= ' AND ';
 
               $stmt .= trim($this->keys[$i]) . ' = ' . $_CAMILA['db']->Quote($akey[1]);
@@ -309,12 +314,15 @@ $(document).ready(function(){
 
           reset($vals);
           reset($this->fields);
-          while ($afield = each($this->fields)) {
+          //while ($afield = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $afield = [$key, $val];
               if (isset($_REQUEST['camila_print']))
                   $this->fields[$afield[1]->field]->updatable = false;
               if (!$afield[1]->dummy && $afield[1]->field != '') {
-                  $val = each($vals);
-                  $this->fields[$afield[1]->field]->value = $val[1];
+                  //$val = each($vals);
+				  //$this->fields[$afield[1]->field]->value = $val[1];
+				  $this->fields[$afield[1]->field]->value = $vals[$afield[1]->field];
               }
           }
 
@@ -330,7 +338,9 @@ $(document).ready(function(){
           $first = false;
 
           reset($this->fields);
-          while ($afield = each($this->fields)) {
+          //while ($afield = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $afield = [$key, $val];
               if ((!$afield[1]->updatable && !isset($afield[1]->defaultvalue)) || $afield[1]->field == '' || (substr(trim($afield[1]->field), 0, strlen('camilafield_')) == 'camilafield_') )
                   continue;
               if ($first)
@@ -357,7 +367,9 @@ $(document).ready(function(){
           $data = Array();
           
           reset($this->fields);
-          while ($afield = each($this->fields)) {
+          //while ($afield = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $afield = [$key, $val];
               if ((!$afield[1]->updatable && !isset($afield[1]->defaultvalue)) || $afield[1]->field == '' || (substr(trim($afield[1]->field), 0, strlen('camilafield_')) == 'camilafield_'))
                   continue;
               if ($first)
@@ -410,7 +422,9 @@ $(document).ready(function(){
           $count = 0;
 
           reset($this->fields);
-          while ($afield = each($this->fields)) {
+          //while ($afield = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $afield = [$key, $val];
               if (!$afield[1]->updatable || $afield[1]->field == '' || (substr(trim($afield[1]->field), 0, strlen('camilafield_')) == 'camilafield_'))
                   continue;
               if ($first)
@@ -447,7 +461,9 @@ $(document).ready(function(){
 
           reset($this->keyvalue);
           $i = 0;
-          while ($akey = each($this->keyvalue)) {
+          //while ($akey = each($this->keyvalue)) {
+		  foreach ($this->keyvalue as $key => $val) {
+			  $akey = [$key, $val];
               if ($i > 0)
                   $stmt .= ' AND ';
 
@@ -483,7 +499,9 @@ $(document).ready(function(){
           reset($this->keyvalue);
 
           $i = 0;
-          while ($akey = each($this->keyvalue)) {
+          //while ($akey = each($this->keyvalue)) {
+		  foreach ($this->keyvalue as $key => $val) {
+			  $akey = [$key, $val];
               if ($i > 0)
                   $stmt .= ' AND ';
 
@@ -509,19 +527,19 @@ $(document).ready(function(){
 
       function draw_header()
       {
-          phpform::draw_header();
-          phpform::add_hidden($this->table . '_sess_key', serialize($this->keyvalue));
-          phpform::add_hidden($this->table . '_sess_mode', $this->mode);
+          parent::draw_header();
+          parent::add_hidden($this->table . '_sess_key', serialize($this->keyvalue));
+          parent::add_hidden($this->table . '_sess_mode', $this->mode);
           if (isset($_REQUEST['camila_returl']) && ($_REQUEST['camila_returl'] != ''))
-              phpform::add_hidden('camila_returl', $_REQUEST['camila_returl']);
+              parent::add_hidden('camila_returl', $_REQUEST['camila_returl']);
           if (isset($_REQUEST['camila_preferences']) )
-              phpform::add_hidden('camila_preferences', $_REQUEST['camila_preferences']);
+              parent::add_hidden('camila_preferences', $_REQUEST['camila_preferences']);
 		  
 		  $this->insert_suggest_modal();
 
       }
 
-      function draw()
+      function draw($drawSubmit=true)
       {
           if ($this->mapping != '')
               $this->selform->mapping = $this->mappingseparator.$this->mapping.$this->mappingseparator;
@@ -576,11 +594,11 @@ $(document).ready(function(){
 	          }
 
               //if (!$this->_data_inserted && !$this->_data_updated)
-              phpform::draw();
+              parent::draw();
           }
       }
 
-      function process()
+      function process($force=false)
       {
           if ($this->mapping != '')
               $this->selform->mapping = $this->mappingseparator.$this->mapping.$this->mappingseparator;
@@ -623,7 +641,10 @@ $(document).ready(function(){
               // If there was no selform, or selform selected nothing
               // try to see if the user has set keyvalue
               // how user can set keyvalue? using $form->keyvalue = "xxx,xxx"
-              if (!$selected && count($this->keyvalue) > 0)
+			  //PHP8 compatibility
+			  if ($this->keyvalue == null || is_bool($this->keyvalue))
+				  $selected = true;
+              elseif (!$selected && count($this->keyvalue) > 0)
                   $selected = true;
 
               // Something filled keyvalue, try loading the values into phpdbform
@@ -686,7 +707,9 @@ $(document).ready(function(){
                   $this->_data_updated = true;
 
                   reset($this->fields);
-                  while ($field = each($this->fields)) {
+                  //while ($field = each($this->fields)) {
+				  foreach ($this->fields as $key => $val) {
+					  $field = [$key, $val];
                       if ((substr(trim($field[1]->field), 0, strlen('camilafield_')) == 'camilafield_')) {
                           $this->fields[$field[1]->field]->process();
                           //$req[$this->fields[$field[1]->field]->field] = $this->fields[$field[1]->field]->value;
@@ -706,7 +729,9 @@ $(document).ready(function(){
                   }
 
                   reset($this->fields);
-                  while ($field = each($this->fields)) {
+                  //while ($field = each($this->fields)) {
+				  foreach ($this->fields as $key => $val) {
+					  $field = [$key, $val];
                       if ((substr(trim($field[1]->field), 0, strlen('camilafield_')) == 'camilafield_')) {
                           $this->fields[$field[1]->field]->process();
                           ////                              //$req[$this->fields[$field[1]->field]->field] = $this->fields[$field[1]->field]->value;

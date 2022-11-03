@@ -57,7 +57,7 @@ class form_field
     
     var $help;
     
-    function form_field(&$form, $field, $title, $required = false, $validation = '')
+    function __construct(&$form, $field, $title, $required = false, $validation = '')
     {
         $this->form =& $form;
         $this->field = $field;
@@ -189,7 +189,9 @@ class form_field
                     reset($this->form->keys);
                     
                     $i = 0;
-                    while ($akey = each($this->form->keys)) {
+                    //while ($akey = each($this->form->keys)) {
+					foreach ($this->form->keys as $key => $val) {
+						$akey = [$key, $val];
                         $stmt .= ' AND ';
                         $k = trim($this->form->keys[$i]);
                         $v = $ar['camilakey_' . $k];

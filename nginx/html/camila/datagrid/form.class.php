@@ -39,7 +39,7 @@
       var $drawheadersubmitbutton = false;
 
 
-      function phpform($name, $action = '', $method=HAW_METHOD_POST)
+      function __construct($name, $action = '', $method=HAW_METHOD_POST)
       {
           $this->method = $method;
           $this->fields = array();
@@ -189,7 +189,9 @@
           reset($this->fields);
           $myRule = new CHAW_rule('100%');
 
-          while ($field = each($this->fields)) {
+          //while ($field = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$field = [$key, $val];
 
 	          if (!(!$field[1]->updatable  && $_REQUEST[$this->table.'_phpform_sent'] == '1' && count($this->validator->getErrors()) == 0) || $field[1]->forcedraw) {
 
@@ -215,7 +217,9 @@
           $this->noproc = false;
 
           reset($this->fields);
-          while ($field = each($this->fields)) {
+          //while ($field = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$field = [$key, $val];
               if ($field[1]->field != '' && !(substr(trim($field[1]->field), 0, strlen('camilafield_')) == 'camilafield_')) {
                   $this->fields[$field[1]->field]->process();
                   if ($this->fields[$field[1]->field]->field != '')
@@ -225,7 +229,9 @@
 
           $this->validator = new Validator($req);
           reset($this->fields);
-          while ($field = each($this->fields)) {
+          //while ($field = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			$field = [$key, $val];
               if ($field[1]->field != '') {
                   $this->fields[$field[1]->field]->validate();
 
@@ -252,13 +258,17 @@
       function clear()
       {
           reset($this->fields);
-          while ($field = each($this->fields)) {
+          //while ($field = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $field = [$key, $val];
               if ($this->fields[$field[1]->field]->cleanable)
                   $this->fields[$field[1]->field]->value = '';
           }
 
           reset($this->fields);
-          while ($field = each($this->fields)) {
+          //while ($field = each($this->fields)) {
+		  foreach ($this->fields as $key => $val) {
+			  $field = [$key, $val];
               if ($this->fields[$field[1]->field]->defaultvalue != '')
                   $this->fields[$field[1]->field]->value = $this->fields[$field[1]->field]->defaultvalue;
           }

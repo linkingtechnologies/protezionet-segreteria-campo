@@ -24,7 +24,7 @@ class CamilaWorkTable
 	public $wtTable;
 	public $wtColumn;
 
-    function CamilaWorkTable()
+    function __construct()
     {
 		$this->wtTable = CAMILA_TABLE_WORKT;
 		$this->wtColumn = CAMILA_TABLE_WORKC;

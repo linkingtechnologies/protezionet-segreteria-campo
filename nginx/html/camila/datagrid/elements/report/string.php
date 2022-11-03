@@ -20,9 +20,9 @@
 
 class report_string extends report_field {
     
-  function report_string($field, $title)
+  function __construct($field, $title)
   {
-      parent::report_field($field, $title);
+      parent::__construct($field, $title);
   }
 
 }

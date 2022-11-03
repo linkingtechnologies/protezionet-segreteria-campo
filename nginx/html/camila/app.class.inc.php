@@ -40,6 +40,16 @@ class CamilaApp
 			}
 		}
 		CamilaFileManagement::deleteFiles(CAMILA_TMP_DIR);
+		$this->writePlaceholderToAvoidEmptyDir();
+		
+	}
+	
+	private function writePlaceholderToAvoidEmptyDir() {
+		$date = new DateTimeImmutable();
+		$myfile = fopen(CAMILA_TMP_DIR . '/placeholder.txt', 'w') or die("Unable to open file for placeholder!");
+		$txt = $date->getTimestamp();
+		fwrite($myfile, $txt);
+		fclose($myfile);
 	}
 	
 	public function resetWorkTables($tablesDir) {
@@ -81,6 +91,7 @@ class CamilaApp
 
 		}
 		CamilaFileManagement::deleteFiles(CAMILA_TMP_DIR);
+		$this->writePlaceholderToAvoidEmptyDir();
 	}
 }
 
