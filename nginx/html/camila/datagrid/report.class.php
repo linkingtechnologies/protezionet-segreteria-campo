@@ -923,10 +923,13 @@ class report
             //    $js = new CHAW_js($code);
             //    $_CAMILA['page']->add_userdefined($js);
             
-				$_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="hidden-xs hidden-sm"><span class="cf-table-arrow-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></span><span class="cf-table-arrow-right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></div><div class="table-responsive">'));	
+			$_CAMILA['page']->camila_add_js("<script type='text/javascript' src='".CAMILA_LIB_DIR."sticky-hscroll/sticky-hscroll.js'></script>\n", 'sticky-hscroll');
+			
+			
+			$_CAMILA['page']->camila_add_js("<script type='text/javascript'>$(document).ready(function () {\n $('body').stickyHScroll();\n});</script>", 'sticky-hscroll-init');
+			$_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '<div class="hidden-xs hidden-sm"><span class="cf-table-arrow-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></span><span class="cf-table-arrow-right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></div><div class="table-responsive sticky-hscroll">'));	
             $_CAMILA['page']->add_table($this->table);
-				$_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '</div>'));	
-
+			$_CAMILA['page']->add_raw(new HAW_raw(HAW_HTML, '</div>'));	
             //$json  = new Services_JSON();
             //$jarr2 = $json->encode($this->menuitems);
 			

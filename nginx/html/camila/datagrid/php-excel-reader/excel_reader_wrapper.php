@@ -50,8 +50,10 @@ class Spreadsheet_Excel_Reader {
 
 	function val($row,$col,$sheet=0) {
 		$val = '';
-		if ($this->spreadsheet->getSheet($sheet)->getCellByColumnAndRow($col, $row, false) != null)
-			$val = $this->spreadsheet->getSheet($sheet)->getCellByColumnAndRow($col, $row, false)->getValue();
+		if ($this->spreadsheet != null) {
+			if ($this->spreadsheet->getSheet($sheet)->getCellByColumnAndRow($col, $row, false) != null)
+				$val = $this->spreadsheet->getSheet($sheet)->getCellByColumnAndRow($col, $row, false)->getValue();
+		}
 		return $val;
 	}
 	
@@ -120,7 +122,10 @@ class Spreadsheet_Excel_Reader {
 	}*/
 
 	function rowcount($sheet=0) {
-		$val = $this->spreadsheet->getSheet($sheet)->getHighestRow();
+		$val = 0;
+		if ($this->spreadsheet != '') {
+			$val = $this->spreadsheet->getSheet($sheet)->getHighestRow();
+		}
 		return $val;
 		/*return $this->sheets[$sheet]['numRows'];*/
 	}
@@ -137,7 +142,7 @@ class Spreadsheet_Excel_Reader {
 
 	var $data;
 
-	function Spreadsheet_Excel_Reader($file='',$store_extended_info=true,$outputEncoding='') {
+	function __construct($file='',$store_extended_info=true,$outputEncoding='') {
 		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 		//$reader->setReadDataOnly(true);
 		$spreadsheet = $reader->load($file);

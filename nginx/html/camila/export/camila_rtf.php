@@ -142,7 +142,7 @@
                           $row = $table->row[$a];
                           for ($b = 0; $b < $row->number_of_columns; $b++) {
                               $column = $row->column[$b];
-                              $data[$row][$column] = "";
+                              $data[$a][$b] = "";
                               
                               if (!is_array($column)) {
                                   if (is_object($column) && $column->get_elementtype() == HAW_PLAINTEXT) {

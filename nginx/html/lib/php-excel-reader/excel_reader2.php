@@ -345,8 +345,11 @@ class Spreadsheet_Excel_Reader {
 
 	function val($row,$col,$sheet=0) {
 		$col = $this->getCol($col);
-		if (array_key_exists($row,$this->sheets[$sheet]['cells']) && array_key_exists($col,$this->sheets[$sheet]['cells'][$row])) {
-			return $this->sheets[$sheet]['cells'][$row][$col];
+
+		if ($this->sheets[$sheet]['cells'] != null) {
+			if (array_key_exists($row,$this->sheets[$sheet]['cells']) && array_key_exists($col,$this->sheets[$sheet]['cells'][$row])) {
+				return $this->sheets[$sheet]['cells'][$row][$col];
+			}
 		}
 		return "";
 	}
@@ -912,7 +915,7 @@ class Spreadsheet_Excel_Reader {
 	 *
 	 * Some basic initialisation
 	 */
-	function Spreadsheet_Excel_Reader($file='',$store_extended_info=true,$outputEncoding='') {
+	function __construct($file='',$store_extended_info=true,$outputEncoding='') {
 		$this->_ole = new OLERead();
 		$this->setUTFEncoder('iconv');
 		if ($outputEncoding != '') { 

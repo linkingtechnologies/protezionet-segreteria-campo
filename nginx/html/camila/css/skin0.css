@@ -237,3 +237,6 @@ body {
 	text-align: center;
 }
 
+.sticky-hscroll {
+  overflow-x: auto;
+}

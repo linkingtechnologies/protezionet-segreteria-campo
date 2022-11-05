@@ -664,3 +664,7 @@ span.cf-table-arrow-right{
 span.cf-table-arrow-left:hover, span.cf-table-arrow-right:hover{
     background-color: #333;
 }
+
+.sticky-hscroll {
+  overflow-x: auto;
+}

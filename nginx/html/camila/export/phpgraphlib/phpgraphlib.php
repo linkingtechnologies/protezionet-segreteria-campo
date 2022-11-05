@@ -395,7 +395,14 @@ class PHPGraphLib {
 		foreach ($this->data_array as $data_set_num => $data_set) {
 			$lineX2 = null;
 			reset($data_set);
-			$xStart = $this->y_axis_x1 + ($this->space_width / 2) + ((key($data_set) - $this->lowest_x) * ($this->bar_width + $this->space_width));
+			$xStart = $this->y_axis_x1+ ($this->space_width / 2);
+			
+			try {
+				$xStart = $this->y_axis_x1 + ($this->space_width / 2) + ((key($data_set) - $this->lowest_x) * ($this->bar_width + $this->space_width));
+			} catch (TypeError $ex) {
+				//echo $ex->getMessage();
+			}
+
 			foreach ($data_set as $key => $item) {
 				$hideBarOutline = false;
 
@@ -944,7 +951,7 @@ class PHPGraphLib {
 
 	protected function displayErrors() 
 	{
-		if (count($this->error) > 0) {
+		if ($this->error != null && count($this->error) > 0) {
 			$lineHeight = 12;
 			$errorColor = imagecolorallocate($this->image, 0, 0, 0);
 			$errorBackColor = imagecolorallocate($this->image, 255, 204, 0);
@@ -1005,9 +1012,12 @@ class PHPGraphLib {
 		}
 		$this->lowest_x = $low_x;
 		$this->highest_x = $high_x;
-		$raw_size = $high_x - $low_x +1;
-		if ($raw_size > $this->data_count) {
-			$this->data_count = $raw_size;
+		
+		if (is_numeric($high_x) && is_numeric($low_x)) {
+			$raw_size = $high_x - $low_x +1;
+			if ($raw_size > $this->data_count) {
+				$this->data_count = $raw_size;
+			}
 		}
 
 		//number of valid data sets

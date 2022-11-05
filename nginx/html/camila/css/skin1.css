@@ -491,3 +491,7 @@ table.statusbar{
 
 .camilapoweredby {
 }
+
+.sticky-hscroll {
+  overflow-x: auto;
+}

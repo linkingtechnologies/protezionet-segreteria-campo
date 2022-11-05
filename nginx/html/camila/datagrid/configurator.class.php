@@ -1830,8 +1830,14 @@ class configurator
         $success = true;
         
         if ($form3->process()) {
-			echo(':'.$form3->value);
+			//echo(':'.$form3->value);
+
+			
 			$filename = $form3->fields['filename']->value[0];
+			if (!file_exists(CAMILA_TMP_DIR . '/' .$filename)) {
+				
+				echo "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkko+". $filename;;
+			}
             $sheetnum = $form3->fields['sheetnum']->value;
 			
             $result = $_CAMILA['db']->Execute('select short_title, scriptname, tablename, filename, sheetnum from ' . CAMILA_TABLE_WORKT . ' where id=' . $_CAMILA['db']->qstr($id));
