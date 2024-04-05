@@ -1,5 +1,6 @@
 <?php
-$phpVersion = '8.1.26';
+//$phpVersion = '8.1.26';
+$phpVersion = '8.2.17';
 $zipFile = bin2hex(random_bytes(10)).'.zip';
 file_put_contents($zipFile, file_get_contents('https://github.com/linkingtechnologies/win-local-server-php'.$phpVersion.'/archive/refs/heads/main.zip'));
 $zip = new ZipArchive;
