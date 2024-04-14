@@ -1,4 +1,4 @@
-php scripts/download-container.php
+php scripts/download-container-segreteria-campo.php
 cd segreteria-campo
 cd nginx
 cd html
@@ -18,10 +18,16 @@ php cli.php set-config-var CAMILA_APPLICATION_NAME "ProtezioNET - Segreteria Cam
 php cli.php set-config-var CAMILA_APPLICATION_TITLE "Segreteria campo"
 php cli.php set-config-var CAMILA_APPLICATION_GROUP "ProtezioNET"
 
+cd ..
 cd..
 cd..
 cd..
-cd..
+
+rename view_IP_addresses.bat mostra_indirizzi_IP.bat
+rename start_server.bat avvia_server.bat
+rename start_server_8080.bat avvia_server_8080.bat
+rename stop_server.bat ferma_server.bat.bat
+
 cd..
 
 set zipFilename=%DATE:~7,2%-%DATE:~4,2%-%DATE:~10,4%
