@@ -23,6 +23,9 @@ La documentazione aggiornata ed i riferimenti per il download del software è di
 
 # 2. Installazione su server remoto (PHP/MySQL)
 
+La versione di PHP necessaria per eseguire il software è attualmente la 5.3.
+
+
 ## 2.1 Ottenere il pacchetto
 
 ### Opzione A — Scaricare da GitHub
