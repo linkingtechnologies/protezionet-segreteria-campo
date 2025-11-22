@@ -31,7 +31,7 @@ Nella sezione *Releases* del repository GitHub:
 
 **https://github.com/linkingtechnologies/protezionet-segreteria-campo/releases**
 
-È disponibile un file ZIP precompilato, ad esempio:
+È disponibile tra gli asset delle Release un file ZIP precompilato, ad esempio:
 
 ```
 segreteriacampo-remote-YYYY-MM-DD.zip
