@@ -15,7 +15,7 @@
 
 ProtezioNET – Segreteria di campo può essere eseguito direttamente in locale.
 
-La documentazione ufficiale e aggiornata è disponibile su:
+La documentazione aggiornata ed i riferimenti per il download del software è disponibile su:
 
 👉 **https://help.protezionet.it/**
 
