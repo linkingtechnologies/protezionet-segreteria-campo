@@ -13,8 +13,7 @@
 
 # 1. Utilizzo in locale
 
-ProtezioNET – Segreteria di campo può essere eseguito direttamente in locale.
-
+Il programma può essere eseguito direttamente in locale, senza la necessità di connessione Internet.
 La documentazione aggiornata ed i riferimenti per il download del software è disponibile su:
 
 👉 **https://help.protezionet.it/**
