@@ -28,9 +28,9 @@ La versione di PHP necessaria per eseguire il software è attualmente la 8.3.
 
 ## 2.1 Ottenere il pacchetto
 
-### Opzione A — Scaricare da GitHub
+### Opzione A - Scaricare da GitHub
 
-Nella sezione *Releases* del repository GitHub:
+Nella sezione *Release* del repository GitHub:
 
 **https://github.com/linkingtechnologies/protezionet-segreteria-campo/releases**
 
@@ -40,11 +40,12 @@ Nella sezione *Releases* del repository GitHub:
 segreteriacampo-remote-YYYY-MM-DD.zip
 ```
 
-### Opzione B — Generare il pacchetto in locale
+### Opzione B - Generare il pacchetto in locale
 
 ```sh
 git clone https://github.com/linkingtechnologies/peichp.git
 cd peichp/
+chmod +x *.sh
 ./build-segreteria-campo-remote.sh
 ```
 
@@ -77,7 +78,7 @@ Aggiornando la stringa:
 mysql://utente:password@host:porta/nome_database
 ```
 
-con i dati del proprio database MySQL.
+con i dati per connettersi al proprio database MySQL sul server remoto.
 
 ---
 
